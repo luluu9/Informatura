@@ -1,0 +1,45 @@
+TAGI:
+programowanie,odczytywanie danych,ciągi znaków
+PUNKTY:
+4
+TRESC:
+Niech w(N) oznacza sumę cyfr liczby N. Dla danej liczby N tworzymy ciąg, w którym N₁ = w(N), a każdy kolejny element jest sumą cyfr występujących w poprzednim elemencie:
+N₁ = w(N)
+N₂ = W(N₁)
+N₃ = W(N₂)
+Ciąg kończy się, gdy jego wyraz jest liczbą jednocyfrową. Tę liczbę nazywamy wagą liczby N.
+Przykład 1.
+Niech N=1109
+N₁=1+1+0+9=1109
+N₂=1+1=2
+Zatem waga liczby jest równa 2.
+
+Przykład 2.
+Niech N=31699
+N₁=3+1+6+9+9=28
+N₂=2+8=10
+N₃=1+0=1
+Zatem waga liczby jest równa 1.
+Podaj, ile jest liczb w pliku pierwsze.txt, których waga jest równa 1. Odpowiedź zapisz
+w pliku wyniki4_3.txt.
+Prawidłowa odpowiedź dla pliku pierwsze_przyklad.txt: 6 liczb. 
+ROZWIAZANIE:
+Rozwiązanie zadań w Pythonie:
+<code>
+with open("MIN-R2A1P-193_dane/pierwsze.txt") as f:
+    primes_lines = [line.strip() for line in f.readlines()]
+    primes = [int(line) for line in primes_lines]
+
+print("4.3")
+def weight(n):
+    if len(str(n)) == 1:
+        return n
+    new_n = sum([int(char) for char in str(n)])
+    return weight(new_n)
+
+weights_one = 0
+for prime in primes:
+    if weight(prime) == 1:
+        weights_one += 1
+print(weights_one)</code>
+<a href=\'{dirpath}4.py\' download>Pobierz rozwiązanie</a>

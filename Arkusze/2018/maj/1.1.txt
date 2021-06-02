@@ -1,0 +1,44 @@
+TAGI:
+algorytmy,pseudokod,analiza,symulacja,parametry funkcji
+PUNKTY:
+3
+TRESC:
+Podaj wynik działania algorytmu dla wskazanych w tabeli wartości n. 
+n  p
+28  ?
+64  ?
+80  ?
+ROZWIAZANIE:
+Polecam samodzielnie spróbować zrozumieć algorytm oraz spojrzeć na tabelkę - może okazać się, że zrozumiesz jak rozwiązać zadanie bez czytania poniższego tekstu!
+<img src=\'{dirpath}1_tabela.png\'>
+Przedstawione mamy dane [n], wynik jaki powinniśmy uzyskać [p] oraz algorytm, czyli lista instrukcji, które wykonujemy od góry do dołu.
+Patrząc na algorytm widzimy 3 zmienne: p, q i s.
+Strzałka (←) oznacza, że do zmiennej (np. p) przypisywana jest jakaś wartość: przykładowo na początku algorytmu widzimy, że do p przypisujemy 1 (p ← 1).
+
+Kolejna linia programu pokazuje, że do zmiennej możemy też przypisywać wartość innej zmiennej, w tym przypadku zmiennej q przypisujemy wartość n. n jest to stała, której wartość określamy podczas samego startu algorytmu (spójrz na tabelę z zadania 1.1.)
+
+W następnej linii znajdujemy pętlę dopóki (while), w której warunek określa do kiedy będą wykonywały się polecenia położone pod samą pętlą.
+
+Jeśli warunek pętli (p musi być mniejsze niż q) jest prawdziwy, wykonujemy następne komendy.
+s ← (p+q) div 2 oznacza, że zmiennej s przypisujemy wartość dzielenia całkowitego (czyli dzielenia, w którym zawsze wychodzą liczby całkowite, np.: 5/2=2, czy 15/2=7) sumy zmiennych p+q. A więc przykładowo dla p=4 i q=7 działania będą następujące:
+(6+7) div 2 → 13 div 2 → 6
+s ← 6
+
+Następnie znajdziemy warunek (jeżeli s^3&lt;n), od którego zależy, jakie polecenie się wykona:
+jeśli jest to prawda: p←s+1, q zostaje takie samo;
+jeśli nie: q←s, p zostaje takie samo.
+Trzeba pamiętać, że n jest stałe, ponieważ otrzymujemy go na początku, a później jego wartość nie ulega zmianie.
+
+Po wykonaniu przypisania s+1 bądź s do p lub q, wracamy do warunku pętli. Jeśli nadal jest prawdziwy (p bądź q uległo zmianie, więc trzeba to sprawdzić) to powtarzamy wszystkie te czynności, a jeśli fałszywy - kończymy wykonywanie algorytmu i podajemy wynik w postaci wartości zmiennej p.
+
+Do rozwiązywania zadań z algorytmami proponuje wam stworzenie prostej tabelki, w której rozbierzemy kod na części pierwsze.
+Składa się ona z kilku części:
+• p - wartość zmiennej p. Jak widzimy, początkowo przyjmuje wartość 1;
+• q - podobnie jak wyżej, lecz na początku przyjmuje wartość stałej n;
+• warunek p&lt;q - od niego zależy, czy algorytm się zakończy, czy dalej kontynuowana będzie pętla, dla ułatwienia zapisujemy TAK/KONIEC;
+• s - przypisujemy jej wynik dzielenia całkowitego sumy zmiennych p+q. Należy pamiętać o kolejności wykonywania działań (najpierw dodawanie w nawiasach, dopiero potem dzielenie);
+• warunek s^3&lt;n - trzeba pamiętać, że n jest niezmienne. Od tego warunku zależy, czy zmieni się wartość zmiennej p, czy q. Dla ułatwienia zapisujemy co musimy zrobić: czy q←s, czy p←s+1;
+• (opcjonalnie) końcowa wartość zmiennych p i q.
+
+Na zdjęciu pokazuje kolejne kroki rozwiązywania zadania dla dwóch pierwszych przykładów. Z trzecim już dasz radę, prawda?
+W razie pytań pisz śmiało!

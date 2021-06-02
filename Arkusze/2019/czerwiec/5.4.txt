@@ -1,0 +1,12 @@
+TAGI:
+arkusz kalkulacyjny,symulacja,przeszukiwanie danych
+PUNKTY:
+3
+TRESC:
+Podaj liczby dni, w których:
+– temperatura powietrza nie przekraczała 15°C,
+– temperatura przekraczała 15°C, a jednocześnie opady dobowe nie przekraczały 0,6 l/m2,
+– temperatura przekraczała 15°C i jednocześnie opady dobowe przekraczały 0,6 l/m2. 
+ROZWIAZANIE:
+<a href=\'{dirpath}5.xlsx\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

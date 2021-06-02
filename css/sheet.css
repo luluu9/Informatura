@@ -1,0 +1,26 @@
+.problem {
+    box-shadow: 1px 1px 4px 2px rgba(0,0,0,.1);
+    margin-bottom: 20px;
+
+}
+
+pre {
+    white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
+    white-space: -pre-wrap; /* Opera */
+    white-space: -o-pre-wrap; /* Opera */
+    white-space: pre-wrap; /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
+    word-wrap: break-word; /* IE 5.5+ */
+    font-family: Montserrat, Arial, sans-serif;
+    font-size: 1.6rem;
+    color: #333;
+}
+
+code {
+    color: #000;
+    display: block;
+    white-space: pre;
+    word-wrap: break-word;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font: normal 1.5rem Consolas, Monaco, monospace;
+}

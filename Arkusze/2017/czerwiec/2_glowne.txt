@@ -1,0 +1,20 @@
+Regularność
+W tym zadaniu rozważamy tylko słowa zbudowane z wielkich liter A i B. Słowo nazwiemy palindromem, gdy czytane od lewej do prawej jest takie samo jak czytane od prawej do lewej.
+Przykładowo słowo ABABA jest palindromem, natomiast palindromem nie jest słowo BAABA.
+Dla słowa w definiujemy jego regularność reg(w), jak następuje:
+− jeśli słowo w jest słowem jednoliterowym, to jest palindromem, a jego reg(w) = 1
+− jeśli słowo w składa się z więcej niż jednej litery, to można je przedstawić w postaci:
+w=w1Zw2, gdy ma długość nieparzystą
+lub
+w=w1w2, gdy ma długość parzystą,
+gdzie w1, w2 są słowami tej samej długości, a Z jest literą A lub literą B.
+Jeżeli w nie jest palindromem, definiujemy reg(w)=0, natomiast gdy w jest
+palindromem definiujemy reg(w)=reg(w1)+1.
+
+Przykład:
+W	reg(w)
+A	1
+ABB	0
+BAAAB	1
+BBAAABB	1
+BABBAB	3

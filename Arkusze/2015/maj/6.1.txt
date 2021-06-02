@@ -1,0 +1,33 @@
+TAGI:
+bazy danych,kwerendy,złączenia tabel
+PUNKTY:
+2
+AUTOR:
+Radosław Kozłowski
+TRESC:
+Podaj sezon i nazwę wyścigu Grand Prix, w którym Robert Kubica zdobył najwięcej punktów. 
+ROZWIAZANIE:
+Pierwszym etapem na jakim się skupimy jest wyznaczenie id_wyscigu, w którym Robert Kubica zdobył najwięcej punktów. W tym celu nasze operacje będą wykonywane na dwóch tabelach: Wyniki oraz Kierowcy. Wyniki zwrócą nam liczbę punktów uzyskanych przez kierowcę w danym wyścigu, zaś Kierowcy pozwolą nam określić z imienia i nazwiska na czyich rezultatach zależy nam najbardziej. Zapytanie będzie prezentowało się w następujący sposób:
+<code>SELECT TOP 1 id_wyscigu 
+FROM Wyniki INNER JOIN Kierowcy ON Wyniki.Id_kierowcy = Kierowcy.id_kierowcy
+WHERE imie = "Robert" AND nazwisko = "Kubica"
+GROUP BY id_wyscigu
+ORDER BY SUM(Punkty) DESC</code>Objaśnienie:
+Wybierz pierwszy zwrócony rekord z tabeli Wyniki połączonej relacją z tabelą Kierowcy, gdzie imię kierowcy to Robert ORAZ jego nazwisko to Kubica. Należy pamiętać o złączeniu warunków operatorem AND, gdyż zależy nam aby oba warunki zostały spełnione! Nasz zawodnik musi nazywać się Robert Kubica! Następnie pogrupujmy dane według id_wyscigu. Oznacza to nic innego jak ograniczenie wszystkich zwróconych rekordów o tym samym id_wyscigu do jednego pola. Teraz wystarczy już jedynie posortować nasze wyniki według sumy zwróconych punktów malejąco. 
+Pierwsza część polecenia za nami. Teraz to już czysta przyjemność!
+Mając id_wyscigu jesteśmy w stanie bezproblemowo podać informacje odnośnie roku i Grand Prix korzystając z tabeli Wyscigi, gdzie te są bezpośrednio identyfikowane z id_wyscigu.
+
+<b>Ostatecznie:</b>
+<code>SELECT Rok, Grandprix
+FROM Wyscigi
+WHERE id_wyscigu IN (
+	SELECT TOP 1 id_wyscigu FROM Wyniki
+	INNER JOIN Kierowcy ON Wyniki.Id_kierowcy = Kierowcy.id_kierowcy
+	WHERE imie = "Robert" AND nazwisko = "Kubica"
+	GROUP BY id_wyscigu
+	ORDER BY SUM(Punkty) DESC);</code>
+Objaśnienie:
+Wybierz rok oraz Grand Prix z tabeli Wyscigi, gdzie id_wyscigu jest dokładnie takie samo jak zwrócony rekord z zapytania przygotowanego wyżej! 
+ 
+<a href=\'{dirpath}6.accdb\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

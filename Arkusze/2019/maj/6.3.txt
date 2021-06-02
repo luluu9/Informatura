@@ -1,0 +1,13 @@
+TAGI:
+bazy danych,kwerendy,złączenia tabel,podzapytania
+PUNKTY:
+3
+TRESC:
+Podaj listę różnych rodzin zapachów. Dla każdej rodziny podaj jej nazwę, cenę najtańszych perfum z tej rodziny i ich nazwę
+ROZWIAZANIE:
+SELECT DISTINCT Marki.nazwa_m
+FROM Perfumy INNER JOIN Marki ON Marki.id_marki=Perfumy.id_marki
+WHERE Perfumy.id_marki Not In (SELECT Perfumy.id_marki FROM Sklad INNER JOIN Perfumy ON Perfumy.id_perfum = Sklad.id_perfum WHERE Sklad.nazwa_skladnika LIKE "*paczula*")
+ORDER BY Marki.nazwa_m;
+
+<a href=\'{dirpath}6.accdb\' download>Pobierz rozwiązanie</a>

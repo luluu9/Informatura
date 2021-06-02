@@ -1,0 +1,24 @@
+TAGI:
+programowanie,potęgi,odczytywanie danych
+PUNKTY:
+3
+TRESC:
+Podaj, ile z podanych liczb jest potęgami liczby 3 (czyli liczbami postaci 1 = 3^0, 3 = 3^1, 9 = 3^2 itd.).
+Dla pliku przyklad.txt odpowiedź wynosi 2. 
+
+ROZWIAZANIE:
+Rozwiązanie zadań w Pythonie:
+<code>dane = ""
+with open("DANE_PR2\\liczby.txt") as f:
+	dane = f.readlines()
+
+powers = [3**i for i in range(0, 11)]
+am = 0
+for line in dane:
+	line = line.strip()
+	if int(line) in powers:
+		am += 1
+
+print("4.1.", am)</code>
+<a href=\'{dirpath}4.py\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

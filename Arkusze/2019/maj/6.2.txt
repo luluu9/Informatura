@@ -1,0 +1,15 @@
+TAGI:
+bazy danych,kwerendy,złączenia tabel,grupowanie danych,podzapytania 
+PUNKTY:
+3
+TRESC:
+Podaj listę wszystkich nazw perfum, których jednym ze składników jest „absolut jasminu”
+ROZWIAZANIE:
+SELECT rodzina_zapachow, cena, nazwa_p
+FROM Perfumy
+WHERE rodzina_zapachow & cena IN
+(SELECT rodzina_zapachow & MIN(cena) AS \'cena minimalna\'
+FROM Perfumy
+GROUP BY rodzina_zapachow);
+
+<a href=\'{dirpath}6.accdb\' download>Pobierz rozwiązanie</a>

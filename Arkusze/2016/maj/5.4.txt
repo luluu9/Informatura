@@ -1,0 +1,13 @@
+TAGI:
+bazy danych,podzapytania
+PUNKTY:
+3
+TRESC:
+Podaj nazwiska i imiona studentów, którzy nie mieszkają w pokojach w miasteczku akademickim. Listę posortuj alfabetycznie wg nazwisk. 
+ROZWIAZANIE:
+SELECT nazwisko, imie
+FROM Studenci
+WHERE pesel not in (SELECT pesel FROM Meldunki)
+ORDER BY 1;
+
+<a href=\'{dirpath}5.accdb\' download>Pobierz rozwiązanie</a>

@@ -1,0 +1,29 @@
+TAGI:
+programowanie,liczby pierwsze,odczytywanie danych,ciągi znaków
+PUNKTY:
+4
+TRESC:
+Podaj, w kolejności ich występowania w pliku pierwsze.txt, wszystkie te liczby, które czytane od prawej do lewej również są liczbami pierwszymi. Odpowiedź zapisz w pliku wyniki4_2.txt.
+Przykład:
+Jeśli odczytamy liczbę pierwszą 17 od prawej do lewej, otrzymamy liczbę 71, która również jest liczbą pierwszą.
+Dla pliku pierwsze_przyklad.txt liczbami spełniającymi warunek zadania są: 701, 709, 1033, 167, 1109, 1619, 1009, 179, 1499, 76001, 1601, 31873
+ROZWIAZANIE:
+Rozwiązanie zadań w Pythonie:
+<code>from math import sqrt
+
+def is_prime(integer):
+    for i in range(2, int(sqrt(integer)+1)):
+        if integer % i == 0:
+            return False
+    return True
+
+with open("MIN-R2A1P-193_dane/pierwsze.txt") as f:
+    primes_lines = [line.strip() for line in f.readlines()]
+    primes = [int(line) for line in primes_lines]
+
+print("4.2")
+reversed_primes = [int(line[::-1]) for line in primes_lines]
+for num1, num2 in zip(primes, reversed_primes):
+    if is_prime(num1) and is_prime(num2):
+        print(num1)</code>
+<a href=\'{dirpath}4.py\' download>Pobierz rozwiązanie</a>

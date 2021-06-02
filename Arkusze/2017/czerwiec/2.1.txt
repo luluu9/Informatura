@@ -1,0 +1,42 @@
+TAGI:
+palindromy,analiza,parametry funkcji,symulacja
+
+PUNKTY:
+1
+
+TRESC:
+Podaj wartości funkcji reg(w) dla słów z poniższej tabeli:
+<code>w		reg(w)
+BABBAB		3
+BABBBB		?
+BAAAAB		?
+B		?
+BBB		?
+AAAAAAAA	?</code>
+
+ROZWIAZANIE:
+Najpierw mamy wytłumaczenie czym jest palindrom - okej, tutaj raczej nie ma większych problemów.
+Potem jednak pojawia się funkcja reg(w). Do czego ona służy? ano, jak to często robią funkcje, zwraca pewną wartość, o których napisane jest nieco niżej: 0, 1, bądź reg(w1)+1 (mamy tutaj więc rekurencję, która oznacza wykonywanie funkcji przez samą siebie, taki szef i podwładny jednocześnie 😎). 
+
+Okej, zobaczmy wtedy, kiedy jaka wartość będzie zwrócona:
+A) jednoliterowe słowo (czyli przekazywany do funkcji reg parametr w) zwraca 1
+B) dłuższe słowo natomiast, jeśli jest PALINDROMEM, zwraca reg(w1)+1. 
+O co chodzi z tymi w1, w2 i Z? 🤔
+Jest to dość proste: załóżmy, że mamy palindrom o nieparzystej długości znaków. Na przykład KAJAK (w samym zadaniu jednak będziemy rozważać tylko słowa zbudowane z wielkich liter A i B!). Gdy chcemy podzielić go na pół, czyli uzyskać w1 i w2 (jako że "w1, w2 są słowami tej samej długości"), to mamy problem: litera "J" powinna wylądować w w1, czy w2? 😧
+Właśnie do tego została wprowadzona zmienna Z: pozwala ona uniknąć takiej sytuacji i doprowadzić do tego, że długości słów w1 i w2 będą jednakowe: dla tego przykładu w1=KA, z=J, a w2=AK.
+Jeśli jednak słowo w ma parzystą liczbę znaków, to sprawa się ułatwia. 🥳
+Wystarczy podzielić wyraz na dwie części i mamy nasze w1 i w2.
+C) dla nie-palindromu funkcja zwraca 0. Prosto z mostu. 🌉
+
+Okej - to mamy za sobą. Uff. 😌 
+Tak naprawdę to wszystko czego potrzebujemy! Możemy zająć się już rozwiązywaniem zadań. 
+
+Pierwsze słowo, dla którego wynik został już policzony (wynosi 3), to "BABBAB". Policzmy go jednak, żeby upewnić się, czy dobrze wszystko rozumiemy.
+A więc najpierw sprawdzamy, czy słowo jest palindromem. Jest. 🙄 Czyli funkcja zwraca reg(w1)+1. Ile wynosi w1? ano, zgodnie z naszymi poprzednimi myślami, w1 to połowa słowa (nie licząc ewentualnego znaku po środku). w1 jest więc równe "BAB" i to dla niego znów wywołujemy funkcję 🤦‍♂️ 
+Czyli: czy "BAB" to palindrom? Niestety znowu tak, więc dzielimy go na pół: zostaje samo "B". Zwracamy ponownie reg(w1)+1, pamiętając jednak, że wcześniej też wywołaliśmy reg(w1)+1, więc dla uproszczenia zapiszmy reg(w1)+2. 
+Czy "B" to palindrom? Yup, i zgodnie z tym, co zapisaliśmy w punkcie A), zwracamy 1. Czyli ostatecznie: 2+1=3, wszystko się zgadza! 🥳
+
+Tego typu zadania można też rozwiązać tworząc swojego rodzaju tabelkę z wartościami, co pokazywałem już w poprzednim zadaniu, ale niestety nie ma możliwości tworzenia ładnych tabelek na fb, więc trzeba się zadowolić formą zdjęcia :(( 
+Z następnymi przykładami postępujemy identycznie, co jest pokazane na zrzucie! 🤠 
+
+<img src=\'{dirpath}2_palindromy.png\'>

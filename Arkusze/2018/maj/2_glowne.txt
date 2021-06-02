@@ -1,0 +1,19 @@
+Krajobraz
+W pewnym paśmie górskim znajduje się n szczytów, które będziemy przedstawiać jako punkty
+w układzie kartezjańskim na płaszczyźnie. Wszystkie punkty leżą powyżej osi OX, tzn. druga
+współrzędna (y) każdego punktu jest dodatnia.
+W punkcie (0,0) stoi obserwator. Jeśli dwa szczyty A i B mają współrzędne (xA, yA) oraz
+(xB, yB), to mówimy, że:
+• szczyt A jest dla obserwatora widoczny na lewo od B, jeśli xA/yA < xB/yB;
+• szczyt B jest widoczny na lewo od A, jeśli xA/yA > xB/yB.
+Wiemy, że żadne dwa szczyty nie leżą w jednej linii z obserwatorem, a zatem dla obserwatora
+te szczyty nie zasłaniają się nawzajem. Ilustrację przykładowego położenia szczytów można
+zobaczyć na poniższym rysunku:
+
+(układ kartezjański od lewej do prawej)
+D(-2,2), A(1,3), B(3,4), C(2,1)
+
+W tym przykładzie, patrząc od lewej do prawej strony, obserwator widzi kolejno szczyt D,
+szczyt A, szczyt B i szczyt C.
+Współrzędne szczytów dane są w dwóch tablicach X[1..n] oraz Y[1..n] – szczyt numer i ma
+współrzędne (X[i], Y[i]). 

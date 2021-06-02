@@ -1,0 +1,9 @@
+TAGI:
+arkusz kalkulacyjny,symulacja,tworzenie zestawienia
+PUNKTY:
+4
+TRESC:
+Zrób zestawienie miesięczne (w okresie kwiecień – wrzesień 2015 roku) kosztów dolewanej wody z wodociągu. Weź pod uwagę, że cena 1 m3 (1000 litrów) jest równa 11,74 zł. Opłaty są realizowane miesięcznie i dotyczą pełnych m3 (po zaokrągleniu w górę). 
+ROZWIAZANIE:
+<a href=\'{dirpath}5.xlsx\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

@@ -1,0 +1,8 @@
+TAGI:
+bazy danych,funkcje agregujące
+PUNKTY:
+2
+TRESC:
+Czasami zawodnicy zmieniają obywatelstwo i reprezentują wtedy inny kraj. Podaj imiona  i nazwiska zawodników, którzy zmieniali obywatelstwo, oraz nazwy państw, które reprezentowali.
+ROZWIAZANIE:
+<a href=\'{dirpath}6.accdb\' download>Pobierz rozwiązanie</a>

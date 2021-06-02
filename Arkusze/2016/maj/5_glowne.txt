@@ -1,0 +1,20 @@
+Biblioteka podręczników
+Z biblioteki podręczników, wypożyczanych na cały rok akademicki, mogą korzystać studenci z miasteczka akademickiego i spoza miasteczka. Każdy student może wypożyczyć wiele różnych książek. W miasteczku studenci mieszkają w pokojach po kilka osób w jednym.
+Dane są trzy pliki: studenci.txt, meldunek.txt oraz wypozyczenia.txt, w których zapisano informacje o aktualnie wypożyczonych książkach przez studentów.
+Każdy plik ma wiersz nagłówkowy. Dane rozdzielono znakiem tabulacji. Wszystkie dane tekstowe w plikach mają długości nieprzekraczające 60 znaków.
+W pliku studenci.txt zapisano dane studentów – jeden student w wierszu. Imiona i nazwiska mogą się powtarzać. W każdym wierszu znajdują się odpowiednio: numer PESEL, nazwisko, imię.
+Fragment pliku studenci.txt:
+pesel nazwisko imie
+92051048757 BAJOREK JAKUB
+92051861424 SLOTARZ MARIANNA
+Plik meldunek.txt zawiera przypisania studentów z miasteczka akademickiego do wynajętych pokoi. W każdym wierszu znajdują się odpowiednio: numer PESEL studenta oraz identyfikator pokoju.
+Fragment pliku meldunek.txt:
+pesel id_pok
+92051048757 8
+92051861424 32
+W pliku wypozyczenia.txt zawarto informacje o wypożyczonych podręcznikach. W każdym wierszu zapisano: liczbę porządkową wypożyczenia, numer PESEL wypożyczającego oraz tytuł wypożyczonego podręcznika.
+Fragment pliku wypozyczenia.txt:
+lp pesel tytul
+1 92061083359 FIZYKA TECHNICZNA I
+2 94103033254 PROGRAMOWANIE MIKROKONTROLEROW I
+Wykorzystując dane zawarte w powyższych plikach i dostępne narzędzia informatyczne, wykonaj zadania. Odpowiedzi zapisz w kolejnych wierszach pliku tekstowego wyniki_5.txt. Odpowiedź do każdego zadania poprzedź numerem tego zadania. 

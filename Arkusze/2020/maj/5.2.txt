@@ -1,0 +1,17 @@
+TAGI:
+bazy danych,kwerendy,funkcje agregujące,złączenia tabel,podzapytania
+PUNKTY:
+2
+TRESC:
+Podaj liczbę języków, które nie są językami urzędowymi w żadnym państwie. Przy rozwiązywaniu zadania pamiętaj, że w jednym państwie może być kilka języków urzędowych oraz że dany język może być językiem urzędowym w jednym państwie, a w innym – nie. 
+ROZWIAZANIE:
+SELECT COUNT(*) AS ["Jezyki nieurzedowe"]
+FROM 
+(SELECT DISTINCT jezyk 
+FROM Uzytkownicy 
+WHERE jezyk NOT IN 
+(SELECT jezyk 
+FROM Uzytkownicy 
+WHERE urzedowy="tak"));
+
+<a href=\'{dirpath}5.accdb\' download>Pobierz rozwiązanie</a>

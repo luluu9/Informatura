@@ -1,0 +1,43 @@
+TAGI:
+programowanie,szyfr cezara,odczytywanie danych,zapisywanie danych
+PUNKTY:
+5
+TRESC:
+W pliku dane_6_3.txt zapisano 3 000 par słów, po jednej parze w wierszu, oddzielonych pojedynczym znakiem odstępu. Drugie słowo w każdej parze jest szyfrogramem pierwszego
+z nieznanym kluczem.
+Niektóre szyfrogramy są błędne, co oznacza, że niektóre litery w słowie zakodowano z różnymi przesunięciami. Słowo ma zawsze tę samą długość co odpowiadający mu szyfrogram.
+Fragment pliku dane_6_3.txt:
+ZAWISLAK EFBNXQFP
+KRASZEWSKI XENFMRJFXV
+
+Napisz program, który wyszuka i wypisze te słowa z pliku dane_6_3.txt, które błędnie zaszyfrowano. Wynik zapisz w pliku wyniki_6_3.txt: każde słowo w osobnym wierszu, w porządku odpowiadającym kolejności tych słów z pliku z danymi.
+Uwaga:
+Pierwsze słowo w pliku wynikowym to SMIGIELSKI. 
+ROZWIAZANIE:
+<code>def szyfr(ciag, k):
+    nowy_ciag = ""
+    for lit in ciag:
+        nowy_ord = 65+(ord(lit)-65+k) % 26
+        nowy_ciag += chr(nowy_ord)
+    return nowy_ciag
+
+def szukaj(ciag, ciag2):
+    def zdobadz_klucz(znak, znak2):
+        if ord(znak2) < ord(znak):
+            return 26-(ord(znak)-ord(znak2))
+        else:
+            return abs(ord(znak2)-ord(znak))
+    roz = zdobadz_klucz(ciag[0], ciag2[0])
+    if ciag2 != szyfr(ciag, roz):
+        return False
+    return True
+
+with open("wyniki_6_3.txt", "w") as wyjscie:
+    with open("DANE_PR2/dane_6_3.txt") as wejscie:
+        for linia in wejscie:
+            linia = linia.strip()
+            ciag1, ciag2 = linia.split()
+            if not szukaj(ciag1, ciag2):
+                wyjscie.write(ciag1+"\\n")</code>
+
+<a href=\'{dirpath}6.py\' download>Pobierz rozwiązanie</a>

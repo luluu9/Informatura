@@ -1,0 +1,6 @@
+Szyfr Cezara 
+Podstawieniowy szyfr Cezara z przesunięciem (kluczem) k polega na zastąpieniu każdego znaku jawnego znakiem leżącym w alfabecie o k pozycji w prawo od zastępowanego znaku.
+Przykład: znak ‘B’ po zakodowaniu kluczem k=3 zastąpiony zostanie znakiem ‘E’.
+Przy szyfrowaniu znaku należy postępować w sposób cykliczny, to znaczy, jeżeli znak nie posiada w alfabecie następnika przesuniętego o k pozycji, to alfabet „zawija się" i za literą Z następuje znów litera A.
+Przykład: jawny znak ‘X’ po zakodowaniu kluczem k=3 zastąpiony zostanie znakiem ‘A’, znak ‘Y’ – znakiem ‘B’, natomiast ‘Z’ – znakiem ‘C’.
+W tym zadaniu rozpatrujemy tylko słowa zbudowane z wielkich liter alfabetu angielskiego (o kodach ASCII odpowiednio od 65 do 90), o długościach nie większych niż 30 znaków. 

@@ -1,0 +1,9 @@
+TAGI:
+arkusz kalkulacyjny,przeszukiwanie danych
+PUNKTY:
+3
+TRESC:
+Dla pierwszych 300 dni pomiaru oblicz, z dokładnością do dwóch miejsc po przecinku, średni opad dla każdego rodzaju chmur (kategoria + wielkość, czyli C1, C2, C3, C4, C5, S1, S2, S3, S4, S5). Przedstaw wyniki na wykresie kolumnowym, pamiętając o czytelnym opisie wykresu. 
+ROZWIAZANIE:
+<a href=\'{dirpath}5.xlsx\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

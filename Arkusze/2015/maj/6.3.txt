@@ -1,0 +1,21 @@
+TAGI:
+bazy danych,kwerendy,grupowanie danych,funkcje agregujące,złączenia tabel
+PUNKTY:
+3
+AUTOR:
+Radosław Kozłowski
+TRESC:
+Klasyfikacja generalna w danym sezonie jest tworzona na podstawie sumy punktów uzyskanych przez kierowców w wyścigach rozegranych w tym sezonie. Utwórz zestawienie zawierające nazwiska i imiona kierowców – zwycięzców klasyfikacji generalnej w sezonach 2000, 2006 i 2012 wraz z liczbami punktów przez nich uzyskanymi. 
+ROZWIAZANIE:
+Ilość treści z pewnością może spowodować ból głowy. Jednak spokojnie, nie takie rzeczy jeszcze przed nami! 
+Z treści zadania wynika, że potrzebujemy imiona, nazwiska oraz ilości uzyskanych punktów przez zwycięzców klasyfikacji generalnej w sezonach 2000, 2006 i 2012. Najprościej będzie wyświetlić zestawienie dla każdego takiego zawodnika, a potem ręcznie wyszukać pierwsze, posortowane malejąco według ilości punktów, wartości w danym sezonie. Do uzyskania naszego pożądanego wyniku będziemy potrzebować wszystkich tabel. Powstanie nam ogromny warunek złączeniowy, który dla uproszczenia pomalujemy na <span class="yellow-back">kolor żółty</span> żeby zobaczyć, że to zapytanie wcale takie obszerne i straszne nie jest!
+
+<b>Ostatecznie:</b>
+<code>SELECT wyniki.id_kierowcy, imie, nazwisko, SUM(punkty) AS Liczba, rok
+FROM <span class="yellow-back">(Wyniki INNER JOIN Wyscigi ON Wyniki.id_wyscigu = Wyscigi.id_wyscigu) INNER JOIN Kierowcy ON Wyniki.id_kierowcy = Kierowcy.id_kierowcy</span>
+WHERE Rok = 2000 OR Rok = 2006 OR Rok = 2012
+GROUP BY wyniki.id_kierowcy, rok, imie, nazwisko
+ORDER BY rok, SUM(punkty) DESC;</code>Objaśnienie:
+Wybierz id_kierowcy z tabeli Wyniki, imię, nazwisko, sumę uzyskanych punktów (nazwa kolumny jako Liczba) oraz Rok z naszego ogromnego złączenia wszystkich tabel, gdzie rok jest równy 2000 LUB 2006 LUB 2012. Zależy nam na każdym z wymienionych lat dlatego używamy operatora OR. Następnie pogrupuj zwrócone wyniki według id_kierowcy, roku, imienia i nazwiska. Tak jak już wcześniej wspominałem - ograniczy nam to wszystkie powtórzenia do jednej zwróconej wartości w danej grupie, która „w pamięci” wie ile razy wystąpiła bez grupowania. Nasze id_kierowcy powinno wystąpić maksymalnie 3 razy, z uwagi grupowania również po roku! W praktyce oznacza to zwrócenie ilości wystąpień kierowcy w danym roku. Na końcu oczywiście sortujemy zwrócone rekordy malejąco według roku, a następnie sumy punktów. Takowy zabieg pozwoli na wybranie pierwszego wiersza w danym roku bez konieczności martwienia się o to czy nasz zawodnik jest zwycięzcą sezonu. Oczywiście, że jest bo ma najwięcej punktów w danym roku!
+
+<a href=\'{dirpath}6.accdb\'>Pobierz</a>

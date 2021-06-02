@@ -1,0 +1,8 @@
+TAGI:
+arkusz kalkulacyjny,funkcje agregujące
+PUNKTY:
+2
+TRESC:
+Podaj liczbę połączeń oraz łączny czas ich trwania (w zaokrągleniu w górę do pełnych minut) dla numerów stacjonarnych rozpoczynających się od 12.
+ROZWIAZANIE:
+<a href=\'{dirpath}5.xlsx\' download>Pobierz rozwiązanie</a>

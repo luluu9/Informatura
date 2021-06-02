@@ -1,0 +1,18 @@
+TAGI:
+arkusz kalkulacyjny,przeszukiwanie danych
+PUNKTY:
+2
+TRESC:
+Znajdź najdłuższy ciąg kolejnych dni, w których temperatura zmierzona każdego dnia jest wyższa niż temperatura dnia poprzedniego. Jest tylko jeden taki ciąg. Podaj numer pierwszego i numer ostatniego dnia w takim ciągu.
+Na przykład dla danych:
+dzień temperatura
+34 3,7
+35 3,4
+36 3,5
+37 3,6
+38 3,7
+39 3,5
+pierwszym dniem ciągu spełniającym warunek zadania jest dzień 36, a ostatnim – 38. 
+ROZWIAZANIE:
+<a href=\'{dirpath}5.xlsx\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

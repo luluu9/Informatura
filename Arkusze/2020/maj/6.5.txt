@@ -1,0 +1,13 @@
+TAGI:
+arkusz kalkulacyjny,przeszukiwanie danych,symulacja
+PUNKTY:
+4
+TRESC:
+Kapitan przy załadunku płacił za towar, a przy wyładunku otrzymywał za niego zapłatę.
+a) Przyjmij, że kapitan przed pierwszym rejsem miał w kasie 500 000 talarów, a następnie:
+• oblicz, ile talarów miał 18 grudnia 2018 roku po zakończeniu wszystkich transakcji
+• znajdź dzień, w którym po wypłynięciu z portu stan kasy kapitana był największy – podaj ten dzień oraz stan kasy kapitana tego dnia.
+b) Podaj, ile minimum talarów powinien mieć kapitan przed pierwszym rejsem, aby mógł wykonać wszystkie transakcje, tzn. zapłacić za każdy załadunek, każdego dnia. 
+ROZWIAZANIE:
+<a href=\'{dirpath}6.xlsx\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

@@ -1,0 +1,37 @@
+TAGI:
+algorytmy,pseudokod,analiza,symulacja
+PUNKTY:
+2
+TRESC:
+Podaj najmniejszą oraz największą liczbę n, dla której wynikiem działania algorytmu będzie p = 10
+ROZWIAZANIE:
+Jak można zauważyć rozwiązując poprzednie zadanie (1.1., patrz poprzednie zadanie), dla n równego zarówno 28 jak i 64: p, jak i q równa się 4.
+Jeśli rozwiązałeś przykład z n=80, otrzymany wynik p powinien wynosić 5. Możemy więc wysnuć hipotezę, że wraz z rosnącym n, p będzie się zwiększać.
+Dlaczego tak się dzieje? 🤔
+Decydują o tym dwa czynniki:
+a) p ostatecznie zawsze będzie równało się q. Wynika to zarówno z warunku pętli (p<q), jak i zapisom: s = (p+q) div 2 oraz p = s +1. Już tłumaczę.
+Jeśli p nie może być większe ani równe q (warunek pętli) to p w najlepszym wypadku będzie równe wartości q-1, a co za tym idzie, s zawsze będzie mniejsze od q, np:
+- dla p=1 i q=20, s=(1+20) div 2 = 10 - s<q;
+- dla p=9 i q=10, s=(9+10) div 2 = 9 - jest to przypadek z największym możliwym p, co zostało wyjaśnione wyżej. s tutaj jest równe q-1.
+Dalej, ważny jest zapis przy p: p=s+1. Oznacza to, że ostatecznie p przyjmie wartość q, ponieważ s będzie równe q-1, a my dodamy tę odjętą jedynkę.
+A więc udowodniliśmy, że końcowa wartość p będzie równa q (co zresztą jest dobrze widoczne w tabelce, którą zrobiliśmy przy poprzednim zadaniu!) Nasz mały sukces. 🤗
+
+b) spójrzmy na warunek "jeżeli s*s*s < n wykonaj": daje on nam bardzo ważną informację.
+Wartość s zostanie przypisana do q tylko wtedy, gdy s^3 >= n. Jest to klucz do rozwiązania zadania: udowodniliśmy już, że ostatecznie p=q, a więc teraz musimy ustalić, jakie n będzie potrzebne, aby uzyskać wynik q=10.
+Rozwijając myśl z podpunktu a):
+- s w najgorszym przypadku będzie równe (1+q) div 2, ponieważ początkowo p=1; np.: p=3, q=11: s=(3+11) div 2 = 7: wartość mniejsza niż q
+- s w najlepszym przypadku będzie równa (q+q-1) div 2, co pokazaliśmy wyżej; np.: p=3, q=4: s=(3+4) div 2 = 3: wartość mniejsza niż q
+
+Oznacza to, że q będzie malało, aż warunek s^3<n zacznie być prawdziwy: innymi słowy: dopóki s^3 będzie większe od n, q maleje
+Należy teraz zadać sobie pytanie: do jakiej liczby q będzie maleć? 🤔
+Ano, q ciągle będzie dążyło, żeby być równe lub większe niż pierwiastek 3 stopnia z n, ale pamiętajmy, że musi być to liczba całkowita (lub w innym zapisie - q^3 musi być większe bądź równe n).
+Aby lepiej to zrozumieć, spróbuj patrzeć na algorytm od tyłu: wartość s zostanie przypisana q tylko wtedy, gdy s^3 >= n, a w innym wypadku to p będzie dążyło do q.
+
+A więc, aby przewidzieć, jakie n potrzebujemy, żeby q było równe określonej liczbie (w przypadku tego zadania 10), musimy podnieść tą liczbę do potęgi 3 - voilà! otrzymaliśmy naszą górną granicę, aby uzyskać pożądaną liczbę: dla p=q=10 będzie to 1000! 😃
+Dolną granicę możemy wyliczyć, bazując na górnej. Otóż - jeśli dla maksymalnie 1000 uzyskamy p równe 10, oznacza to, że 1001 da nam już inną liczbę - 11. A więc pierwsza liczba, dla której p wyjdzie równe 11, będzie miała zapis 10^3+1 - za dziesiątkę możemy wstawić jakąkolwiek liczbę, ważne jest to, że stanowi ona liczbę, którą chcemy uzyskać w p^3+1. (użycie p czy q jest zamienne, co udowodniliśmy w podpunkcie a.)
+
+Podsumowując:
+- dolna granica=(p-1)^3+1, dla 10: (10-1)^3+1=9^3+1=730
+- górna granica=p^3, dla 10: 10^3=100
+
+i oto nasz wynik! 😄

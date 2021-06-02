@@ -1,0 +1,5 @@
+Liczby
+W pliku liczby.txt zapisano 500 liczb całkowitych dodatnich po jednej w każdym wierszu.
+Każda liczba jest z zakresu od 1 do 100 000. Napisz program(-y) dający(-e) odpowiedzi do poniższych zadań. Zapisz uzyskane odpowiedzi w pliku wyniki4.txt, poprzedzając każdą z nich numerem odpowiedniego zadania.
+Uwaga: Plik przyklad.txt zawiera przykładowe dane spełniające warunki zadania.
+Odpowiedzi dla danych z tego pliku są podane pod treściami zadań. 

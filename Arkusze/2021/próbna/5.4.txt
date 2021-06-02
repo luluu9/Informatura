@@ -1,0 +1,15 @@
+TAGI:
+arkusz kalkulacyjny,symulacja,przeszukiwanie danych
+PUNKTY:
+4
+TRESC:
+Rachunek telefoniczny zawiera informacje dotyczące kosztów połączeń wykonywanych 
+na numery stacjonarne, komórkowe i zagraniczne.
+Połączenia krajowe na numery stacjonarne i komórkowe są rozliczane według następujących 
+zasad:
+- pierwsze 800 minut (połączeń stacjonarnych i komórkowych łącznie) jest wliczone  w abonamencie, który kosztuje 50 zł,
+- kolejne minuty (po wyczerpaniu limitu minut z abonamentu) są rozliczane w pakietach po  100 minut: za każdy rozpoczęty pakiet 100 minut połączeń na telefony stacjonarne płaci się  5 zł, a każdy rozpoczęty pakiet 100 minut na telefony komórkowe płaci się 6 zł. 
+Rozmowy zagraniczne opłacane są niezależnie i kosztują 1 zł za każdą rozpoczętą minutę  rozmowy – czyli jeśli rozmowa trwa 2:02, płaci się za 3 minuty (3 zł). 
+Podaj ogólną kwotę rachunku telefonicznego wraz z wyszczególnieniem osobno abonamentu  i kosztów połączeń na numery stacjonarne, komórkowe i zagraniczne. 
+ROZWIAZANIE:
+<a href=\'{dirpath}5.xlsx\' download>Pobierz rozwiązanie</a>

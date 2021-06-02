@@ -1,0 +1,10 @@
+TAGI:
+arkusz kalkulacyjny,przeszukiwanie danych
+PUNKTY:
+2
+TRESC:
+Podaj liczby dni, w których:
+Podaj liczbę dni o temperaturze większej lub równej 20 stopni i jednocześnie o opadzie mniejszym lub równym 5 mm.
+ROZWIAZANIE:
+<a href=\'{dirpath}5.xlsx\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

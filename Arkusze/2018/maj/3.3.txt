@@ -1,0 +1,27 @@
+TAGI:
+SQL,sortowanie,złączenia tabel,prawda/fałsz,test,różne
+PUNKTY:
+1
+TRESC:
+Wskaż zdania prawdziwe dla języka SQL.
+1. W wynikach zapytania postaci SELECT (...) ORDER BY (...) zawsze dostajemy rekordy uporządkowane ściśle rosnąco według wskazanego pola. [P/F]
+2. Zapytanie UPDATE może zmienić wartości pól w bazie danych. [P/F]
+3. Zapytanie postaci SELECT * FROM tabela1 WHERE pole LIKE (...) może w pewnych warunkach dać wszystkie rekordy z tabeli tabela1. [P/F]
+4. Wynik zapytania SELECT * FROM tabela1 JOIN tabela2 ON tabela1.pole = tabela2.pole może być pusty przy niepustych tabelach tabela1 oraz tabela2. [P/F]
+
+ROZWIAZANIE:
+1. W wynikach zapytania postaci SELECT (...) ORDER BY (...) zawsze dostajemy rekordy uporządkowane ściśle rosnąco według wskazanego pola. [P/F] 
+Instrukcja SELECT w języku SQL (język zapytań do baz danych) pozwala nam wybrać dane rekordy, a ORDER BY - sortuje nam wynik według podanego bądź podanych po niej kolumnach. Pytanie więc odnosi się przede wszystkim do kwestii tego, czy sortowanie musi zawsze być rosnące, czy malejące?  Odpowiedzieliśmy sobie na nie przy okazji poprzedniego zadania z tego arkusza! www.fb.com/informatura/posts/118685263078528. 
+W dużym skrócie: to, jak chcemy posortować wyniki, zależy tylko od nas. Wykorzystujemy do tego celu słowa kluczowe ASC (od ascending - rosnąco) i DESC (descending - malejąco). Tak więc nie zawsze rekordy są uporządkowane rosnąco! Zaznaczamy fałsz.
+
+2. Zapytanie UPDATE może zmienić wartości pól w bazie danych. [P/F] - jak sama nazwa wskazuje, instrukcja UPDATE coś aktualizuje. Jak z niej korzystamy? UPDATE nazwa_tabeli SET kolumna1=wartość1, kolumna2=wartość2... WHERE warunek_aktualizacji. Możemy więc z tego zapisu wywnioskować, że zmieniamy poszczególne wartości występujące w tabeli, czyli wartości pól! Prawda.
+
+3. Zapytanie postaci SELECT * FROM tabela1 WHERE pole LIKE (...) może w pewnych warunkach dać wszystkie rekordy z tabeli tabela1. [P/F]
+W tym przypadku trzeba wiedzieć, jak funkcjonuje operator LIKE. Oznacza on tyle co "podobny", czy "przypominający". Przykład: SELECT * FROM konie WHERE imie LIKE "Atena"; - zwróci on nam wszystkie rekordy, w których koń ma na imię Atena. 🐴 Instrukcja ta jednak nie służy tylko do zwykłego porównywania, to, co ją wyróżnia, to możliwość zastosowania znaków wieloznacznych (wildcards): znak "%" oznacza dowolny ciąg znaków (także pusty!), a znak "_" - jeden, dowolny znak. 
+Tak więc możemy zadać powyższą kwerendę z klauzulą WHERE imie LIKE "At%" i w ten sposób uzyskamy nie tylko rekord z imieniem Atena, ale także np. Atrymoniusz! Można też zastosować sam znak wieloznaczny "%", który sprawi, że otrzymamy wszystkie rekordy, więc tak, możemy uzyskać wszystkie rekordy w pewnych warunkach. Prawda!
+
+4. Wynik zapytania SELECT * FROM tabela1 JOIN tabela2 ON tabela1.pole = tabela2.pole może być pusty przy niepustych tabelach tabela1 oraz tabela2. [P/F] 
+Tutaj potrzebna nam jest powtórka z łączenia tabel. A więc w SQLu mamy możliwość łączenia ze sobą kilku tabel, na podstawie m.in. wspólnej kolumny, którą posiadają obie tabele - możemy otrzymać wtedy wynik zawierający wartości z tabeli A i z tabeli B. 
+Istnieje wiele typów złączeń, np.: INNER, LEFT, RIGHT, czy OUTER, ale to temat na osobną lekcję. Tutaj jak widzimy: przed JOIN nie ma żadnego z wcześniej wymienionych typów - w takim wypadku stosujemy domyślne łączenie, jakim jest INNER JOIN (złączenie wewnętrzne, część wspólna). Jest to chyba najprostsze z możliwych sposobów na spięcie ze sobą tabel. Chodzi w nim o to, że wartości zostaną połączone tylko wtedy, gdy w tabela1.pole będzie znajdowała się taka sama wartość, jak w tabela2.pole: oczywiście możliwe do podania wartości mogą się różnić od tych, te tutaj są dostosowane do zadania "JOIN tabela2 ON tabela1.pole = tabela2.pole". 
+Czyli jeśli w danym rekordzie tabela1.pole byłoby równe 1, a tabela2.pole także przyjęłoby wartość 1, to doszłoby do złączenia i wypisalibyśmy wszystkie wartości z tych rekordów! Jeśli natomiast wartości te różniłyby się, to nie wypisałaby się żadna z krotek (rekordów). 
+Wracając do naszego zadania: czy wynik łączenia wewnętrznego dwóch niepustych tabel może być pusty? Jak najbardziej! Wystarczy, że pole1 nie będzie w żadnym polu2 sobie równe. ⚖ Zaznaczamy więc prawdę. ✔

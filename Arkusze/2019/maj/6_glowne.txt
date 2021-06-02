@@ -1,0 +1,29 @@
+Perfumeria DlaWas
+W plikach: marki.txt, perfumy.txt, sklad.txt opisana jest oferta perfumerii „DlaWas”. W perfumerii dostępne są perfumy różnych marek. Perfumy składają się z kilku składników. Zestaw składników decyduje, do jakiej rodziny zapachów należą perfumy.
+Pierwszy wiersz w każdym z plików jest wierszem nagłówkowym i zawiera nazwy pól. Dane w każdym wierszu oddzielone są znakiem tabulacji.
+W pliku marki.txt każdy wiersz zawiera informacje o markach firm produkujących perfumy:
+id_marki – identyfikator marki
+nazwa_m – nazwa marki
+Przykład:
+id_marki nazwa_m
+m_1 Mou De Rosine
+m_2 Mou&Bob
+W pliku perfumy.txt każdy wiersz zawiera informacje o perfumach:
+id_perfum – identyfikator perfum
+nazwa_p – nazwa perfum
+id_marki – identyfikator marki tych perfum
+rodzina_zapachow – nazwa rodziny zapachów, do której należą perfumy
+cena – cena perfum
+Przykład:
+id_perfum nazwa_p id_marki rodzina_zapachow cena
+p_1 Ythde m_1 orientalna 241
+p_2 Ythsas m_1 kwiatowa 738
+W pliku sklad.txt kolejne wiersze zawierają informacje o składzie perfum:
+id_perfum – identyfikator perfum
+nazwa_skladnika – nazwa składnika
+Przykład:
+id_perfum nazwa_skladnika
+p_1 chryzantema
+p_1 kwiat irysa
+Za pomocą dostępnych narzędzi informatycznych podaj odpowiedzi do poniższych zadań.
+Odpowiedzi zapisz w pliku wyniki6.txt, a każdą z nich poprzedź numerem odpowiedniego zadania.

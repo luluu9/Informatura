@@ -1,0 +1,12 @@
+Formuła 1
+W następujących plikach zgromadzono dane dotyczące wyścigów samochodowych Formuły 1 z lat 2000–2012. Pierwszy wiersz w każdym z plików jest wierszem nagłówkowym i zawiera nazwy pól.
+W pliku Kierowcy.txt każdy wiersz zawiera informacje o kierowcy, rozdzielone średnikami: Id_kierowcy, Nazwisko, Imie, Kraj.
+Przykład:
+z10;Irvine;Eddie;Irlandia
+W pliku Wyscigi.txt są zawarte informacje o rozegranych wyścigach Grand Prix liczonych do klasyfikacji generalnej: Id_wyscigu, Rok, GrandPrix. Sezon jest reprezentowany przez rok (czterocyfrowa liczba), a GrandPrix jest nazwą miejsca, w którym jest rozgrywany wyścig.
+Przykład:
+w20;2001;Brazylia
+W pliku Wyniki.txt każdy wiersz zawiera informacje o punktach zdobytych przez kierowców w poszczególnych wyścigach, rozdzielone średnikami: Id_kierowcy, Punkty, Id_wyscigu.
+Przykład:
+z42;6;w7
+Wykorzystując dane zawarte w plikach Kierowcy.txt, Wyscigi.txt i Wyniki.txt, wykonaj poniższe polecenia, a odpowiedzi poprzedzone numerem oznaczającym podpunkt zapisz w pliku wynik6.txt. 

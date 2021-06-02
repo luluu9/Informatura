@@ -1,0 +1,9 @@
+TAGI:
+arkusz kalkulacyjny,symulacja,odczytywanie danych z tabeli
+PUNKTY:
+2
+TRESC:
+Podaj datę, kiedy pierwszy raz trzeba było dolać wodę do zbiornika, i podaj ilość dolanej wody. 
+ROZWIAZANIE:
+<a href=\'{dirpath}5.xlsx\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

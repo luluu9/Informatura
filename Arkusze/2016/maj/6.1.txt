@@ -1,0 +1,30 @@
+TAGI:
+programowanie,szyfr cezara,odczytywanie danych,zapisywanie danych
+PUNKTY:
+3
+TRESC:
+W pliku dane_6_1.txt znajduje się 100 słów. Słowa umieszczono w osobnych wierszach.
+Fragment pliku dane_6_1.txt:
+INTERPRETOWANIE
+ROZWESELANIE
+KONSERWOWANIE
+Napisz program, który zaszyfruje słowa z pliku dane_6_1.txt z użyciem klucza k = 107. Wynik zapisz do pliku wyniki_6_1.txt, każde słowo w osobnym wierszu, w porządku odpowiadającym kolejności słów z pliku z danymi.
+Uwaga:
+Dla pierwszego słowa z pliku dane_6_1.txt (INTERPRETOWANIE) wynikiem jest słowo LQWHUSUHWRZDQLH. 
+ROZWIAZANIE:
+<code>def szyfr(ciag, k):
+    nowy_ciag = ""
+    for lit in ciag:
+        nowy_ord = 65+(ord(lit)-65+k) % 26
+        nowy_ciag += chr(nowy_ord)
+    return nowy_ciag
+
+with open("wyniki_6_1.txt", "w") as wyjscie:
+    with open("DANE_PR2/dane_6_1.txt") as wejscie:
+        for linia in wejscie:
+            if not linia:
+                continue
+            linia = linia.strip()
+            wyjscie.write(szyfr(linia, 107)+"\\n")</code>
+
+<a href=\'{dirpath}6.py\' download>Pobierz rozwiązanie</a>

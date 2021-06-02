@@ -1,0 +1,13 @@
+TAGI:
+bazy danych,kwerendy,złączenia tabel
+PUNKTY:
+3
+TRESC:
+Ceny wszystkich perfum marki Mou De Rosine z rodziny o nazwie „orientalno-drzewna” zostały obniżone o 15%. Podaj listę zawierającą wszystkie nazwy takich perfum i ich ceny po obniżce. Listę posortuj niemalejąco według ceny. 
+ROZWIAZANIE:
+SELECT nazwa_p AS Nazwa, cena*0.85 AS Cena_promocyjna
+FROM Perfumy AS p INNER JOIN Marki AS m ON p.id_marki=m.id_marki
+WHERE nazwa_m="Mou De Rosine" And rodzina_zapachow="orientalno-drzewna"
+ORDER BY Cena;
+
+<a href=\'{dirpath}6.accdb\' download>Pobierz rozwiązanie</a>

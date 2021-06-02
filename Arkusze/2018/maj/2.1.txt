@@ -1,0 +1,46 @@
+TAGI:
+algorytmy,programowanie,układ kartezjański,pseudokod
+PUNKTY:
+2
+TRESC:
+Napisz algorytm (w pseudokodzie lub wybranym języku programowania), który znajdzie i poda
+współrzędne skrajnie lewego szczytu, tzn. widocznego dla obserwatora na lewo od wszystkich
+pozostałych szczytów.
+Specyfikacja:
+Dane:
+  n – liczba całkowita dodatnia
+  X[1..n] – tablica liczb całkowitych
+  Y[1..n] – tablica liczb całkowitych dodatnich
+  Para (X[i], Y[i]) to współrzędne jednego szczytu, i = 1, 2, …, n.
+  Żadne dwa szczyty nie leżą w jednej linii z obserwatorem.
+Wynik:
+  x, y – współrzędne skrajnie lewego szczytu spośród tych opisanych w tablicach X i Y. 
+
+ROZWIAZANIE:
+Po kolei - wszystko zaczyna się od n, czyli liczby szczytów, które będzie trzeba porównać. A więc potrzebna będzie z pewnością pętla.
+Dalej - musimy dobrze zrozumieć, kiedy który szczyt będzie znajdować się w jakim miejscu. Informacje o tym znajdują się tutaj:
+"Jeśli dwa szczyty A i B mają współrzędne (xA, yA) oraz
+(xB, yB), to mówimy, że:
+• szczyt A jest dla obserwatora widoczny na lewo od B, jeśli xA/yA < xB/yB;
+• szczyt B jest widoczny na lewo od A, jeśli xA/yA > xB/yB."
+Z tego możemy wyciągnąć wniosek, że im mniejszy jest wynik stosunku x do y, tym nasz szczyt będzie bardziej wysunięty ku lewej stronie. Przykładowo: Dla szczytu A(8, 4) stosunek wynosi 8/4=2, szczyt B(3, 6) natomiast będzie miał stosunek równy 0,5. Oznacza to, że B będzie po lewej stronie A, ponieważ stosunek współrzędnych szczytu B jest mniejszy! Zrozumiałe, prawda? 😎
+
+Okej, przypomnijmy, co mamy obliczyć: "napisz algorytm, który [...] poda współrzędne skrajnie lewego szczytu".
+Czyli najpierw będziemy mieli pętlę, która wykona się n razy, a potem porównywamy kolejne stosunki współrzędnych i wybierzemy ten, który jest najmniejszy!
+Proponuję zastosować tutaj algorytm na element minimalny, o którym możemy poczytać np. <a href="http://www.algorytm.org/dla-poczatkujacych/szukanie-elementu-minimalnego-maksymalnego.html">tutaj</a>, jeśli go jeszcze nie znamy.
+
+Zapisujemy więc w pseudokodzie:
+<code>
+lewy_indeks = 1 // indeks szczytu najbardziej na lewo
+i = 2
+dopóki i <= n:
+  szczyt = X[i]/Y[i]
+  lewy_szczyt = X[lewy_indeks]/Y[lewy_indeks]
+  jeżeli szczyt < lewy_szczyt:
+    lewy_indeks = i
+  i += 1
+x = X[lewy_indeks]
+y = Y[lewy_indeks]
+</code>
+Zaledwie kilkoma linijkami udało się zdobyć dwa punkty, a można jeszcze bardziej skrócić ten pseudokod, do czego zachęcam! 😉
+Musieliśmy skorzystać ze zmiennej lewy_indeks, ponieważ w wymogach zadania jest "Wynik: x, y – współrzędne skrajnie lewego szczytu [...]". Trzeba jednak pamiętać, że indeks to nie to samo co wartość zmiennej, o czym zdarza się zapominać w pośpiechu. Dlatego też dałem w nazwie "indeks", żeby czasem się nie pomylić. Warto poświęcić kilka liter więcej, żeby uniknąć jakiejś pomyłki 😅

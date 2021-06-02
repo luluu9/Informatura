@@ -1,0 +1,60 @@
+TAGI:
+algorytmy,programowanie,układ kartezjański,pseudokod,sortowanie
+PUNKTY:
+4
+TRESC:
+Napisz algorytm (w pseudokodzie lub wybranym języku programowania), który przestawi elementy tablic X i Y tak, aby szczyty były uporządkowane w kolejności, w której obserwator widzi je od lewej do prawej strony. 
+Aby otrzymać maksymalną ocenę, Twój algorytm powinien mieć złożoność czasową kwadratową lub mniejszą. 
+
+Algorytm może używać wyłącznie instrukcji sterujących, operatorów arytmetycznych, operatorów logicznych, porównań i przypisań do zmiennych. Zabronione jest używanie funkcji bibliotecznych dostępnych w językach programowania.
+Specyfikacja:
+Dane:
+  n – liczba całkowita dodatnia
+  X[1..n] – tablica liczb całkowitych
+  Y[1..n] – tablica liczb całkowitych dodatnich
+Para (X[i], Y[i]) to współrzędne jednego szczytu, i = 1, 2, …, n.
+Żadne dwa szczyty nie leżą w jednej linii z obserwatorem.
+Wynik:
+  X[1..n], Y[1..n] – tablice zawierające współrzędne danych szczytów, uporządkowanych w kolejności, w której obserwator widzi je od lewej do prawej strony. 
+
+ROZWIAZANIE:
+Podsumujmy co należy zrobić:
+- obliczamy stosunek współrzędnych podanego szczytu, który informuje, w jakiej kolejności będziemy widzieli szczyty (mówiliśmy o tym w poprzednim zadaniu)
+- porównamy ją z innymi szczytami, żeby dowiedzieć się, po której stronie widzimy ten szczyt
+- przestawimy elementy tablic X i Y, jeśli ich aktualna pozycja jest błędna
+
+Okazuje się, że chodzi w tym zadaniu tak naprawdę o sprawdzenie naszej wiedzy z sortowania. 😎
+
+Pada tu dodatkowo stwierdzenie "złożoności czasowej". Można o niej przeczytać <a href="/zadanie/3">w tym poście</a>.
+W skrócie: oznacza ona ilość operacji, które musimy wykonać, w porównaniu do danych wejściowych, oznaczonych symbolem n. Złożoność kwadratowa oznacza, że ilość operacji wykonanych będzie równa n^2, czyli dla n=10 możemy wykonać 100 operacji, więc dla maksymalnej liczby punktów powinniśmy wykonać maksymalnie 100 operacji 😉 Nie musimy jednak liczyć dokładnie, ile operacji będzie wykonywać nasz algorytm 😌 Wystarczą szacunki: najbardziej "obliczeniochłonne" są pętle - pętla dla n razy wykona się... n razy! jeśli jednak zagnieździmy pętlę w pętli, da nam to n*n, czyli n^2, co stanowi limit złożoności - możemy więc stworzyć co najwyżej zagnieżdżoną pętlę.
+
+Do rozwiązania tego zadania możemy wykorzystać każdy algorytm sortujący, którego złożoność jest mniejsza niż n^2. Mamy więc ze standardowych (szkolnych) do wyboru: sortowanie bąbelkowe, przez wybór czy przez wstawianie. 
+My dzisiaj zajmiemy się bąbelkowym, do innych zapewne wrócimy przy następnych zadaniach, ale jeśli chcesz dowiedzieć się o nich więcej, spójrz np. </a href="https://eduinf.waw.pl/inf/alg/003_sort/mindex.php">tutaj</a>.
+
+Okej, na czym więc polega sortowanie bąbelkowe? 🤔
+Chodzi tu o porównywanie ze sobą kolejnych par elementów i zamianie ich kolejności, jeśli jeden nie spełnia warunku (np. pierwszy jest większy od drugiego, a mamy posortować rosnąco). Po sprawdzeniu tej pary, przechodzimy do następnej i tak aż do końca tablicy.
+Trzeba jednak pamiętać, że jeden przebieg pętli nie wystarczy, aby posortować tablicę. 
+Weźmy przykład: tablica n=[5, 3, 6, 1], którą chcemy posortować rosnąco.
+Kolejne etapy sortowania wyglądają tak:
+1. 5 > 3? TAK, więc zamieniamy: [3, 5, 6, 1]
+2. 5 > 6? NIE, więc zostawiamy: [3, 5, 6, 1]
+3. 6 > 1? TAK, więc zamieniamy: [3, 5, 1, 6]
+
+Jak widać, nasza tablica ciągle nie jest posortowana. Aby do tego doszło, musimy powyższe kroki powtarzać, tyle razy, ile wynosi n-1 (chodzi o to, że tyle wykonań pętli jest potrzebne, żeby przesunąć skrajny element tablicy (np. ostatni) do pierwszego (zakładając, że ma on tam się znaleźć - tak jak w naszym przykładzie). Dla powyższej tablicy musielibyśmy wykonać te kroki 3 razy 😉 
+Zapiszmy to wszystko w pseudokodzie:
+<code>powtarzaj n-1 razy:
+  dla i=1, 2.. do n-1:
+    jeśli n[i] < n[i+1]:
+      n[i], n[i+1] = n[i+1], n[i] // zamiana</code>
+To co zapisaliśmy wyżej jest tak naprawdę kluczem do rozwiązania naszej zagadki ze szczytami 😃
+Wystarczy, że podstawimy odpowiednie dane i uzyskamy odpowiedź! Musimy przecież zrobić to samo, tylko że dla tablicy X i Y. Do dzieła!
+<code>powtarzaj n-1 razy:
+  dla i=1, 2.. do n-1:
+    poz_1 = X[i]/Y[i]
+    poz_2 = X[i+1]/Y[i+1]
+    jeśli poz_1 > poz_2:
+      X[i], X[i+1] = X[i+1], X[i]
+      Y[i], Y[i+1] = Y[i+1], Y[i]</code>
+Voilà! tak oto wygląda nasz ukończony algorytm. 🤯
+poz_1 i poz_2 oznaczają pozycje, im mniejsza tym bardziej na lewo widzimy szczyt.
+Mamy posortować od szczytów najbardziej na lewo, do tych najbardziej na prawo: dlatego też sprawdzamy, czy poz_1 > poz_2. Jeśli poz_1 jest większy - trzeba zamienić.

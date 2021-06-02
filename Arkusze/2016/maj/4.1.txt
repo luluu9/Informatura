@@ -1,0 +1,14 @@
+TAGI:
+arkusz kalkulacyjny,układ kartezjański,przeszukiwanie danych
+PUNKTY:
+3
+TRESC:
+Wypisz  współrzędne  tych  punktów,  które  należą  do  brzegu  koła  (okręgu),  oraz  podaj  liczbę punktów należących do wnętrza koła (brzeg koła nie należy do wnętrza koła). 
+Wskazówka:  
+Równanie okręgu o środku w punkcie S = (a, b)i promieniu r > 0 ma postać:
+(x-a)^2 + (y-b)^2 = r^2
+Informacja:  
+W pliku wśród 100 pierwszych punktów 80 należy do wnętrza koła.
+ROZWIAZANIE:
+<a href=\'{dirpath}4.xlsx\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

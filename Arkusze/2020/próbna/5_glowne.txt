@@ -1,0 +1,23 @@
+Zbiornik wody
+Właściciele ogrodu postanowili zaoszczędzić na opłatach za wodę i przed laty zainstalowali zbiornik o pojemności 25 000 litrów, w którym gromadzą wodę do podlewania roślin.
+Podlewanie roślin wodą ze zbiornika i uzupełnianie zbiornika regulują następujące zasady:
+• średnia dobowa temperatura i opady dobowe są mierzone od godziny 20:00 dnia poprzedniego do godz. 20:00 dnia bieżącego,
+• do godziny 20:00 opady uzupełniają sumarycznie zbiornik w ilości: 700 * x litrów (gdzie x – opady dobowe deszczu w l/m2 ), jednak nie więcej niż do maksymalnej pojemności zbiornika,
+• w dni bezdeszczowe dzienne parowanie wody (ubytek) ze zbiornika jest zależny od średniej dobowej temperatury T i wynosi: 0,03% * T^1,5 * y litrów (gdzie y – oznacza stan zbiornika z godziny 21:00 dnia poprzedniego) w zaokrągleniu w górę do pełnych litrów,
+• ogród jest podlewany w każdym dniu, w którym średnia dobowa temperatura przekroczy 15°C, a jednocześnie opady dobowe nie przekraczają 0,6 l/m2 ,
+• podlewanie, jeśli ma miejsce, jest wykonywane o godz. 20:00,
+• do podlewania zużywa się 12 000 litrów wody (1 porcja), jeśli średnia dobowa temperatura nie przekracza 30°C, oraz 24 000 litrów wody (2 porcje), jeśli średnia dobowa temperatura przekracza 30°C,
+• jeśli o godz. 20:00 w dniu, w którym należy podlać rośliny, w zbiorniku jest za mało wody, jest on tuż przed podlaniem uzupełniany wodą z wodociągu do pełna,
+• podlewanie kończy się o godz. 
+21:00. 31 marca o godzinie 21:00 zbiornik był pełen.
+Plik pogoda.txt zawiera dane dotyczące średniej temperatury oraz wysokości opadów dobowych w l/m2 w okresie od 1 kwietnia do 30 września 2015 roku.
+Przykład:
+temperatura_srednia	opady
+4	2
+2	6
+4	1
+4	0,8
+Korzystając z dostępnych narzędzi informatycznych, wykonaj poniższe polecenia. Odpowiedzi do zadań zapisz w pliku wyniki5.txt, a każdą z nich poprzedź numerem odpowiedniego zadania.
+Uwaga:
+W całym okresie od kwietnia do września 2015 roku do zbiornika dolano 743 427 litrów wody – wykorzystaj tę informację do sprawdzenia wyników swoich obliczeń.
+Wykonując odpowiednie obliczenia oraz podając odpowiedzi, wyniki zawsze zaokrąglaj w górę do pełnych litrów. 

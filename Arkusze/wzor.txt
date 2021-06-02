@@ -1,0 +1,9 @@
+TAGI:
+
+PUNKTY:
+
+TRESC:
+
+ROZWIAZANIE:
+<a href=\'{dirpath}5.xlsx\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

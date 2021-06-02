@@ -1,0 +1,38 @@
+TAGI:
+algorytmy,złożoność,czas wykonania,pseudokod,rekurencja,wyszukiwanie binarne,dziel i zwyciężaj
+
+PUNKTY:
+1
+
+TRESC:
+Złożoność czasowa algorytmu opisanego funkcją Rek dla parametrów x = 1, p = 1, k = n jest
+A. sześcienna.
+B. kwadratowa.
+C. liniowa.
+D. logarytmiczna.
+Wybierz właściwą odpowiedź.
+
+ROZWIAZANIE:
+O złożoności algorytmu mówiliśmy już przy okazji poprzedniego arkusza, <a href="/zadanie/3">tutaj link do zadania</a>.
+W skrócie: chodzi o to, w jakim tempie czas potrzebny na wykonanie algorytmu będzie rosnąć w stosunku do parametru n. 📈 
+Na przykład: zakładając, że jedno wykonanie pętli zajmuje 1. sekundę - jeśli mamy pętlę, która wykona się n razy, oznacza to, że czas potrzebny do realizacji tej pętli wynosi n sekund -> rośnie on liniowo w stosunku do parametru n. Gdyby wystąpił taki przypadek, zaznaczylibyśmy "C. liniowa".
+Jednak u nas sprawa wygląda trochę inaczej. Jak wspomnieliśmy przy okazji rozwiązywania poprzednich zadań z tym algorytmem (polecam zajrzeć!), ten pseudokod to nic innego, jak wyszukiwanie binarne! 😀 
+Zasada działania jest prosta: mamy posortowaną tablicę, która zawiera n elementów. Mamy sprawdzić, czy w tym zbiorze znajduje się element x: jeśli tak, zwracamy jego indeks (miejsce w tablicy), jeśli nie: zwracamy -1.
+
+Na czym polega akurat to wyszukiwanie?
+Wykorzystujemy metodę "dziel i zwyciężaj" 🧙‍♂️ (warto zapamiętać na przyszłość!), która działa następująco: wybieramy środkowy element z tablicy, porównujemy go z szukaną wartością x i sprawdzamy, czy jest on równy bądź większy od tej wartości. Jeśli tak - wiemy, że szukany x może znajdować się po lewej stronie od środka (obliczony s stanowi środek), bo tablica jest przecież posortowana! 
+Jeśli jednak wyszło nam, że środkowa wartość jest mniejsza od szukanej, oznacza to, że musimy szukać po prawej stronie. Eliminujemy w ten sposób 50% kandydatów, a to naprawdę spora liczba!
+
+Ale jak to się ma do naszego zadania?
+Tak właściwie to już uzyskaliśmy odpowiedź do niego! Spójrzmy: jeśli co każde wykonanie pętli będziemy zmniejszać o połowę ilość danych do przetrawienia, a będziemy dążyć do 1 elementu, to uzyskamy coś takiego:
+dla n=2: 2/2=1: 1 wykonanie
+dla n=4: 4/2=2, 2/2=1: 2 wykonania
+dla n=8: 8/2=4, 4/2=2, 2/2=1: 3 wykonania
+dla n=32: 32/2=16, 16/2=8...: 5 wykonań!
+Widzicie tą zależność? zwiększyliśmy ilość danych 16-krotnie, a potrzebowaliśmy jedynie... o 4 sprawdzeń więcej!
+Dla osób, które mniej więcej ogarniają logarytmy: liczba wykonań stanowi logarytm o podstawie 2 z n, a więc wiemy, że złożoność czasowa jest logarytmiczna. 😎
+Dla osób bardziej niematematycznych: najważniejsze jest to, że w odpowiedziach mamy kolejno, od najmniejszej wielkości: złożoność logarytmiczna, liniowa, kwadratowa, sześcienna. Jeśli wiemy, że złożoność jest mniejsza od liniowej (wykonujemy mniej operacji niż wynosi n), to jedyną poprawną odpowiedzią może być złożoność logarytmiczna! (jednak dla waszego dobra lepiej powtórzyć sobie logarytmy 😋)
+
+I tak zakończyliśmy nasze zadanie. Jak raz zrozumie się zasadę obliczania złożoności czasowej, to raczej poradzi się z tym już zawsze. Przynajmniej przy w miarę prostych przykładach. 😃 Warto ją znać, bo tego typu zadania dość często pojawiają się na maturze! 
+Trzymajcie się!
+

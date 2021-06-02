@@ -1,0 +1,41 @@
+TAGI:
+programowanie,liczby pierwsze,odczytywanie danych,ciągi znaków
+PUNKTY:
+4
+TRESC:
+Dla każdego słowa z pliku pary.txt znajdź długość najdłuższego spójnego fragmentu tego słowa złożonego z identycznych liter. Wypisz znalezione fragmenty słów i ich długości oddzielone spacją, po jednej parze w każdym wierszu. Jeżeli istnieją dwa fragmenty o takiej samej największej długości, podaj pierwszy z nich. Wyniki podaj w kolejności zgodnej z kolejnością danych w pliku pary.txt.
+Przykład:
+dla słowa zxyzzzz wynikiem jest:
+zzzz 4
+natomiast dla słowa kkkabbb wynikiem jest:
+kkk 3
+Dla danych z pliku przyklad.txt odpowiedzi podano w pliku odp_przyklad.txt. 
+ROZWIAZANIE:
+Rozwiązanie zadań w Pythonie:
+<code>lines = ""
+with open("Dane_PR2/pary.txt") as f:
+    lines = f.readlines()
+
+nums = []
+strings = []
+
+for line in lines:
+    line.strip()
+    num, string = line.split()
+    nums.append(int(num))
+    strings.append(string)
+
+print("\n4.2")
+for string in strings:
+    current_word = string[0]
+    longest_word = string[0]
+    for char in string[1:]:
+        if char == current_word[-1]:
+            current_word += char
+        else:
+            current_word = char
+        if len(current_word) > len(longest_word):
+                longest_word = current_word
+    print(longest_word, len(longest_word))</code>
+<a href=\'{dirpath}4.py\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

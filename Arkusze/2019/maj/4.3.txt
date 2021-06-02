@@ -1,0 +1,52 @@
+TAGI:
+programowanie,największy wspólny dzielnik,odczytywanie danych
+PUNKTY:
+3
+TRESC:
+W pliku liczby.txt znajdź najdłuższy ciąg liczb występujących kolejno po sobie i taki, że największy wspólny dzielnik ich wszystkich jest większy od 1 (innymi słowy: istnieje taka liczba całkowita większa od 1, która jest dzielnikiem każdej z tych liczb).
+Jako odpowiedź podaj wartość pierwszej liczby w takim ciągu, długość ciągu oraz największą liczbę całkowitą, która jest dzielnikiem każdej liczby w tym ciągu. W pliku z danymi jest tylko jeden taki ciąg o największej długości.
+Uwaga: Możesz skorzystać z zależności NWD(a, b, c) = NWD(NWD(a, b), c). 
+
+Przykład:
+Dla liczb 3, 7, 4, 6, 10, 2, 5 odpowiedzią jest 4 (pierwsza liczba ciągu), 4 (długość ciągu) i 2 (największy wspólny dzielnik), natomiast dla liczb 5, 70, 28, 42, 98, 1 odpowiedzią jest 70 (pierwsza liczba ciągu), 4 (długość ciągu) i 14 (największy wspólny dzielnik).
+Odpowiedź dla pliku przyklad.txt: pierwsza liczba ciągu 90, długość 5, największy wspólny dzielnik 10. 
+
+ROZWIAZANIE:
+Rozwiązanie zadań w Pythonie:
+<code>def dzielniki(n):
+	dziel = []
+	for i in range(1, n//2):
+		if n%i == 0:
+			dziel.append(n//i)
+	return dziel
+
+ciag = []
+for line in dane:
+	line = line.strip()
+	ciag.append(int(line))
+
+ws_dziel = [] # wszystkie dzielniki
+for line in dane:
+	line = line.strip()
+	ws_dziel.append(dzielniki(int(line)))
+
+
+naj_dl = 0 # najwieksza dlugosc
+pierw = None # pierwszy dzielnik
+nwd = None
+for i in range(0, len(ws_dziel)): # dzielniki
+	for dziel in ws_dziel[i]: # dzielnik
+		dl = 0
+		for j in range(i, len(ws_dziel)):
+			if dziel in ws_dziel[j]:
+				dl += 1
+			else:
+				break
+			if dl > naj_dl:
+				nwd = dziel
+				pierw = ciag[i]
+				naj_dl = dl
+
+print("4.3.", pierw, naj_dl, nwd)</code>
+<a href=\'{dirpath}4.py\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

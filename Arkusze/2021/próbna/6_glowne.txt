@@ -1,0 +1,39 @@
+Wyścigi Kolarskie
+Pewien kibic zapisywał sobie w plikach tekstowych informacje o zawodnikach startujących  w corocznym wyścigu kolarskim wraz z wynikami ich startów.
+Wszystkie dane w plikach zawierają wiersze nagłówkowe z nazwami kolumn, natomiast dane  w wierszach są rozdzielone znakami tabulacji.
+W pliku grupy.txt znajdują się opisy grup kolarskich, których zawodnicy uczestniczyli  w przynajmniej jednym wyścigu. Każdy wiersz zawiera kolejno:
+- kod_grupy – trzyznakowy kod grupy kolarskiej,
+- nazwa – nazwę grupy kolarskiej,
+- siedziba – państwo, w którym grupa ma swoją siedzibę.
+Fragment pliku grupy.txt:
+kod_grupy nazwa siedziba
+AGR Agritubel Francja
+ALM Ag2r-La Mondiale Francja
+W pliku zawodnicy.txt znajdują się dane kolarzy, którzy uczestniczyli w przynajmniej  jednym z wyścigów. Każdy wiersz zawiera kolejno:
+- id_zawodnika – identyfikator zawodnika (liczba całkowita),
+- imie – imię zawodnika,
+- nazwisko – nazwisko zawodnika,
+- data – datę urodzenia zawodnika w formacie rrrr-mm-dd.
+Fragment pliku zawodnicy.txt:
+id_zawodnika imie nazwisko data
+1 Janier Acevedo 1985-12-06
+2 Mario Aerts 1974-12-31
+W pliku startujacy.txt znajdują się dane kolarzy związane z ich startami w kolejnych edycjach wyścigu, każdy wiersz zawiera kolejno:
+- id_startu – identyfikator startu (liczba całkowita), 
+- rok – rok edycji wyścigu,
+- id_zawodnika – identyfikator zawodnika (liczba całkowita), 
+- kod_grupy – trzyznakowy kod grupy kolarskiej,
+- obywatel_kraju – kraj, którego obywatelem był zawodnik podczas danej edycji  wyścigu.
+Fragment pliku startujacy.txt:
+id_startu rok id_zawodnika kod_grupy obywatel_kraju
+1 2008 176 TNK Australia
+2 2008 2 TNK BelgiaStrona 7 z 9
+EINP-R2_200
+W pliku czasy.txt znajdują się wyniki tylko tych kolarzy, którzy ukończyli wyścig. Każdy wiersz zawiera kolejno:
+- id_startu – identyfikator startu (liczba całkowita), 
+- czas – czas osiągnięty przez zawodnika z uwzględnieniem wszystkich bonifikat zapisany w formacie mm:ss:ms.
+Fragment pliku czasy.txt:
+id_startu czas
+1 87:53:50
+2 88:41:50
+Korzystając z dostępnych narzędzi informatycznych, wykonaj poniższe polecenia. Odpowiedzi  zapisz w pliku wyniki6.txt, a każdy podpunkt poprzedź odpowiadającym mu numerem zadania.

@@ -1,0 +1,17 @@
+Rekurencja
+Dana jest dodatnia liczba całkowita n oraz uporządkowana rosnąco tablica różnych liczb całkowitych T[1..n]. Przeanalizuj następującą funkcję rekurencyjną, której parametrami są liczby całkowite x, p, k, przy czym 1≤ p ≤ k ≤ n.
+
+Rek(x, p, k):
+jeżeli p < k
+  s ← (p + k) div 2
+  jeżeli T[s] ≥ x
+    wynikiem jest Rek(x, p, s)
+  w przeciwnym razie
+    wynikiem jest Rek(x, s + 1, k)
+w przeciwnym razie
+  jeżeli T[p] = x
+    wynikiem jest p
+  w przeciwnym razie
+    wynikiem jest −1
+
+Uwaga: div jest operatorem oznaczającym część całkowitą z dzielenia.

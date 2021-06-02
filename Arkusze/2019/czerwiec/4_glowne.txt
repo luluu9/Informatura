@@ -1,0 +1,6 @@
+Wybrane liczby
+Liczby pierwsze to liczby naturalne większe od 1, które mają dokładnie dwa dzielniki: jedynkę i samą siebie.
+Dane są dwa pliki: liczby.txt i pierwsze.txt. Plik liczby.txt zawiera 300 wierszy. W każdym wierszu tego pliku znajduje się jedna liczba całkowita dodatnia z zakresu od 1 do 100 000.
+Plik pierwsze.txt zawiera 200 wierszy. W każdym wierszu tego pliku znajduje się jedna liczba pierwsza z zakresu od 10 do 1 300 000.
+Uwaga: pomocnicze pliki liczby_przyklad.txt i pierwsze_przyklad.txt, zawierają dane, które możesz wykorzystać, aby sprawdzić poprawność działania swojego(-ich) programu(-ów). Każdy z nich zawiera po 50 wierszy. W każdym wierszu znajduje się jedna liczba. Odpowiedzi dla danych z tych plików są podane pod treściami zadań.
+Napisz program(-y), w wyniku działania którego(-ych) otrzymasz odpowiedzi do poniższych zadań. Pliki źródłowe z rozwiązaniem zapisz pod nazwą zgodną z numerem zadania, z rozszerzeniem odpowiadającym użytemu językowi programowania. 

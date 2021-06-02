@@ -1,0 +1,36 @@
+TAGI:
+programowanie,odczytywanie danych,słowniki
+PUNKTY:
+4
+TRESC:
+Dla każdego kraju z pliku galerie.txt wyznacz liczbę miast, w których powstaną galerie. 
+Wynik zapisz w pliku wynik4_1.txt. W każdym wierszu pliku powinny znajdować się: kod państwa oraz informacja o liczbie miast.
+Dla danych z pliku galerie_przyklad.txt prawidłowa odpowiedź to:
+H 1
+I 2
+F 1
+GB 1
+D 3
+NL 1
+DK 1
+ROZWIAZANIE:
+Rozwiązanie zadań w Pythonie:
+<code>galerie = []
+with open("Dane_2103/galerie.txt") as f:
+    for line in f.readlines():
+        galerie.append(line.strip()) # strip() oczyszcza ciąg znaków z białych znaków (jak nowa linia \n)
+
+
+# ZAD 1 #
+print("Zadanie 1.")
+kraje = {} 
+for galeria in galerie:
+    kraj = galeria.split()[0] # split() tworzy tablicę z wyrazów rozdzielonych spacjami
+    if not kraj in kraje: 
+        kraje[kraj] = 1
+    else:
+        kraje[kraj] += 1
+
+for kraj, ile in kraje.items():
+    print(kraj, ile)</code>
+<a href=\'{dirpath}4.py\' download>Pobierz rozwiązanie</a>

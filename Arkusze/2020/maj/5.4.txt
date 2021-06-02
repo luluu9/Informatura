@@ -1,0 +1,15 @@
+TAGI:
+bazy danych,kwerendy,funkcje agregujące,złączenia tabel,podzapytania
+PUNKTY:
+3
+TRESC:
+Znajdź 6 języków, którymi posługuje się łącznie najwięcej mieszkańców obu Ameryk („Ameryka Polnocna” i „Ameryka Poludniowa”), a które nie należą do rodziny
+indoeuropejskiej („indoeuropejska”). Dla każdego z nich podaj nazwę, rodzinę językową i liczbę użytkowników w obu Amerykach łącznie. 
+ROZWIAZANIE:
+SELECT TOP 6 J.jezyk, J.rodzina, SUM(U.Uzytkownicy) AS Uzytkownicy
+FROM (Jezyki AS J INNER JOIN Uzytkownicy AS U ON J.Jezyk=U.Jezyk) INNER JOIN Panstwa AS P ON U.Panstwo=P.Panstwo
+WHERE (P.Kontynent="Ameryka Polnocna" Or P.Kontynent="Ameryka Poludniowa") AND J.Rodzina<>"indoeuropejska"
+GROUP BY J.jezyk, J.rodzina
+ORDER BY 3 DESC;
+
+<a href=\'{dirpath}5.accdb\' download>Pobierz rozwiązanie</a>

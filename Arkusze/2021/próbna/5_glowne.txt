@@ -1,0 +1,12 @@
+Telefony
+W pewnym kraju firma codziennie wykonuje wiele telefonów do swoich kontrahentów. W pliku  telefony.txt znajduje się 2148 wierszy z danymi dotyczącymi połączeń wykonanych  w lipcu 2017 roku. W każdym wierszu są podane dane, oddzielone pojedynczą spacją, opisujące jedno połączenie: numer telefonu, data wykonania połączenia, dokładna godzina  rozpoczęcia i dokładna godzina zakończenia połączenia (w formacie: godz:min:sek). 
+Rodzaje numerów telefonów są rozpoznawane po liczbie cyfr:
+– telefony stacjonarne są siedmiocyfrowe (w przykładzie pierwszy numer), 
+– telefony komórkowe – ośmiocyfrowe (w przykładzie drugi), 
+– zagraniczne – dziesięciocyfrowe lub dłuższe (w przykładzie trzeci).
+Przykład:
+nr data rozpoczecie zakonczenie
+3539762 3-07-2017 08:04:54 08:21:26
+54586484 3-07-2017 08:18:16 08:23:34
+2109147679 3-07-2017 09:36:31 09:52:48
+Korzystając z dostępnych narzędzi informatycznych, wykonaj poniższe polecenia. Odpowiedzi zapisz w pliku tekstowym wyniki5.txt, a każdą z nich poprzedź numerem zadania.

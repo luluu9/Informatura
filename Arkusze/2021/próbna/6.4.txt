@@ -1,0 +1,8 @@
+TAGI:
+bazy danych,funkcje agregujące,podzapytania
+PUNKTY:
+2
+TRESC:
+W którym roku nie ukończyła wyścigu największa grupa zawodników? Podaj rok oraz liczbę zawodników, którzy nie ukończyli wyścigu (jest tylko jeden taki rok).
+ROZWIAZANIE:
+<a href=\'{dirpath}6.accdb\' download>Pobierz rozwiązanie</a>

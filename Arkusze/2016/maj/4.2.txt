@@ -1,0 +1,19 @@
+TAGI:
+arkusz kalkulacyjny,układ kartezjański,przeszukiwanie danych
+PUNKTY:
+3
+TRESC:
+Przy  założeniu  równomiernego  rozkładu  punktów  w  kwadracie,  stosunek  liczby  punktów  nₖ należących do koła do liczby punktów n należących do kwadratu jest w przybliżeniu równy stosunkowi pola koła Pₖ do pola kwadratu P: 
+nₖ/n≈Pₖ/P
+Dla przypomnienia: 
+Pₖ=π*r^2
+Wyznacz przybliżoną wartość liczby pi, biorąc pod uwagę punkty z pliku punkty.txt: 
+• pierwszych 1000 punktów,  
+• pierwszych 5000 punktów, 
+• wszystkie punkty. 
+Wyniki zaokrąglij do 4 miejsc po przecinku. 
+Informacja:  
+Przybliżona wartość liczby pi dla pierwszych 100 punktów z pliku wynosi 3,2000.
+ROZWIAZANIE:
+<a href=\'{dirpath}4.xlsx\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

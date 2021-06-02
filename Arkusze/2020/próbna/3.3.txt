@@ -1,0 +1,23 @@
+TAGI:
+test,prawda/fałsz,internet,protokoły,http,https
+
+PUNKTY:
+1
+
+TRESC:
+Protokół HTTPS
+1. jest protokołem pobierania poczty elektronicznej ze zdalnego serwera przez połączenie TCP/IP. [P/F]
+2. jest szyfrowaną wersją protokołu HTTP. [P/F]
+3. przydziela adresy IP poszczególnym komputerom. [P/F]
+4. obsługuje system nazywania domen. [P/F]
+
+ROZWIAZANIE:
+Okej, opowiedzmy trochę o HTTPS\'ie i jego pochodnych.
+Protokół HTTP to z angielskiego skrót od Hypertext Transfer Protocol. Nazwa wskazuje, jaką funkcję będzie pełnił: brał udział w transferze plików hipertekstowych, czyli takich, które są zorganizowane i połączone ze sobą w jakiś sposób. Strony internetowe stanową właśnie takie pliki! Tak więc protokół HTTP, działający na porcie 80, pozwala m.in. na pobieranie stron internetowych. Jak można jednak przeczytać na wielu stronach: HTTP jest protokołem nieszyfrowanym, a więc jeśli ktoś przechwyci ruch sieciowy, będzie mógł bezproblemowo dowiedzieć się, co dana strona zawierała (zakładając, że nie ma innych zabezpieczeń).
+Ta wada szczególnie dotknęła pierwsze sklepy internetowe, w których robienie zakupów było po prostu niebezpieczne, bo każdy, kto miał pewne umiejętności, mógł przechwycić dane np. karty kredytowej. Inżynierowie z firmy Netscape zauważyli w tym swoją szansę: jeśli stworzymy protokół, w której ruch będzie szyfrowany i bezpieczny, a następnie zaimplementujemy ten protokół do własnej przeglądarki, to każdy, kto będzie chciał skorzystać z wygody zakupów online, będzie musiał zainstalować naszą przeglądarkę. 😎
+W celu stworzenia szyfrowanego HTTP, zbudowali i wykorzystali kolejny protokół: SSL, którego zadanie polega na szyfrowaniu. Kombinując HTTP i SSL, wyszła im nazwa HTTPS, która oznacza tyle, co Hypertext Transfer Protocol Secure.
+Tyle z historii. Teraz przejdziemy do zadań!
+1. Protokół HTTPS jest protokołem pobierania poczty elektronicznej ze zdalnego serwera przez połączenie TCP/IP. - jak mówiliśmy, HTTPS służy do (w miarę) bezpiecznego przesyłania głównie stron internetowych, możemy zaznaczyć więc fałsz. (do pobierania maili służy POP i IMAP)
+2. jest szyfrowaną wersją protokołu HTTP. - yup, o tym właśnie opowiadaliśmy, prawda
+3. przydziela adresy IP poszczególnym komputerom. - niestety, to jest funkcja protokołu DHCP, fałsz
+4. obsługuje system nazywania domen. - heh, jest to problematyczne pytanie. Z jednej strony: zajmuje się tym protokół DNS (Domain Name System), ale z drugiej: powstał w niedawnym czasie protokół DNS-over-HTTPS, który obecnie wspiera jedynie Firefox. Protokół ten jednak zajmuje się jedynie "ukrywaniem" zapytań DNS w ruchu HTTPS, więc dlatego powinniśmy zaznaczyć fałsz. Swoją drogą: wiedzieliście, że zapytania DNS nie są domyślnie szyfrowane, co sprawia, że wszystkie adresy, które wpisaliśmy do przeglądarki, pochodzące z bardzo popularnych stron, jak i różnych odmętów internetu są łatwo dostępne dla naszego dostawcy sieci? 😇

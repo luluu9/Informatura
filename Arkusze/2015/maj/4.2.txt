@@ -1,0 +1,29 @@
+TAGI:
+programowanie,odczytywanie danych,system binarny,podzielność
+PUNKTY:
+3
+TRESC:
+Podaj, ile liczb w pliku liczby.txt jest podzielnych przez 2 oraz ile liczb jest podzielnych przez 8.
+Przykład: Dla zestawu liczb:
+101011010011001100000 (*), (**)
+10001001
+100100 (*)
+101010010101011011000 (*), (**)
+100011
+trzy liczby są podzielne przez 2 (*) i dwie liczby są podzielne przez 8 (**). 
+ROZWIAZANIE:
+<code>dane = ""
+with open("DANE_PR2/liczby.txt") as f:
+	dane = f.readlines()
+
+d8 = 0
+d2 = 0
+for line in dane:
+	line = line.strip()
+	if int(line, 2) % 2 == 0:
+		d2 += 1
+	if int(line, 2) % 8 == 0:
+		d8 += 1
+print("4.2 Liczb podzielnych przez 2:", d2, "\nLiczb podzielnych przez 8:", d8)
+</code><a href=\'{dirpath}4.py\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

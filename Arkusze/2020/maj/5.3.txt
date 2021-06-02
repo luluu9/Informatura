@@ -1,0 +1,14 @@
+TAGI:
+bazy danych,złączenia tabel,funkcje agregujące,podzapytania,
+PUNKTY:
+2
+TRESC:
+Podaj wszystkie języki, którymi posługują się użytkownicy na co najmniej czterech kontynentach.
+Uwaga: dla uproszczenia przyjmujemy, że państwo leży na tym kontynencie, na którym znajduje się jego stolica. 
+ROZWIAZANIE:
+SELECT U.jezyk, Count(*) AS Kontynenty
+FROM (SELECT U.jezyk FROM Uzytkownicy AS U INNER JOIN Panstwa AS P ON U.Panstwo=P.Panstwo GROUP BY P.kontynent, U.jezyk)  AS [%$##@_Alias]
+GROUP BY U.jezyk
+HAVING Count(*)>=4;
+
+<a href=\'{dirpath}5.accdb\' download>Pobierz rozwiązanie</a>

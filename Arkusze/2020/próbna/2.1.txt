@@ -1,0 +1,20 @@
+TAGI:
+dominanta,moda,zestaw danych,różne
+
+PUNKTY:
+1
+
+TRESC:
+Ile maksymalnie różnych mód (dominant) może mieć 10 elementowy zestaw danych? Podaj przykład 10 elementowego zestawu danych z dokładnie trzema różnymi modami.
+
+ROZWIAZANIE:
+Hmm, wygląda na króciutkie zadanie! 🥳
+Widzimy, że może występować kilka mód w zestawie danych. Musi jednak być choć jeden element, który różni się liczbą wystąpień, np. 2, 2, 1, 1, 3 - mamy tu dwie mody: 1 i 2. Jeśli jednak "wszystkie elementy zestawu występują w nim z taką samą liczebnością, to przyjmujemy, że taki zestaw nie ma mody", więc w zestawie: 2, 2, 1, 1, 3, 3 mody już nie ma!
+Tak więc jak będzie wyglądać 10-elementowy zestaw z największą liczbą dominant? 🤔
+Żeby uzyskać maksymalną liczbę mód, musimy znaleźć najmniejszą liczbę wystąpień, które będą stanowić modę, a liczba ta wynosi dwa! Dlaczego? bo zestaw składający się z liczb występujących z tą samą częstotliwością nie będzie mieć żadnej mody, zgodnie z tym, co zapisaliśmy wyżej, więc same pojedynczo występujące liczby odpadają.
+Tak więc naszą odpowiedzią na pierwsze pytanie będzie: 10-elementowy zestaw danych może mieć maksymalnie 4 mody. (dwa elementy muszą różnić się od reszty, jeśli wrzucilibyśmy do tego zestawu 5 par tych samych liczb, to nie byłoby żadnej mody)
+
+Teraz znajdźmy odpowiedź na drugie pytanie: "Podaj przykład 10 elementowego zestawu danych z dokładnie trzema różnymi modami". Tutaj prawidłowych odpowiedzi może być wiele: ważne, żeby 3 wartości występowały tyle samo razy, np: 1, 1, 1, 2, 2, 2, 3, 3, 3 i 4 - mamy 3 mody? mamy! 🐱‍🏍  Poprawną odpowiedzią będzie też: 1, 1, 2, 2, 3, 3, 4, 5, 6, 7.
+
+Jak widać - łatwiejsze zadania na maturze też się zdarzają! 😎 W następnym zadaniu będziemy pisać algorytm, który znajdzie nam modę dowolnej tablicy liczb! Może już teraz podejmiecie się tego zadania? 🤠
+

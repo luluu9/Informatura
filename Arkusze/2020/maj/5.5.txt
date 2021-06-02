@@ -1,0 +1,12 @@
+TAGI:
+bazy danych,kwerendy,funkcje agregujące,złączenia tabel,podzapytania
+PUNKTY:
+3
+TRESC:
+Znajdź państwa, w których co najmniej 30% populacji posługuje się językiem, który nie jest językiem urzędowym obowiązującym w tym państwie. Dla każdego takiego państwa podaj jego nazwę i język, którym posługuje się co najmniej 30% populacji, a który nie jest urzędowym językiem w tym państwie, oraz procent populacji posługującej się tym językiem. 
+ROZWIAZANIE:
+SELECT U.Panstwo, U.jezyk, ROUND(U.uzytkownicy/P.populacja*100,2) AS ["Procent poslugujacych sie"]
+FROM Panstwa AS P INNER JOIN Uzytkownicy AS U ON P.Panstwo=U.Panstwo
+WHERE U.urzedowy<>"tak" And U.uzytkownicy/P.populacja*100>=30;
+
+<a href=\'{dirpath}5.accdb\' download>Pobierz rozwiązanie</a>

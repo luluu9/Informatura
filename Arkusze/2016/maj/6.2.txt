@@ -1,0 +1,36 @@
+TAGI:
+programowanie,szyfr cezara,odczytywanie danych,zapisywanie danych
+PUNKTY:
+4
+TRESC:
+W pliku dane_6_2.txt zapisano 3 000 szyfrogramów i odpowiadające im klucze szyfrujące. W każdym wierszu znajduje się jeden szyfrogram (zaszyfrowane słowo)
+i po pojedynczym znaku odstępu odpowiadający mu klucz (maksymalnie czterocyfrowa liczba).
+Fragment pliku dane_6_2.txt:
+BCYKUNCM 1718
+YFOGNSKGYW 7580
+WARDA 9334 
+
+Napisz program, który odszyfruje słowa zaszyfrowane podanymi kluczami. Wynik zapisz w pliku wyniki_6_2.txt: każde odszyfrowane słowo w osobnym wierszu, w porządku odpowiadającym kolejności szyfrogramów z pliku z danymi.
+Uwaga:
+Dla pierwszego szyfrogramu z pliku dane_6_2.txt (BCYKUNCM) wynikiem jest słowo ZAWISLAK. 
+ROZWIAZANIE:
+<code>def odszyfr(ciag, k):
+    nowy_ciag = ""
+    for lit in ciag:
+        nowy_ord = 65+(ord(lit)-65-k) % 26
+        nowy_ciag += chr(nowy_ord)
+    return nowy_ciag
+
+with open("wyniki_6_2.txt", "w") as wyjscie:
+    with open("DANE_PR2/dane_6_2.txt") as wejscie:
+        for linia in wejscie:
+            if not linia:
+                continue
+            linia = linia.strip()
+            try:
+                ciag, k = linia.split()
+            except:
+                k = 0
+            wyjscie.write(odszyfr(ciag, int(k))+"\\n")</code>
+
+<a href=\'{dirpath}6.py\' download>Pobierz rozwiązanie</a>

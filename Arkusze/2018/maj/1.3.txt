@@ -1,0 +1,53 @@
+TAGI:
+algorytmy,pseudokod,analiza,złożoność
+PUNKTY:
+1
+TRESC:
+Dla każdej liczby całkowitej n > 1 instrukcja oznaczona w algorytmie symbolem (*)
+wykona się
+A. mniej niż 2·log₂n razy.
+B. więcej niż n/2, ale mniej niż n razy.
+C. więcej niż n+1, ale mniej niż 2n razy.
+D. więcej niż n² razy. 
+ROZWIAZANIE:
+Aby rozwiązać to zadanie, warto wiedzieć czym jest złożoność obliczeniowa algorytmów i co oznaczają te wszystkie zapisy w odpowiedziach.
+A więc czym ona jest? 🤔
+Jak wiemy - każde urządzenie różni się szybkością, pamięcią i wieloma innymi parametrami. 💻
+Jednak wiemy, że niektóre algorytmy są szybsze, a inne wolniejsze. Żeby to ustalić potrzeba jednej w "miarę" dokładnej miary, która jednoznacznie określi, co ile czasu zajmie. 🕰
+Korzystamy w tym celu złożoności obliczeniowej, która stwierdza, ile obliczeń (rozkazów) wykonujemy, aby rozwiązać jakiś problem, co bezpośrednio przekłada się na czas wykonania. ⌛ (Psst.. złożoność może także służyć do liczenia ile algorytm zjada pamięci, wtedy mówimy o złożoności pamięciowej! 📚)
+
+W zadaniu pojawia się pytanie: ile razy wykona się instrukcja "jeżeli..." (oznaczona *)? 🤔
+Otóż, spójrzmy na algorytm.
+Widzimy, że instrukcja ta znajduje się wewnątrz pętli. Pytanie więc możemy zmienić: ile razy wykona się pętla?
+Ano, jak głosi warunek pętli: tyle razy, aż p przestanie być mniejsze niż q. 😐
+Super. Dużo nam to mówi. dzięki pętlo.
+Ale nie poddajemy się. Oznacza to, że znów musimy wrócić do ulubionej analizy najlepszego algorytmu na świecie! 🤗
+
+Jak ustaliliśmy przy rozwiązywaniu poprzedniego zadania (1.2.), q dąży do tego, żeby być równe zaokrąglonemu w górę pierwiastkowi 3 stopnia z n (wynika to z warunku s*s*s < n, a inaczej: s < ∛n)
+
+Z zapisu s=(p+q) div 2 (i deklaracji w przeciwnym wypadku..) wychodzi, że q początkowo będzie się kurczyło o połowę, aż osiągnie wartość najbliższą (ale większą) pierwiastkowi 3 stopnia z n.
+Ile operacji "jeżeli" wykonamy, dążąc do tej liczby?
+Niestety - specjalistą matematycznym nie jestem. 😔
+
+Dlatego pokażę też inny, łatwiejszy sposób, ale nie jest pewne, że w każdej sytuacji będzie można w prosty sposób go zastosować. 🤷‍♀️
+Możemy cofnąć się do zadania 1.1. i po kolei posprawdzać każdy wynik oraz odpowiedzi w tym zadaniu:
+- dla n=28 wykonaliśmy 5 sprawdzeń;
+- dla n=64: 6 sprawdzeń;
+- dla n=80: także 6.
+
+Teraz podstawmy to w miejsce każdej odpowiedzi:
+A.) mniej niż 2*log2n razy: czyli podstawiamy: 2*log2(28)≅9.6 - hmm, wykonaliśmy 5 sprawdzeń, a 5<9.6, więc na razie się zgadza. Musimy być jednak pewni, więc wykonujemy kolejne obliczenia. 🙄
+2*log2(64)=12, znów się zgadza! możemy zatem zakładać, że jest to prawidłowa odpowiedź, w sumie mogliśmy już wcześniej, jeśli wiedzieliśmy, że logarytmy rosną wraz z podstawioną liczbą. Ale może akurat ominęliśmy tę lekcję matematyki. 🤷‍♀️
+Ale bądźmy skrupulatni i dokończmy dla ostatniego przykładu:
+2*log2(64)≅12,6; 12,6>6, więc wszystko jest okej
+Muszę jednak was ostrzec. ⚠ Nie zawsze taka metoda będzie dobra, ponieważ może zdarzyć się przypadek, w którym będzie istniała jakaś głupia liczba, która zepsuje nam nasz cały plan. 🤦‍♂️ Na przykład: nie obliczyliśmy ile instrukcji jeżeli wykonamy dla n=1000, a więc co jeśli? 😮 W przypadku tego algorytmu nie popełnimy błędu, ale zawsze lepiej być pewnym, niż nie być - na szczęście istnieje sposób, który nas w 100% upewni: spójrzcie na inne odpowiedzi! 🧐
+
+Powyższe wartości, które wskazują ile instrukcji "jeżeli..." zostanie wykonane, muszą być fałszywe dla innych odpowiedzi, bo tylko jedna może być prawdziwa.
+A więc sprawdźmy:
+B.) więcej niż n/2, ale mniej niż n razy. Brzmi kusząco, jednak spójrzmy: dla n=28; 5 sprawdzeń. 28/2=14. 5 to chyba nie więcej niż 14? 🙄
+C.) więcej niż n+1, ale mniej niż 2n razy. Yyyyyy.. jeśli n/2 się nie zgadzało, to to też wydaje się być... niepasujące, prawda?
+D.) więcej niż n^2 razy. No tutaj to już przegięli. Ile?!
+
+A więc teraz możemy spać spokojnie będąc pewnym, że postawiliśmy odpowiedź prawidłowo. 🛏
+
+Pocieszająco brzmi fakt, że metodą wykluczania błędnych odpowiedzi, możemy wskazać prawidłową - a więc możemy ominąć liczenie logarytmów. 🤗 Jednak dla waszego bezpieczeństwa, lepiej je powtórzcie, jeśli zapomnieliście. A nuż się przydadzą. 🔪

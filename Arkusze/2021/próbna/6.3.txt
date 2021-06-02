@@ -1,0 +1,10 @@
+TAGI:
+bazy danych,funkcje agregujące,złączenia tabel
+PUNKTY:
+2
+TRESC:
+Podaj imiona i nazwiska najmłodszych uczestników wyścigu w kolejnych latach. 
+Do obliczeń wykorzystaj rocznikowy wiek zawodnika, tj. liczbę lat, którą zawodnik ukończył  w roku zawodów.
+Przykład: w wyścigu w 2015 roku każdy z zawodników urodzonych w 1990 roku ma 25 lat.
+ROZWIAZANIE:
+<a href=\'{dirpath}6.accdb\' download>Pobierz rozwiązanie</a>

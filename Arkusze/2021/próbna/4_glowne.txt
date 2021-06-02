@@ -1,0 +1,11 @@
+Galerie handlowe
+Firma Igloo planuje w wybranych miastach Europy wybudować galerie handlowe. W każdej  z planowanych galerii może znajdować się różna liczba lokali handlowych. Wszystkie lokale  handlowe będą miały kształt prostokąta. 
+W pliku galerie.txt zapisanych jest 50 wierszy z informacjami dotyczącymi planowanych  galerii. Każdy wiersz w pliku to informacja o jednej galerii. Dane oddzielone są spacją  i zawierają odpowiednio: 
+- kod kraju;
+- nazwę miasta (nazwy miast nie powtarzają się);
+- 70 par liczb (140 liczb) określających wymiary (długość i szerokość w metrach) lokali  handlowych, które znajdować się będą w danej galerii. 
+Jeżeli liczba lokali w galerii jest  mniejsza niż 70, to wiersz uzupełniony jest zerami.
+Przykład:
+NL Amsterdam 8 4 5 12 7 5 5 11 9 4 7 6 … 0 0 0 0 0 0
+Do Twojej dyspozycji jest pomocniczy plik galerie_przyklad.txt, zawierający 10 wierszy, który możesz wykorzystać, aby sprawdzić poprawność działania swojego(-ich) programu(-ów).
+Napisz program(-y), w wyniku działania którego(-ych) otrzymasz odpowiedzi do podanych zadań. Pliki źródłowe z rozwiązaniem zapisz pod nazwą zgodną z numerem zadania, z rozszerzeniem odpowiadającym użytemu narzędziu informatycznemu.

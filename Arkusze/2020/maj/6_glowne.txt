@@ -1,0 +1,22 @@
+Statek
+Statek towarowy „Kormoran” pływał po Morzu Śródziemnym pomiędzy dziesięcioma portami, przewożąc pięć różnych rodzajów towarów (T1, T2, … , T5). Statek wypływał z portu zawsze tego samego dnia, w którym do tego portu przypłynął.
+W pliku statek.txt podano informacje o kursach wykonanych przez statek w okresie od 2016-01-01 do 2018-12-18. W każdym wierszu, oddzielone znakiem tabulacji, podane są:
+data – data przebywania statku w porcie (w formacie rrrr-mm-dd),
+port – nazwa portu,
+towar – rodzaj towaru,
+Z/W – informacja, czy to był załadunek (Z) czy wyładunek (W),
+ile ton – informacja, jaka masa (w tonach) towaru była wyładowana/załadowana,
+cena za tone w talarach – cena towaru w talarach za tonę.
+Przykład:
+data port towar Z/W ile ton cena za tone w talarach
+2016-01-01 Algier T4 Z 3 80
+2016-01-01 Algier T5 Z 32 50
+2016-01-01 Algier T1 Z 38 10
+2016-01-01 Algier T2 Z 33 30
+2016-01-01 Algier T3 Z 43 25
+2016-01-16 Tunis T5 W 32 58
+2016-01-16 Tunis T2 Z 14 26
+2016-01-24 Benghazi T5 Z 44 46
+2016-01-24 Benghazi T2 Z 1 28
+Wykorzystaj dostępne narzędzia informatyczne i podaj odpowiedzi do zadań 6.1.–6.5.
+Odpowiedzi zapisz w pliku wyniki6.txt, poprzedzając każdą z nich numerem odpowiedniego zadania. 

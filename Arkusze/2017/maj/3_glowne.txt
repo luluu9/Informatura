@@ -1,0 +1,4 @@
+Test
+Oceń prawdziwość podanych zdań. Zaznacz P, jeśli zdanie jest prawdziwe, albo F – jeśli jest
+fałszywe.
+W każdym zadaniu punkt uzyskasz tylko za komplet poprawnych odpowiedzi.

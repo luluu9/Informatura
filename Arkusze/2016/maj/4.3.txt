@@ -1,0 +1,15 @@
+TAGI:
+arkusz kalkulacyjny,układ kartezjański,przeszukiwanie danych
+PUNKTY:
+5
+TRESC:
+Błąd  bezwzględny  przybliżonej  wartości  liczby  pi,  wyznaczonej  z  n  punktów,  definiujemy  następująco: 
+εₙ = |π–piₙ|
+gdzie: 
+π – wartość liczby pi, będąca wynikiem standardowej funkcji z narzędzia informatycznego, z którego korzystasz; 
+piₙ – przybliżona wartość liczby pi wyznaczona z n kolejnych punktów, poczynając od pierwszego punktu z pliku punkty.txt,  np. pi₁₀₀₀ – liczba wyznaczona z pierwszego tysiąca punktów. 
+Oblicz nε  dla  n  =  1,  2,  3,  ...,  1700.  Na  podstawie  powyższego  zestawienia  utwórz  wykres  liniowy ilustrujący zmiany dokładności wyznaczanej liczby pi. Zadbaj o czytelność wykresu. 
+Wartości  dla ε₁₀₀₀ oraz ε₁₇₀₀  (zaokrąglone  do  czterech  miejsc  po  przecinku)  zapisz  do  pliku  wyniki_4.txt.
+ROZWIAZANIE:
+<a href=\'{dirpath}4.xlsx\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

@@ -1,0 +1,29 @@
+TAGI:
+modele barw,RGB,CMYK,test,prawda/fałsz,różne
+PUNKTY:
+1
+TRESC:
+1. Plakat do druku lepiej przygotować w modelu barw RGB niż CMYK. [P/F]
+2. Kolor żółty jest kolorem podstawowym w modelu RGB. [P/F]
+3. W wyniku nałożenia się składowych Yellow i Magenta w modelu CMYK otrzymamy kolor czerwony. [P/F]
+4. W modelu barw CMYK litera C pochodzi od angielskiego słowa contrast. [P/F]
+
+ROZWIAZANIE:
+Opowiedzmy może najpierw trochę o tych wszystkich nazwach i ich znaczeniu. 
+Przede wszystkim przewijają się skróty RGB i CMYK - co one oznaczają? Stanowią one modele barw, czyli upraszczając: sposób uzyskiwania różnych kolorów! 🎨 Może pamiętacie jeszcze z lekcji plastyki, że czerwony połączony z zielonym da nam żółty, a niebieski z czerwonym purpurowy? RGB stanowi skrót właśnie od tych trzech składowych: Red (czerwony), Green (zielony), Blue (niebieski). 
+Warto tutaj dodać, tak na przyszłość, że model RGB jest addytywny: oznacza to, że barwy powstają przez łączenie się (dodawanie) ze sobą barw podstawowych, a wynika to z tego, że ten model może być wykorzystany jedynie w przypadku urządzeń emitujących światło! W takim wypadku wyświetlanie przez monitor kolorów przypomina mieszanie barw na palecie.
+Model CMYK działa zgoła inaczej. Wykorzystuje on barwy: Cyan (cyjan, przypomina jaskrawy niebieski),Magenta (fuksja, osobiście wygląda mi na róż, choć co ja tam wiem 🤷‍♂️), Yellow (żółty, uff, wreszcie jakiś normalny kolor!) i... Key (kolor kluczowy) bądź blacK (czarny)! Z tym ostatnim jest trochę problemu, bo pojawia się wiele interpretacji tej litery - dla nas jednak najważniejsze, że najczęściej jest to czarny. (przy okazji odpowiedzieliśmy na pytanie 4, ha!). Zestaw tych czterech barw trzeba niestety regularnie wymieniać w drukarce. 🖨
+Teraz kluczowe pytanie: po co nam potrzebne kilka modeli?
+Hmm... odpowiedź tkwi w kartce papieru! Różni się ona od wyświetlacza, prawda? Możemy co prawda kolorować kartkę kredkami, ale gdy tylko zajdzie słońce lub zgaśnie światło... nie będzie nic widać! Dlaczego? bo kartka nie emituje własnego światła, tak jak robią to monitory. Ona odbija światło, a dana farba czy kredka pochłania pewien zakres fal, co w ostateczności daje nam wrażenie określonej barwy: dlatego CMYK nazywany jest modelem subtraktywnym (bo odejmuje niektóre długości fal). Może to wydawać się skomplikowane, ale warto zagłębić się w temat na w razie czego! 😎
+
+Wracając do naszych zadań, przejdźmy do odpowiedzi:
+1. Plakat do druku lepiej przygotować w modelu barw RGB niż CMYK. [P/F] - jak powiedzieliśmy, RGB wykorzystujemy przy emitowaniu światła, a CMYK do drukowania! Zaznaczamy fałsz. ❌
+
+2. Kolor żółty jest kolorem podstawowym w modelu RGB. [P/F] - red, green, blue, hmm... żółtego nie widzę, fałsz!
+
+3. W wyniku nałożenia się składowych Yellow i Magenta w modelu CMYK otrzymamy kolor czerwony. [P/F] 
+Tutaj przyda nam się wyobraźnia do wizualizacji takiego połączenia, jednak jest też inny sposób! W wyniku łączenia się barw CMY (tak, bez K), powstają barwy podstawowe RGB oraz po środku (gdy zmieszamy cyjan, żółty oraz magentę) kolor czarny. Ciężko, aby kolor czerwony powstał z żółtego i jaskrawego niebieskiego, prawda? z tego ostatniego i magenty także (w wyniku takiego połączenia powstanie zwykły niebieski!). A więc metodą eliminacji został nam tylko żółty i magenta, czyli jest to prawda.
+
+4. W modelu barw CMYK litera C pochodzi od angielskiego słowa contrast. [P/F] - C jak... cyjan! Czyli fałsz.
+
+Jak widać, informatyka to nie tylko algorytmy czy programowanie, jest w niej też trochę... koloru! 🌈

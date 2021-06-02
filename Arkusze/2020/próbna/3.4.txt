@@ -1,0 +1,33 @@
+TAGI:
+test,prawda/fałsz,systemy liczbowe,system binarny,system czwórkowy,system ósemkowy,system szesnastkowy
+
+PUNKTY:
+1
+
+TRESC:
+Liczba, która w zapisie binarnym ma dokładnie 16 cyfr i jedynkę na najbardziej znaczącej pozycji ma w zapisie
+1. czwórkowym dokładnie 9 cyfr [P/F]
+2. ósemkowym dokładnie 7 cyfr. [P/F]
+3. szesnastkowym dokładnie 4 cyfry. [P/F]
+4. dziesiętnym dokładnie 5 cyfr. [P/F]
+
+ROZWIAZANIE:
+Taka liczba w zapisie binarnym ma taki wygląd: 1000000000000000₂
+Jak jednak odpowiedzieć na zadane pytania? Mamy kilka opcji:
+a) przekonwertować wszystkie te liczby do dziesiętnych (o tym, jak to robić, mówiliśmy w poprzednim poście), czyli:
+- dwójkowy: 1000000000000000₂ = 32768
+- czwórkowy: 300000000₄ = 196608, z tą uwagą, że w systemach innych niż dwójkowe musimy obliczyć dwie wartości: z cyfrą najmniejszą z przodu oraz największą, a więc: 100000000₄ = 65536, jak widzimy, liczba 32768 nie zawiera się w przedziale <65536; 196608>, więc system czwórkowy na pewno odpada, fałsz
+itd.
+
+b) zamienić bezpośrednio z systemu binarnego na docelowe: robimy to, grupując cyfry w kilka, zaczynając od PRAWEJ strony!:
+- dla czwórkowego: po dwie cyfry (które dają kombinacje 00, 01, 10 i 11) - 10 00 00 00 00 00 00 00, czyli 10₂ = 2₄, 00₂ = 0₄, więc wychodzi liczba 20000000₄, która ma 8 cyfr, wychodzi nam fałsz!
+- dla ósemkowego: po trzy cyfry - 1 000 000 000 000 000, czyli 1₂ = 1₈, 000₂ = 0₈, więc wychodzi liczba 100000₈: liczba ta ma 6 cyfr, a nie 7, więc odpada - fałsz
+- dla szesnastkowego: po cztery cyfry - 1000 0000...., więc mamy 1000₂ = 8₁₆, 0000₂ = 0₁₆, czyli 8000₁₆: wreszcie prawda! mamy 4 cyfry
+- tej metody niestety nie zastosujemy dla systemu dziesiętnego, bo żeby ona zadziałała, podstawą systemu (np. 4 czy 8) musi być jedna z potęg dwójki: naszego pierwotnego systemu. Jednak omawiałem zamianę w ten sposób tutaj: fb.com/informatura/posts/133361728277548
+
+c) skorzystać z pewnej matematycznej własności potęg: (a^m)^n = a^m*n. Teraz może to wydawać się czystą magią, w jaki sposób jest to powiązane z naszym zadaniem. Jednak popatrzmy: liczba 1000000000000000₂ to nic innego jak 2^15 (już w dziesiętnym). 15 oznacza tu ilość cyfr w danym zapisie, jednak uszczuploną o początkowy symbol. A więc potęga+1 oznacza ilość cyfr w danym systemie liczbowym, którego podstawą jest cyfra podana jako podstawa potęgi. Na przykładach będzie łatwiej pokazać tą zależność:
+- dla czwórkowego: 2^15 = (2^2)^7.5 = 4^7.5: wychodzi, że dla systemu czwórkowego będzie 7.5+1 cyfr. 🤨 Coś tu nie jest, jak powinno być. Wystarczy jednak, że zaokrąglimy tę liczbę w dół i wyjdzie nam już prawidłowa wartość: 8 cyfr!
+- dla ósemkowego: 2^15 = (2^3)^5 = 8^5: mamy 5 cyfr dla systemu oktalnego, co się zgadza z wyższymi obliczeniami!
+itd...
+
+Widzimy więc, na jak wiele sposobów możemy wykonać to zadanie, a z pewnością znajdzie się jeszcze kilka! Warto znać kilka, bo niektóre z nich możemy wykorzystać tylko w określonych sytuacjach, ale za to szybciej, a jak wiemy, na maturze czas ma wielkie znaczenie. ⏰

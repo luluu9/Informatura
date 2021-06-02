@@ -1,0 +1,39 @@
+TAGI:
+programowanie,liczby pierwsze,odczytywanie danych,sortowanie danych
+PUNKTY:
+4
+TRESC:
+Para (liczba1, słowo1) jest mniejsza od pary (liczba2, słowo2), gdy:
+– liczba1 < liczba2,
+albo
+– liczba1 = liczba2 oraz słowo1 jest leksykograficznie (w porządku alfabetycznym) mniejsze od słowo2.
+Przykład:
+para (1, bbbb) jest mniejsza od pary (2, aaa), natomiast para (3, aaa) jest mniejsza od pary (3, ab).
+Rozważ wszystkie pary (liczba, słowo) zapisane w wierszach pliku pary.txt, dla których liczba jest równa długości słowa, i wypisz spośród nich taką parę, która jest mniejsza od wszystkich pozostałych. W pliku pary.txt jest jedna taka para.
+Dla danych z pliku przyklad.txt odpowiedzią jest:
+6 abbbbc 
+ROZWIAZANIE:
+Rozwiązanie zadań w Pythonie:
+<code>lines = ""
+with open("Dane_PR2/pary.txt") as f:
+    lines = f.readlines()
+
+nums = []
+strings = []
+
+for line in lines:
+    line.strip()
+    num, string = line.split()
+    nums.append(int(num))
+    strings.append(string)
+
+print("\n4.3")
+pairs = []
+for num, string in zip(nums, strings):
+    if num == len(string):
+        pairs.append((num, string))
+
+smallest_pair = sorted(pairs)[0]
+print(smallest_pair[0], smallest_pair[1])</code>
+<a href=\'{dirpath}4.py\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

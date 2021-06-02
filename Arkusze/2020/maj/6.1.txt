@@ -1,0 +1,9 @@
+TAGI:
+arkusz kalkulacyjny,przeszukiwanie danych
+PUNKTY:
+2
+TRESC:
+Podaj, który towar był ładowany na statek najwięcej razy i jaka była łączna masa tych załadunków.
+ROZWIAZANIE:
+<a href=\'{dirpath}6.xlsx\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

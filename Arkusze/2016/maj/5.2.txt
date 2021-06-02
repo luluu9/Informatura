@@ -1,0 +1,14 @@
+TAGI:
+bazy danych,grupowanie danych,funkcje agregujące,podzapytania
+PUNKTY:
+2
+TRESC:
+Podaj średnią liczbę osób zameldowanych w jednym pokoju. Wynik zaokrąglij do 4 miejsc po przecinku
+ROZWIAZANIE:
+Rozwiązanie w jednej kwerendzie:
+SELECT ROUND((SELECT COUNT(pesel) FROM Meldunki)/(SELECT COUNT(*) FROM (SELECT DISTINCT id_pok FROM Meldunki)),4) AS srednia
+FROM 1;
+FROM 1 występuje tutaj jedynie po to, aby można było taką kwerendę wykonać. Zawartość tej tabeli nas nie interesuje, więc zamiast "1" możemy podać jakąkolwiek inną istniejącą tabelę.
+Alternatywnie można rozbić to zapytanie na dwa osobne i wynik policzyć ręcznie, wykonując odpowiednie dzielenie.
+
+<a href=\'{dirpath}5.accdb\' download>Pobierz rozwiązanie</a>

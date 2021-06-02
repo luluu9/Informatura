@@ -1,0 +1,12 @@
+TAGI:
+bazy danych,kwerendy,złączenia tabel,podzapytania,funkcje agregujące
+PUNKTY:
+2
+TRESC:
+Istnieją marki, których wszystkie perfumy należą do tylko jednej rodziny zapachów. Podaj listę wszystkich nazw takich marek. Lista powinna zawierać nazwy marek i nazwy odpowiednich rodzin zapachów. 
+ROZWIAZANIE:
+SELECT DISTINCT Marki.nazwa_m, Perfumy.rodzina_zapachow
+FROM Perfumy INNER JOIN Marki ON Perfumy.id_marki=Marki.id_marki
+WHERE Perfumy.id_marki IN (SELECT id_marki FROM (SELECT DISTINCT id_marki, rodzina_zapachow FROM Perfumy) GROUP BY id_marki HAVING COUNT(Rodzina_zapachow) = 1);
+
+<a href=\'{dirpath}6.accdb\' download>Pobierz rozwiązanie</a>

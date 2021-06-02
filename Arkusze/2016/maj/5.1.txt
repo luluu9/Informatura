@@ -1,0 +1,19 @@
+TAGI:
+bazy danych,grupowanie danych,złączenia tabel,funkcje agregujące
+PUNKTY:
+2
+TRESC:
+Podaj  imię  i  nazwisko  osoby,  która  wypożyczyła  najwięcej  podręczników. Wypisz  tytuły wszystkich książek przez nią wypożyczonych.
+ROZWIAZANIE:
+1. kwerenda:
+SELECT TOP 1 s.imie & " " & s.nazwisko AS Personalia, COUNT(*) AS Il_ksiazek
+FROM Wypozyczenia AS w INNER JOIN Studenci AS s ON w.pesel=s.pesel
+GROUP BY s.imie & " " & s.nazwisko
+ORDER BY 2 DESC;
+
+2. kwerenda:
+SELECT s.imie & " " & s.nazwisko AS Personalia, tytul
+FROM Wypozyczenia AS w INNER JOIN Studenci AS s ON w.pesel=s.pesel
+WHERE s.imie & " " & s.nazwisko="KRZYSZTOF LEWANDOWSKI";
+
+<a href=\'{dirpath}5.accdb\' download>Pobierz rozwiązanie</a>

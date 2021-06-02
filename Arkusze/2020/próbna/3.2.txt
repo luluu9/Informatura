@@ -1,0 +1,41 @@
+TAGI:
+test,prawda/fałsz,systemy liczbowe,system binarny,system czwórkowy,system ósemkowy,system szesnastkowy
+
+PUNKTY:
+1
+
+TRESC:
+Różnica 11001001₂ – 1111110₂ (dwóch liczb zapisanych w systemie binarnym) jest równa
+1. 4C₁₆ [P/F]
+2. 113₈ [P/F]
+3. 1023₄ [P/F]
+4. 1001010₂ [P/F]
+
+ROZWIAZANIE:
+Ohoo, tutaj zrobiło się gorąco. 🤒 Ale coś uda nam się wymyślić..
+A więc musimy zrobić sobie małą powtórkę z systemów liczb. Z jakiego systemu korzystamy na co dzień? Dziesiętnego, chociaż tutaj może niektórych zaskoczę: również często z systemu sześćdziesiętnego i dwunastkowego! Korzystamy z nich chociażby przy okazji korzystania z zegara (skądś się przecież wzięło 12 godzin, 60 minut czy 60 sekund ⏲). Ale wracając do sedna: jak działają systemy liczbowe? 
+Każda cyfra znajduje się na pewnej pozycji, a ta pozycja określa "jak ważna" jest dana cyfra. Weźmy na przykład liczbę 123: składa się z 3 cyfr, jednej setki, dwóch dziesiątek i trzech jedynek. Jak jednak uzyskaliśmy tę liczbę (choć to pytanie brzmi nieco dziwnie)?
+Chodzi tu o to, że każdy system na swoją podstawę: dziesiętny - 10, dwójkowy - 2, szesnastkowy - 16. Właśnie ona określa to, że pierwsza cyfra od prawej przyjmuje wartość 3*1, a ściślej rzecz biorąc: 3*10^0. Dokładnie tak samo jest z kolejnymi cyframi, za każdym razem jednak zwiększamy potęgę o jedną: 2*10^1 = 2*10 = 20; 1*10^2 = 1*100 = 100.
+Co ta wiedza nam daje?
+Możemy z jej pomocą obliczyć wartość "różnicy 110010012 – 11111102", sprowadzając te dwie liczby do systemu dziesiętnego! Do dzieła. 😎
+Warto zapisać sobie tabelkę, z której będziemy aktywnie korzystać, a także ołówkiem ponumerować sobie zaczynając od prawej strony cyfry, które chcemy zamienić na system dziesiętny:
+2^0=1
+2^1=2
+2^2=4
+2^3=8
+2^4=16
+2^5=32
+2^6=64
+2^7=128
+2^8=256
+...
+110010012 = 2^0+0+0+2^3+0+0+2^6+2^7 = 1+8+64+128=201
+Podobnie robimy z drugą liczbą:
+11111102 = 2^0+2^1+2^2+2^3+2^4+2^5 = 2+4+8+16+32+64=126
+A więc teraz możemy wreszcie poznać wynik różnicy, który wynosi 201-126=75!
+Niestety...... to tylko połowa sukcesu. 😭
+Musimy jeszcze postąpić identycznie z resztą liczb, podstawiając prawidłowy system.
+1. 4C₁₆ [P/F]: tutaj litery stanowią zamiennik cyfr: po dziewiątce mamy więc: A, B, C, D, E i F. A=10, B=11... Nie zmienia nam to dużo, popatrzcie: 12*16^0+4*16^1 = 12+64 = 76, więc mamy fałsz!
+2. 113₈ [P/F]: 3*8^0+1*8^1+1*8^2 = 3+8+64 = 75, prawda! 🤠
+3. 1023₄ [P/F]: 3*4^0+2*4^1+0*4^2+1*4^3 = 3+8+64 = 75, ponownie prawda!
+4. 1001010₂ [P/F]: ❓❓❓ Zostawiam ten przykład dla was!

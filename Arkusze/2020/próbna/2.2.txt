@@ -1,0 +1,57 @@
+TAGI:
+dominanta,moda,zestaw danych,programowanie,algorytmy
+
+PUNKTY:
+5
+
+TRESC:
+W wybranej przez siebie notacji (w postaci pseudokodu, listy kroków, lub języka programowania) napisz algorytm zgodny z poniższą specyfikacją:
+Dane:
+  n – dodatnia liczba całkowita większa niż 2
+  T[1..n] – tablica n liczb całkowitych, w której występuje dokładnie jedna moda
+Wynik:
+  m – moda zestawu liczb zapisanego w tablicy T
+Uwaga: w zapisie możesz wykorzystać tylko operacje arytmetyczne (dodawanie, odejmowanie, mnożenie, dzielenie, dzielenie całkowite, reszta z dzielenia), odwoływanie się do pojedynczych elementów tablicy, porównywanie liczb, instrukcje sterujące i przypisania do zmiennych lub samodzielnie napisane funkcje zawierające wyżej wymienione operacje. 
+
+ROZWIAZANIE:
+Tak jak przy okazji poprzednich algorytmów, proponuję zapis w pseudokodzie bądź liście kroków: wykorzystując te metody, zmniejszamy szanse na popełnienie jakiegoś głupiego błędu (np. brak średnika na końcu w C++). 😜
+
+Okej, wypiszmy rzeczy, które są ważne przy realizacji zadania:
+- wiemy, że jest tylko jedna moda
+- moda to wartość, która występuje najczęściej
+- liczby zapisane są w tablicy indeksowanej od 1 do n
+do czego nas to prowadzi? Będziemy musieli policzyć, ile razy każda liczba powtórzyła się w tablicy i wybrać liczbę, która najczęście występowała. 🤠
+Możemy rozwiązać to na kilka sposobów, np.:
+a) tworzymy dwie tablice Liczby i Wyst[ąpienia]: w pierwszej zapisujemy liczbę, a w drugiej pod tym samym indeksem zapisujemy ilość wystąpień tej liczby; w pętli "powtarzaj dla i=1..n" porównujemy element T[i] z każdym elementem tablicy Liczby i jeśli taki element się tam znajduje, to bierzemy indeks z tablicy Liczby i dodajemy 1 pod ten indeks w tablicy Wyst. Jeśli jednak nie znajduje się w Liczby taka wartość,  to dopisujemy ją i to samo robimy w tablicy Wyst, zapisując pod ten indeks 1. Po ukończeniu tego procesu wybieramy najwyższą liczbę w tablicy Wyst i pod tym indeksem w tablicy Liczby znajduje się nasza moda. 🥳
+Taki algorytm w pseudokodzie wygląda tak: 
+<code>Liczby=[]
+Wyst=[]
+il=0
+powtarzaj dla i=1..n:
+  znaleziono = Fałsz
+  powtarzaj dla j=1..il:
+    jeśli T[i] == Liczby[j]:
+      Wyst[j] = Wyst[j] + 1
+      znaleziono = Prawda
+  jeśli nie znaleziono:
+    il = il + 1
+    Liczby[il] = T[i]
+    Wyst[il] = 1
+maks = 0
+powtarzaj dla i=1..il:
+  jeżeli Wyst[i] > Wyst[maks]:
+    maks = i
+m = Liczby[maks]</code>
+b) druga opcja jest podobna do powyższej, z tą różnicą, że nie tworzymy tabel, a robimy wszystko "w locie". Najpierw zadeklarujemy dwie zmienne: maxL[iczba wystąpień] i maxW[artość]. Następnie - podobnie jak poprzednio - zastosujemy pętlę "powtarzaj dla i=1..n", w której zainicjujemy tymczasowe zmienne: l[iczba wystąpień]=0 i w[artość]=T[i]. Teraz wprowadzimy kolejną, taką samą pętlę, w której znajdziemy naszą liczbę wystąpień. Po tej pętli jedyne co musimy jeszcze zrobić, to sprawdzić czy L jest większe od maxL i jeśli tak, to przypisujemy do maxL wartość l, a do maxW wartość w. Po zakończeniu wykonywania pętli mamy naszą modę w postaci maxW 🥰
+Pseudokod wygląda tak:
+<code>maxW, maxL
+powtarzaj dla i=1..n:
+  w = T[i]
+  l = 0
+  powtarzaj dla j=1..n:
+    jeśli w==T[j]:
+      l = l+1
+  jeśli l > maxL:
+    maxW = w
+    maxL = l
+m = maxL</code>Jak widać, istnieje wiele sposobów rozwiązania danego zadania. Jestem pewien, że można zapisać ten algorytm jeszcze na przynajmniej kilka innych sposobów, a ogranicza was jedynie wyobraźnia! 😎

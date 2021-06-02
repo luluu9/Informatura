@@ -1,0 +1,99 @@
+#contact-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#contact-form input, #contact-form textarea {
+    box-sizing: border-box;
+    margin: 7px 0px;
+    padding: 5px;
+    font-family: inherit;
+    font-size: inherit;
+    box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, .1);
+    border: none;
+    transition: background-color .2s ease-in-out;
+    /* https://stackoverflow.com/questions/36247140/why-dont-flex-items-shrink-past-content-size */
+    min-width: 0;
+    min-height: 0;
+    width: 100%;
+}
+
+#contact-form input:focus, #contact-form textarea:focus {
+    background-color: #eee;
+}
+
+#contact-form input[type=submit] {
+    width: 100px;
+    cursor: pointer;
+    background-color: #eee;
+}
+
+#contact-form input[type=submit]:hover {
+    background-color: #ccc;
+}
+
+#contact-details {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* MEDIA */
+
+#other-contacts {
+    margin-top: 20px;
+}
+
+.contact {
+    font-size: 2.1rem;
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+
+.contact a:hover {
+    color: #000;
+}
+
+.fa {
+    margin-right: 10px;
+    text-align: center;
+
+}
+
+.fa-envelope {
+    color: #888;
+    font-size: 2.5rem;
+}
+
+.fa-facebook {
+    width: 14px;
+    font-size: 2rem;
+    padding: 4px 3px 0px 3px;
+    background-color: #888;
+    color: white;
+    border-radius: 10%;
+}
+
+@media (min-width: 500px) {
+    #contact-details {
+        flex-wrap: nowrap;
+    }
+    #contact-form input, #contact-form textarea {
+        margin: 10px 0px;
+        padding: 7px;
+    }
+    #contact-form input[type=text] {
+        margin-right: 10px;
+    }
+    #contact-form input[type=email] {
+        margin-left: 10px;
+    }
+}
+
+/* bo skaluje sie czcionka */
+
+@media (min-width: 1120px) {
+    .fa-facebook {
+        width: 19px;
+    }
+}

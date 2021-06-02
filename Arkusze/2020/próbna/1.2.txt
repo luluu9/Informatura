@@ -1,0 +1,34 @@
+TAGI:
+algorytmy,pseudokod,wywołania funkcji,parametry funkcji,rekurencja,wyszukiwanie binarne,dziel i zwyciężaj
+
+PUNKTY:
+2
+
+TRESC:
+Podaj, jakie będą wartości parametrów przekazywanych do funkcji Rek w kolejnych jej wywołaniach dla n = 11, tablicy T = [1, 5, 8, 10, 12, 14, 19, 20, 23, 30, 38] oraz pierwszego wywołania Rek(7, 1, 11).
+
+ROZWIAZANIE:
+Hmm... Wygląda na to, że jedyne co musimy zrobić, to prześledzić kolejne wykonania! 🤠 Stwórzmy więc tabelkę, którą wykorzystywaliśmy już wiele razy przy poprzednich zadaniach:
+- w pierwszej kolumnie zapiszmy przekazane parametry (x, p i k)
+- w następnej pytanie: "czy p jest mniejsze od k?"
+- kolejna będzie zawierać wartość zmiennej s, która jest równa "(p + k) div 2" i od razu sprawdzimy, "czy T[s] ≥ x"
+- w przedostatniej znajdzie się kolejne pytanie: "czy T[p] = x?"
+- w skrajnej zapiszemy wynik funkcji 
+Trzeba tu jednak zaznaczyć, że niektóre kolumny czasem możemy pominąć - wynika to z formy algorytmu: np. wartość zmiennej s będzie nam niepotrzebna, jeśli p ≥ k. 😀
+Pamiętajmy, że tak naprawdę to, co wykonujemy wyżej, to zwykłe śledzenie czynności, jakie wykonuje pseudokod. Polecam najpierw spróbować samemu spróbować przejść przez wszystkie fazy, aż do uzyskania wyniku, a dopiero potem zweryfikować to z poniższym rozwiązaniem, bo samym czytaniem też niewiele zdziałamy. 😅
+
+
+Rozpisaliśmy więc tak naprawdę algorytm w inny sposób, możemy teraz przystąpić do naszej "symulacji wykonania algorytmu". 😎 
+Dobrze jest rozpisać sobie to na kartce w formie faktycznej tabeli, ale musimy zadowolić się tutaj tym co mamy. 🙄 
+
+Warto zapisać zawartość z tablicy i w pewien sposób poindeksować ją (pamiętając, że tutaj zaczynamy od jedynki), bo będziemy często z niej korzystać!
+T = [1:1, 2:5, 3:8, 4:10, 5:12, 6:14, 7:19, 8:20, 9:23, 10:30, 11:38]
+1. x=7, p=1, k=11. p < k, więc s = (1+11) div 2 = 6. T[6]=14, więc T[6] ≥ x. Wynik to Rek(x, p, s)
+2. x=7, p=1, k=6. p < k, więc s=(1+6) div 2 = 3. T[3]=8, więc T[3] ≥ x. Wynik to Rek(x, p, s)
+3. x=7, p=1, k=3. p < k, więc s=(1+3) div 2 = 2. T[2]=5, więc T[2] < x. Wynik to Rek(x, s+1, k)
+4. x=7, p=3, k=3. p = k, więc sprawdzamy, czy T[p] = x. T[3]=8, więc T[3] =/= x. Wynik to -1
+
+Tak oto uzyskaliśmy odpowiedzi do naszego zadania! Są nimi zapisy kolejnych wywołań (np. Rek(x, p, s)), ale nie zapominajmy o uzupełnieniu ich faktycznymi wartościami. 😀 Wartości te zapisaliśmy w następnej linijce: dla 1. wykonania  zmienne te wynoszą: x=7, p=1, k=6 i to je musimy przepisać:
+1. Rek(7, 1, 6)
+2. Rek(7, 1, 3)
+3. Rek(7, 3, 3)

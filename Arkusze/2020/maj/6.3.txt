@@ -1,0 +1,12 @@
+TAGI:
+arkusz kalkulacyjny,przeszukiwanie danych
+PUNKTY:
+2
+TRESC:
+W dniach 2016-02-01 i 2018-08-01 statek nie zawijał do portu.
+Dla każdego z tych dni podaj:
+• rodzaj i liczbę ton towaru, którego było najwięcej na statku,
+• rodzaj i liczbę ton towaru, którego było najmniej na statku (przyjmujemy, że towar był nas statku, jeśli liczba ton tego towaru była większa od 0). 
+ROZWIAZANIE:
+<a href=\'{dirpath}6.xlsx\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

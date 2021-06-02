@@ -1,0 +1,20 @@
+TAGI:
+bazy danych,grupowanie danych,funkcje agregujące,podzapytania
+PUNKTY:
+3
+TRESC:
+Biblioteka planuje wprowadzenie zakazu wypożyczania kilku egzemplarzy tego samego tytułu podręcznika studentom mieszkającym w jednym pokoju. Gdy ta zasada będzie obowiązywać, w żadnym pokoju nie powtórzy się żaden tytuł podręcznika.
+Podaj, ile byłoby wypożyczonych podręczników, gdyby takie ograniczenie już funkcjonowało. 
+ROZWIAZANIE:
+Kwerenda 5_1:
+SELECT w.tytul & m.id_pok, COUNT(*)-1 AS za_duzo_o
+FROM Wypozyczenia AS w INNER JOIN Meldunki AS m ON w.pesel=m.pesel
+GROUP BY w.tytul & m.id_pok
+HAVING COUNT(*)>1;
+
+Kwerenda 5:
+SELECT ((SELECT COUNT(*) AS il_ksiazek FROM Wypozyczenia)-(SELECT SUM(za_duzo_o) FROM 5_1)) AS wypozyczone
+FROM 1;
+Sytuacja taka sama jak w zadaniu 5.2: FROM 1 występuje tutaj jedynie po to, aby można było taką kwerendę wykonać, zawartość tej tabeli jest nieistotna. 
+
+<a href=\'{dirpath}5.accdb\' download>Pobierz rozwiązanie</a>

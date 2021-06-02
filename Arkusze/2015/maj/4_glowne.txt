@@ -1,0 +1,10 @@
+Liczby binarne
+W pliku liczby.txt znajduje się 1000 liczb naturalnych zapisanych binarnie. Każda liczba zapisana jest w osobnym wierszu. Pierwsze pięć wierszy zawiera następujące liczby:
+11010100111
+11110111111011101
+1010100111010100
+1101111111111111111111010100101010101001
+1010110011001101010011110101010101010111
+Każda liczba binarna zawiera co najwyżej 250 cyfr binarnych, co oznacza, że w wielu językach programowania wartości niektórych z tych liczb nie da się zapamiętać w pojedynczej zmiennej typu całkowitoliczbowego, np. w języku C++ w zmiennej typu int.
+Napisz program, który da odpowiedzi do poniższych zadań. Odpowiedzi zapisz w pliku
+wynik4.txt, a każdą odpowiedź poprzedź numerem oznaczającym odpowiednie zadanie. 

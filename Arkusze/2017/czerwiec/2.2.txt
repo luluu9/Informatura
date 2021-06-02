@@ -1,0 +1,106 @@
+TAGI:
+pseudokod,analiza,palindromy,rekurencja,algorytmy
+
+PUNKTY:
+4
+
+TRESC:
+W zaprezentowanej w tym punkcie funkcji REG(w,n) uzupełnij brakujące elementy tak, aby realizowała ona następującą specyfikację:
+Specyfikacja:
+Dane:
+  n – dodatnia liczba całkowita
+  w[1..n] – słowo złożone z liter A, B
+Wynik:
+  wartość reg(w).
+    
+Funkcja REG(w,n):
+jeżeli n = 1
+  wynikiem jest ……………………
+w przeciwnym przypadku
+  jeżeli n mod 2 = 0
+    m ← n / 2
+  w przeciwnym przypadku
+    m ← (n – 1) / 2
+      dla i=1,2,…,m wykonuj
+        jeżeli w[i] ≠ …………………
+          podaj wynik 0 i zakończ wykonywanie funkcji
+    x ← w[1..m]
+    wynikiem jest 1 + …………………
+        
+Uwaga: mod – reszta z dzielenia całkowitego 
+
+ROZWIAZANIE:
+To zadanie jest związane bezpośrednio z treścią algorytmu zawartą w poprzednim poleceniu - musimy uzupełnić poszczególne (wykropkowane, są trzy takie miejsca) fragmenty pseudokodu odpowiednimi wartościami. Jeśli jeszcze nie przerabiałeś/aś zadania 2.1., polecam najpierw to zrobić <a href="/zadanie/19">w tym miejscu</a>. Pójdzie gładko, obiecuję. 🤠
+
+Przypomnijmy sobie, co ma robić ten pseudokod:
+W tym zadaniu rozważamy tylko słowa zbudowane z wielkich liter A i B. Słowo nazwiemy palindromem, gdy czytane od lewej do prawej jest takie samo jak czytane od prawej do lewej.
+Przykładowo słowo ABABA jest palindromem, natomiast palindromem nie jest słowo BAABA.
+Dla słowa w definiujemy jego regularność reg(w), jak następuje:
+− jeśli słowo w jest słowem jednoliterowym, to jest palindromem, a jego reg(w) = 1
+− jeśli słowo w składa się z więcej niż jednej litery, to można je przedstawić w postaci:
+w=w1Zw2, gdy ma długość nieparzystą
+lub
+w=w1w2, gdy ma długość parzystą,
+gdzie w1, w2 są słowami tej samej długości, a Z jest literą A lub literą B.
+Jeżeli w nie jest palindromem, definiujemy reg(w)=0, natomiast gdy w jest
+palindromem definiujemy reg(w)=reg(w1)+1.
+
+Okej, przejdźmy teraz do naszej funkcji.
+Pierwszy wykropkowany element znajduje się tutaj:
+jeżeli n = 1
+  wynikiem jest ……………………
+[...]
+A więc - czym jest n? Powinniśmy spojrzeć na dane, które są podane w poleceniu:
+Dane:
+  n – dodatnia liczba całkowita
+  w[1..n] – słowo złożone z liter A, B 
+Nie jest bezpośrednio wytłumaczone, czym jest to "n", ale jak spojrzymy na tablicę (czyli ciąg zmiennych, do którego możemy się odwołać - coś jak szufladki ponumerowane w tym wypadku od 1 do n, a każda zawiera jakąś literę - w dowolnym momencie możemy wyciągnąć jakąkolwiek z nich), to widzimy, że n stanowi liczbę znaków, które składają się na słowo: np. jeśli n=5, tablica w zawiera litery o indeksach 1, 2, 3, 4 i 5, a więc przykładowo słowo "jeleń". 🦌
+Okej, wiemy więc, że n oznacza długość przekazanego słowa. 😎
+Co to nam daje? ano, przypomnijmy, że "jeśli słowo w jest słowem jednoliterowym, to jest palindromem, a jego reg(w) = 1". Czyli jeśli n = 1, mamy zwrócić 1. Proste, prawda? 😄
+Zapisujemy więc 1 w wykropkowanym miejscu.
+
+Przejdźmy dalej:<code>[...]
+jeżeli n mod 2 = 0
+  m ← n / 2
+w przeciwnym przypadku
+  m ← (n – 1) / 2
+  dla i=1,2,…,m wykonuj
+    jeżeli w[i] ≠ …………………
+      podaj wynik 0 i zakończ funkcję
+[...]</code>Ouch. 😪 Trochę tego dali. Ale tylko z pozoru może wydawać się to trudne.
+Pierwsze 4 linijki to nic innego, jak obliczanie tego fragmentu polecenia:
+− jeśli słowo w składa się z więcej niż jednej litery, to można je przedstawić w postaci:
+w=w1Zw2, gdy ma długość nieparzystą
+lub
+w=w1w2, gdy ma długość parzystą,
+gdzie w1, w2 są słowami tej samej długości, a Z jest literą A lub literą B. 
+
+Zmienna m stanowi tak naprawdę miejsce (indeks do tablicy) ostatniej litery w1 - pokażmy to na przykładzie słowa "kajak". Zapiszmy najpierw indeksy poszczególnych liter: k-1, a-2, j-3, a-4, k-5. Teraz wyznaczmy zmienne w1, Z i w2. w1=ka, Z=j, w2=ak. m w tym wypadku będzie równało się 2, bo w1 kończy się na tym znaku, a zmienna m oznacza indeks w tablicy, nie samą literę. 🥱 
+Jak to ma się jednak do naszego zadania?
+
+Przesuńmy się do 3 ostatnich linijek, co tu mamy:
+- pętla "dla i=1,2,…,m wykonuj": czyli wykonujemy polecenia znajdujące się pod tą pętlą aż do czasu, gdy osiągniemy ostatni indeks znaku słowa w1. (dla kajak wykona się dwa razy 😉)
+- warunek "jeżeli w[i] ≠ …………………": doszliśmy do naszego wybrakowanego miejsca. Okej, co tutaj powinno się stać? 🤔
+Spójrzmy niżej: "podaj wynik 0 i zakończ funkcję". Do czego nam to pasuje? "Jeżeli w nie jest palindromem, definiujemy reg(w)=0"! 😎 
+Oznacza to dla nas, że musimy w warunku wyżej sprawdzać, czy podane słowo jest palindromem. Definicja palindromu powinna być znana z poprzedniego zadania: słowo czytane zarówno od lewej jak i prawej ma takie samo znaczenie, jak np. wyżej wymieniony "kajak".
+Jak możemy jednak to sprawdzić?
+Jest na to prosty sposób. Wystarczy, że za jednym razem będziemy porównywać n-ty znak od lewej z n-tym znakiem od prawej, np.: pierwszą literą od lewej dla słowa "kajak" jest k, a ostatnią (czyli tak naprawdę też pierwszą, ale od prawej!)? też k! Posuwamy się więc po kolei, aż dojdziemy do połowy słowa, czyli naszego m. (jeśli liczba znaków jest nieparzysta, nie musimy sprawdzać środkowego znaku: wynika to z faktu, że znak po środku, czyli 3 od prawej jak i lewej np. słowa "kajak" jest taki sam: "j", dlatego możemy go pominąć!)
+
+Okej, to jak zapisać to w naszym pseudokodzie?
+Pętla wygląda tak:
+"dla i=1,2,…,m wykonuj", a więc zmienna i "czyta" nasze słowo od lewej. Znając długość słowa pod postacią zmiennej n, możemy ją wykorzystać. 
+Wystarczy, że będziemy konsekwentnie odejmować od długości słowa zmienną i, pamiętając o tym, że i zaczyna się od jeden, więc musimy dodać jedynkę, aby faktycznie zaczynać od ostatniej litery: tj. znaki czytane od prawej mają indeks n+1-i.
+A więc żeby sprawdzić, czy coś jest palindromem, wystarczy że porównamy w[i] z w[n+1-i]. I właśnie to musimy zapisać w tym miejscu! "jeżeli w[i] ≠ w[n+1-i]":
+
+Powoli dochodzimy do końca! 🤗
+Został nam ostatni fragment:<code<[...]
+x ← w[1..m]
+wynikiem jest 1 + …………………
+[...]</code>Hmm, jak czytać to, co zostało wykonane przy x? Otóż jest to taki skrótowiec na przypisanie jakiejś części tablicy do innej zmiennej. W tym przypadku x będzie stanowić to, co w1.
+Przyglądając się, jak działać ma algorytm, możemy zauważyć, że jeśli podane słowo jest palindromem i jego liczba znaków jest większa niż 1, to "definiujemy reg(w)=reg(w1)+1" 
+Tak naprawdę to, co mamy zapisać, podane jest samej treści zadania. 🥰
+Musimy jednak minimalnie to zmodyfikować, ponieważ nasza funkcja przyjmuje dwa argumenty, w i n, a nie samo w1. 
+Odpowienikiem w1 będzie wyżej wspomniane x! a zmienna n, jak pamiętamy, oznacza długość przekazywanego słowa. Jaka jest więc długość x? Obliczyliśmy to wcześniej! 🦸‍♂️ Jest to nasza zmienna m.
+Finalnie więc zapiszemy (pamiętając, że funkcja pisana jest wielkimi literami): "wynikiem jest 1 + REG(x, m).
+
+Oto całe zadanie za nami. 🥳 Tak naprawdę nie trzeba wiele, żeby rozwiązać tego typu zadanie. Wystarczy dobrze zrozumieć to, co ma dany kod robić, a będziemy wiedzieli jak go uzupełnić.

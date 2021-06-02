@@ -1,0 +1,14 @@
+TAGI:
+bazy danych,kwerendy,funkcje agregujące
+PUNKTY:
+2
+TRESC:
+Utwórz zestawienie, które dla każdej rodziny językowej podaje, ile języków do niej należy.
+Posortuj zestawienie nierosnąco według liczby języków. 
+ROZWIAZANIE:
+SELECT Rodzina, COUNT(*) AS ["Ile jezykow"]
+FROM Jezyki
+GROUP BY Rodzina
+ORDER BY 2 DESC;
+
+<a href=\'{dirpath}5.accdb\' download>Pobierz rozwiązanie</a>

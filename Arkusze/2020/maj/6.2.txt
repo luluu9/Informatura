@@ -1,0 +1,11 @@
+TAGI:
+arkusz kalkulacyjny,przeszukiwanie danych
+PUNKTY:
+1
+TRESC:
+Podaj, ile było kursów, w których statek spędził więcej niż 20 pełnych dni na morzu, bez zawijania do portów.
+Przykład:
+Jeśli statek wypłynął z jednego portu w dniu 2016-01-10 i wpłynął do następnego portu w dniu 2016-01-16, to spędził na morzu 5 pełnych dni (11.01, 12.01, 13.01, 14.01, 15.01). 
+ROZWIAZANIE:
+<a href=\'{dirpath}6.xlsx\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

@@ -1,0 +1,31 @@
+TAGI:
+programowanie,odczytywanie danych,słowniki,zbiory
+PUNKTY:
+4
+TRESC:
+Powiemy, że dwa lokale są tego samego rodzaju, jeżeli ich powierzchnia jest taka sama. 
+W którym mieście powstanie galeria z największą liczbą różnych rodzajów lokali (jest jedno  takie miasto), a w którym powstanie galeria z najmniejszą liczbą różnych rodzajów lokali (jest  jedno takie miasto)? Podaj te miasta oraz liczby różnych rodzajów lokali w tych miastach.
+Wynik zapisz w pliku wynik4_3.txt. W każdym z dwóch wierszy pliku powinny znajdować  się nazwa miasta oraz liczba różnych rodzajów lokali w tym mieście.
+Prawidłowa odpowiedź dla danych pliku galerie_przyklad.txt:
+Dusseldorf 34
+Genua 23 
+ROZWIAZANIE:
+Rozwiązanie zadań w Pythonie:
+<code>print("Zadanie 3.")
+unik_lok_gal = {} # unikalne lokale galerii
+for galeria in galerie:
+    miasto = galeria.split()[1]
+    powierzchnie = galeria.split()[2:]
+    unikalne_lokale = set() # set przechowuje tylko unikalne wartości
+    for i in range(0, 140, 2):
+        if int(powierzchnie[i]) == 0:
+            break
+        pow_lokalu = int(powierzchnie[i])*int(powierzchnie[i+1])
+        unikalne_lokale.add(pow_lokalu)
+    unik_lok_gal[miasto] = len(unikalne_lokale) # ile jest unikalnych lokali
+
+najw = sorted(unik_lok_gal.items(), key=lambda lokal: lokal[1])[0] 
+najm = sorted(unik_lok_gal.items(), key=lambda lokal: lokal[1])[-1]
+print(najw[0], najw[1])
+print(najm[0], najm[1])</code>
+<a href=\'{dirpath}4.py\' download>Pobierz rozwiązanie</a>

@@ -1,0 +1,38 @@
+TAGI:
+programowanie,odczytywanie danych,system binarny,wyszukiwanie
+PUNKTY:
+6
+TRESC:
+Znajdź najmniejszą i największą liczbę w pliku liczby.txt. Jako odpowiedź podaj numery wierszy, w których się one znajdują.
+Przykład: Dla zestawu liczb:
+101011010011001100111
+10001001011101010
+1001000
+101010011100
+1000110
+najmniejsza liczba to: 1000110
+największa liczba to: 101011010011001100111
+Prawidłowa odpowiedź dla powyższego przykładu to: 5, 1. 
+ROZWIAZANIE:
+<code>dane = ""
+with open("DANE_PR2/liczby.txt") as f:
+	dane = f.readlines()
+
+i = 1
+najw = 0
+najm = 999999
+najw_i = 0
+najm_i = 0
+for line in dane:
+	line = line.strip()
+	wd = int(line, 2)
+	if wd > najw:
+		najw = wd
+		najw_i = i
+	if wd < najm:
+		najm = wd
+		najm_i = i
+	i += 1
+print("4.3. Indeks najmniejszej liczby:", najm_i, "\nIndeks najwiekszej liczby:", najw_i)
+</code><a href=\'{dirpath}4.py\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

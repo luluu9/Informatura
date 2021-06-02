@@ -1,0 +1,55 @@
+TAGI:
+algorytmy,pseudokod,rekurencja,wyszukiwanie binarne,dziel i zwyciężaj
+
+PUNKTY:
+2
+
+TRESC:
+Podaj największą i najmniejszą możliwą liczbę wywołań funkcji Rek w wyniku wywołania Rek(2020, 5, 14) dla n = 17 i pewnej, uporządkowanej rosnąco tablicy T[1..17] różnych liczb całkowitych.
+Uwaga: Pierwsze wywołanie funkcji Rek(2020, 5, 14) włączamy do ogólnej liczby wywołań.
+Odpowiedź:
+najmniejsza liczba wywołań …………………………
+największa liczba wywołań …………………………
+
+ROZWIAZANIE:
+Hmm.. przy tego typu zadaniach trzeba dobrze zrozumieć algorytm. A może.. widziałeś już ten kod kiedyś? 🧐
+Jest to algorytm na wyszukiwanie binarne w rekurencyjnej formie!
+Polega on na tym, że dostarczamy funkcji 3 argumenty: liczbę szukaną (x w naszym przypadku), indeks początkowy tablicy (p) i indeks końcowy tablicy (k).
+Cały myk polega na tym, że tablica jest dostarczona w formie posortowanej (np. 1, 2, 4, 10...), a więc jeśli wybierzemy jakąkolwiek liczbę z tej tablicy i nie będzie ona równała się szukanej, to wiemy, po której stronie jej szukać! 
+Dla przykładu:
+mamy tablicę A w której zapisujemy elementy [3, 5, 8, 9, 11]. Chcemy dowiedzieć się, czy 5. zawiera się w tej liście.
+W tym celu poszukamy element środkowy tablicy (zmienna s) - ma on indeks 3 (numerujemy tablice od 1) i pod nim zapisana jest liczba 8. 5 na pewno jest różna od 8. I jest też od niej mniejsza. Dzięki temu, że tablica jest posortowana wiemy, że wystarczy przeszukać resztę liczb, których indeks jest mniejszy od indeksu 8., czyli przeszukujemy teraz tablicę w zakresie [3, 5]!
+Drastycznie zmniejszyliśmy liczbę potencjalnych kandydatów, którzy mogliby stanowić szukaną, a więc tym samym algorytm znajdzie ją szybciej! 😎
+
+Tyle by było z wiedzy ogólnej.. Tylko że my musimy podać "największą i najmniejszą możliwą liczbę wywołań funkcji Rek w wyniku wywołania Rek(2020, 5, 14) dla n = 17 i pewnej, uporządkowanej rosnąco tablicy T[1..17] różnych liczb całkowitych." 😥
+Okej - musimy zadać sobie pytanie: od czego w głównej mierze zależy ilość wywołań funkcji?
+Odpowiedzi szukamy w treści algorytmu, a dokładniej.. w wywołaniach funkcji! 🤠 Spójrzmy kiedy funkcja się wywołuje, a kiedy zwracany jest po prostu wynik:
+<code>jeżeli p < k (*)
+  s ← (p + k) div 2
+  jeżeli T[s] ≥ x
+    wynikiem jest Rek(x, p, s) !
+ w przeciwnym razie
+    wynikiem jest Rek(x, s + 1, k) !
+w przeciwnym razie
+- [...] wynikiem jest [...]</code>Gwiazdką oznaczyłem bardzo ważny fragment: jeśli p osiągnie wartość równą lub większą niż k, to zwróci się po prostu wynik, co zakończy wykonywanie funkcji. Musimy więc policzyć ilość wywołań (oznaczonych wykrzyknikiem) zanim p ≥ k.
+Jak możemy zatem wpływać na ilość wykonań?
+Poprzez wartości w tablicy T! Tylko te wartości nie są zdefiniowane, więc możemy dowolnie je modyfikować. Zauważmy, że jeśli T[s] ≥ x, przekazywana jest jako jeden z argumentów s, czyli średnia p i q. Jeśli jednak T[s] < x, to jednym z parametrów będzie s+1. To "+1" stanowi małą, ale znaczącą różnice dla naszego zadania.
+Do dzieła! 🤠
+
+A) Najmniejsza liczba wykonań:
+aby uzyskać najmniej wykonań, należy dążyć do tego, żeby jak najszybciej p osiągnęło wartość k lub większą, bo wtedy nie wywoła się kolejny raz funkcja. Musimy więc wykorzystać fakt, o którym wspominaliśmy wyżej: przekazywanie "s+1" jako argument, ponieważ w dłuższej mecie zmniejszy to ilość wykonań.
+Zróbmy swego rodzaju tabelkę wywołań:
+1. x=2020, p=5, k=14. s=(5+14)/2=9. (zakładamy, że T[s] < x) -> wynikiem jest Rek(x, s+1, k)
+2. x=2020, p=10, k=14. s=(10+14)/2=12. wynikiem jest Rek(x, s+1, k)
+3. x=2020, p=13, k=14. s=(10+14)/2=12. wynikiem jest Rek(x, s+1, k)
+4. x=2020, p=14, k=14. KONIEC (bo p ≥ k)
+Na 4. wykonaniu skończyliśmy i to właśnie stanowi najmniejszą możliwą ilość wykonań!
+
+B) Największa liczba wykonań:
+odwrotnie do wyższego przykładu, teraz zależy nam na tym, żeby przekazywane wartości zwiększały się jak najwolniej, żeby warunek "jeżeli p < k" był przez jak najdłuższy czas prawdziwy - celujemy więc w "wynikiem funkcji jest Rek(x, p, s)". 😀
+1. x=2020, p=5, k=14. s=(5+14)/2=9. (zakładamy, że T[s] ≥ x) -> wynikiem jest Rek(x, p, s)
+2. x=2020, p=5, k=9. s=(5+9)/2=7. wynikiem jest Rek(x, p, s)
+3. x=2020, p=5, k=7. s=(5+7)/2=6. wynikiem jest Rek(x, p, s)
+4. x=2020, p=5, k=6. s=(5+6)/2=5. wynikiem jest Rek(x, p, s)
+5. x=2020, p=5, k=5. KONIEC (bo p ≥ k)
+Tak więc maksymalnie możemy wykonać funkcję Rek(...) 5 razy dla takich parametrów. 🥳

@@ -1,0 +1,5 @@
+Pary
+W pliku pary.txt znajduje się 100 wierszy. Każdy wiersz zawiera parę danych składającą się z liczby całkowitej z przedziału od 3 do 100 i słowa (ciągu znaków) złożonego z małych liter alfabetu angielskiego o długości od 1 do 50 znaków. Liczba i słowo są oddzielone znakiem spacji.
+Napisz program(-my), dający(-e) odpowiedzi do poniższych zadań. Uzyskane odpowiedzi zapisz w pliku wyniki4.txt, poprzedzając każdą z nich numerem odpowiedniego zadania.
+Uwaga: plik przyklad.txt zawiera przykładowe dane spełniające warunki zadania.
+Odpowiedzi dla danych z pliku przyklad.txt są podane pod treściami zadań oraz w pliku odp_przyklad.txt. 

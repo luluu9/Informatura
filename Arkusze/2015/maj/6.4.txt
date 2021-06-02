@@ -1,0 +1,28 @@
+TAGI:
+bazy danych,kwerendy,grupowanie danych,złączenia tabel
+PUNKTY:
+3
+AUTOR:
+Radosław Kozłowski
+TRESC:
+Dla każdego kraju, którego reprezentanci zdobywali punkty w sezonie 2012, podaj liczbę tych reprezentantów.
+ROZWIAZANIE:
+Już po pierwszym przeczytaniu czujemy, że w powietrzu unosi się zapach jakiegoś prostego podzapytania! A więc zacznijmy właśnie od niego. Wybierzmy id tych kierowców, którzy w roku 2012 punktowali. Do tego celu potrzebujemy dwóch tabel – wyniki, która określa liczbę uzyskanych punktów przez danego kierowcę – oraz Wyscigi przechowującej informacje o roku. W naszych warunkach określimy rok jako 2012 ORAZ ilość uzyskanych punktów większą niż 0. Całość pogrupujemy według id_kierowcy, gdyż treść naszego zadania bezpośrednio wskazuje na reprezentantów danego kraju! A faktem wiadomym jest, że jeśli Jan Kowalski jest reprezentantem Polski to jest on liczony jako jeden zawodnik, nie obchodzą nas informacje zduplikowane.<code>SELECT wyniki.id_kierowcy
+FROM (Wyniki INNER JOIN Wyscigi ON Wyniki.id_wyscigu = Wyscigi.id_wyscigu)
+WHERE Rok = 2012 AND Punkty > 0
+GROUP BY wyniki.id_kierowcy</code>Mając przygotowane zapytanie jesteśmy już na prostej do mety, pędzimy niczym Ci kierowcy!
+Interesują nas informacje o liczbie kierowców z danego kraju, którzy uzyskali punkty w sezonie 2012. Mając podzapytanie właściwie pozostało nam skojarzyć id kierowców po ich narodowościach.
+
+<b>Ostatecznie:</b><code>SELECT COUNT(kraj) AS Liczba, Kraj
+FROM Kierowcy
+WHERE id_kierowcy IN (
+<span class="yellow-back">	SELECT wyniki.id_kierowcy
+	FROM 
+	(Wyniki
+	INNER JOIN Wyscigi ON Wyniki.id_wyscigu = Wyscigi.id_wyscigu)
+	WHERE Rok = 2012 AND Punkty > 0
+	GROUP BY wyniki.id_kierowcy)</span>
+GROUP BY kraj;</code>Objaśnienie:
+Wybierz ilość wystąpień danego kraju (nazwa kolumny jako Liczba) oraz Kraj z tabeli Kierowcy gdzie id_kierowcy występuje w rekordach, które utworzyło nam nasze stworzone wcześniej podzapytanie! Następnie pogrupuj wszystkie informacje po kraju. Poskutkuje to ograniczeniem duplikatów nazw kraju do wartości jednokrotnej wraz z informacją o ilości jego reprezentantów.
+
+<a href=\'{dirpath}6.accdb\' download>Pobierz rozwiązanie</a>

@@ -1,0 +1,10 @@
+TAGI:
+arkusz kalkulacyjny,symulacja,tworzenie wykresów
+PUNKTY:
+2
+TRESC:
+Utwórz wykres liniowy przedstawiający kształtowanie się ilości wody w zbiorniku w okresie od 1 kwietnia do 30 września 2015 roku. 
+Pamiętaj o czytelnym opisie wykresu (tytuł, opis osi). Przyjmij jako stan zbiornika każdego dnia wartość z godziny 21.00 po podlaniu roślin. 
+ROZWIAZANIE:
+<a href=\'{dirpath}5.xlsx\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

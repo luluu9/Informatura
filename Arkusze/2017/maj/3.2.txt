@@ -1,0 +1,33 @@
+TAGI:
+SQL,grupowanie danych,prawda/fałsz,funkcje agregujące,podzapytania
+PUNKTY:
+1
+TRESC:
+Rozważ następujące zapytanie SQL do pewnej bazy danych:
+SELECT pesel, COUNT(*)
+FROM samochody
+WHERE pesel NOT IN (SELECT pesel FROM dokumenty_zastrzezone)
+GROUP BY pesel HAVING COUNT(*) > 1 
+
+ROZWIAZANIE:
+Dobra, popatrzmy co tu mamy:
+- SELECT pesel, COUNT(*): wybieramy dwie wartości: pesel i COUNT(*); druga brzmi bardziej tajemniczo 🤔 Jednak żadnej magii tu nie ma - wspominaliśmy o tym w poprzednim zdaniu, jest to funkcja agregująca, czyli taka, która zbiera wszystkie wartości według kolumny (atrybutu) podanej po późniejszej instrukcji GROUP BY (w tym wypadku kolumna pesel) i potem na jej podstawie wykonuje jakieś obliczenia, np. COUNT - zliczanie, AVG - średnia czy SUM - suma. W każdym z tych przypadków nazwy te pochodzą z języka angielskiego, więc często wystarczy je po prostu przetłumaczyć, żeby zrozumieć ich sens. Tu występuje COUNT(*) - gwiazda oznacza, że zliczamy każdy wiersz, który pojawił się wraz z daną wartością kolumny pesel. Przykładowo (z uproszczeniem): jeśli będziemy mieli 5 wierszy z wartością w atrybucie pesel 123 i 2 z wartością 221, to funkcja COUNT zwróci odpowiednio wartości 5 i 2. Zrozumiałe, prawda? 😉 Trzeba jednak pamiętać, że do takich funkcji agregujących musi ‼ wystąpić grupowanie poprzez klauzule GROUP BY. 😤
+
+- FROM samochody: z tabeli samochody 🚗
+
+- WHERE pesel NOT IN (SELECT pesel FROM dokumenty_zastrzezone): tu się porobiło 🙆‍♀️ Ale jakoś damy radę. 💪 
+WHERE oznacza warunek -> pesel NIE MOŻE wystąpić w podzapytaniu (SELECT ...). Jeśli pesel się tam znajdzie,  to nie pojawi się w ostatecznym wyniku. Trzeba jednak przeanalizować to, co znajduje się wewnątrz tych nawiasów. 
+Zbyt skomplikowany proces tu nie zachodzi: wybieramy pesel z tabeli dokumenty_zastrzezone. Tak w razie czego, gdyby ktoś chciał wziąć chwilówkę na nasz zgubiony dowód. 🤠👮‍♂️
+
+- GROUP BY pesel HAVING COUNT(*) > 1: okej, mamy nasze grupowanie, o którym mówiliśmy na początku. Jednak pojawia się jakaś klauzula HAVING. 😒 Okej, wpiszmy to w googla: co wychodzi? tłumaczeniem having jest "mający", czy "posiadający". Może coś nasuwa wam się na myśl? 💭 
+Chodzi o to, że wybrane zostaną jedynie te grupy, które spełniają ten warunek -> posiadają wartość COUNT(*) większą od 1. Czyli jeśli jakiś pesel pojawi się tylko raz, zostanie on wykluczony z wyników. 🤷‍♀️
+
+Okej, wiemy już co dokładnie znaczy każdy fragment w tym zapytaniu. Teraz zabierzmy się za nasz życiowy cel - odpowiedzi na pytania! 🥳 
+
+1) ten sam numer PESEL może pojawić więcej niż jeden raz. [P/F]: jak wspomnieliśmy - GROUP BY grupuje wiersze w tym wypadku na podstawie peselu, więc każdy pesel może pojawić się jedynie raz. A więc jest to FAŁSZ. ☺
+
+2) nie pojawi się żaden numer PESEL, który jest zapisany w tabeli dokumenty_zastrzezone. [P/F]: patrząc na warunek znajdujący się po WHERE, musimy przyznać rację temu zapisowi. PRAWDA.
+
+3) otrzymasz tabelę o 2 kolumnach. [P/F]: po czym stwierdzić ile kolumn będzie miał wynik zapytania? ano, po liczbie nazw/instrukcji, które pojawiają się po klauzuli SELECT. Tutaj mamy dwa: pesel i COUNT(*). A więc możemy z pewnością stwierdzić, że jest to PRAWDA. 😇
+
+4) przy odpowiednich danych może pojawić się wiersz „82122302134, 1”. [P/F]: okej, mamy podany tu wynik zapytania. 🤨 „82122302134" będzie peselem, a 1 ilością wystąpień tego peselu w tabeli samochody. Jednak przypomnijmy sobie, co jest zapisane w ostatniej linijce. HAVING COUNT(*) > 1. Większe niż 1, nie równe bądź większe. Czyli minimalna ilość, jaka może się pojawić, to 2. A tu mamy... 1! A więc zaznaczamy FAŁSZ. 😎

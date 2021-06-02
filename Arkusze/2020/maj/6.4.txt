@@ -1,0 +1,9 @@
+TAGI:
+arkusz kalkulacyjny,przeszukiwanie danych,tworzenie wykresów
+PUNKTY:
+2
+TRESC:
+Sporządź wykres kolumnowy przedstawiający, ile załadowano i ile wyładowano towaru T5 w każdym miesiącu od 1 stycznia 2016 r. do 18 grudnia 2018 r. Załadunek i wyładunek dla każdego miesiąca przedstaw w dwóch kolumnach. Pamiętaj o opisaniu obu osi (dla osi poziomej użyj formatu rrrr-mm) i o tytule wykresu. 
+ROZWIAZANIE:
+<a href=\'{dirpath}6.xlsx\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

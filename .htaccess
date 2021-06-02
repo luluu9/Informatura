@@ -1,0 +1,39 @@
+Options -Indexes -MultiViews
+
+RewriteEngine on
+RewriteBase /
+
+# delete www from beginning
+
+RewriteCond %{HTTP_HOST} ^www\.informatura\.pl$
+RewriteRule ^(.*)$ https://informatura.pl/$1 [R=301,L]
+
+
+# reroute from .php to without .php
+
+RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
+
+RewriteRule ^ /%1 [NC,L,R=301]
+
+
+RewriteRule ^/?zadanie/(\-?[0-9]+)$ /rozwiazanie.php?zadanie=$1
+
+RewriteRule ^/?arkusz/(\-?[0-9]+)$ /arkusz.php?arkusz=$1
+
+RewriteRule ^/?glowna$ /index
+
+
+# if .php exists map here
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# check if asking for .php
+RewriteCond %{REQUEST_URI} !\.php$
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule (.*) $1.php [L]
+
+
+# 404
+
+ErrorDocument 404 /404

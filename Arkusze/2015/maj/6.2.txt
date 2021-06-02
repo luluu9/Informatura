@@ -1,0 +1,17 @@
+TAGI:
+bazy danych,kwerendy,grupowanie danych,funkcje agregujące
+PUNKTY:
+2
+TRESC:
+W których z miejsc podanych w plikach rozegrano najmniejszą liczbę wyścigów Grand Prix w latach 2000–2012? 
+AUTOR:
+Radosław Kozłowski
+ROZWIAZANIE:
+Na zidentyfikowanie, w którym z miejsc rozegrano najmniejszą liczbę wyścigów Grand Prix, pozwoli nam tabela Wyscigi. 
+Ostatecznie:<code>SELECT TOP 1 Grandprix
+FROM Wyscigi
+GROUP BY Grandprix
+ORDER BY COUNT(id_wyscigu);</code>Objaśnienie:
+Wybierz pierwszy zwrócony rekord z informacją o Grand Prix z tabeli Wyścigi. Pogrupuj nasze wyniki według Grand Prix, a następnie posortuj je według Ilości wystąpień danego wyścigu. W praktyce oznacza to, że każde kilkukrotne zwrócenie rekordu o tym samym Grand Prix zostało zredukowane do jednej wyświetlonej wartości. Następnie każde z unikalnych Grand Prix sortujemy według ilości wystąpień. Brak wyświetlenia ilości rozegranych poszczególnych Grand Prix, nie oznacza że te dane nie istnieją i nie można na nich operować! Wręcz przeciwnie, nawet trzeba! Podczas sortowania celowo nie dodałem ASC, który umożliwia sortowanie rosnące, gdyż jest to standardowa opcja jaką ustala nam Access i nie jest wymagana do pisania.
+
+<a href=\'{dirpath}6.accdb\' download>Pobierz rozwiązanie</a>

@@ -1,0 +1,67 @@
+.sheet {
+    box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, .1);
+    margin-bottom: 15px;
+}
+
+.sheet h2 {
+    margin: 0;
+    padding: 5px 10px;
+    border-bottom: 1px solid #e5e5e5;
+    flex: 1;
+}
+
+.sheet-details {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.sheet-details h3 {
+    display: block;
+    width: 10rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 3px 0 0 10px;
+    font-size: 1.5rem;
+}
+
+.sheet-details a, .sheet-details span {
+    padding: 1px;
+    font-size: 1.5rem;
+}
+
+.sheet-details a:hover {
+    color: #000
+}
+
+.sheet-hrefs {
+    width: 100%;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+h3+a {
+    margin-left: 10px;
+}
+
+@media (min-width: 350px) {
+    .sheet-details h3 {
+        display: inline-block;
+    }
+}
+
+@media (min-width: 450px) {
+    .sheet-details h3 {
+        font-size: 2rem;
+        padding: 5px 0 0 10px;
+        width: 13rem;
+    }
+    .sheet-details a, .sheet-details span {
+        padding: 5px;
+        font-size: 2rem;
+    }
+    .sheet-details h3 {
+        display: inline-block;
+        width: 13rem;
+    }
+    h3+a {
+        margin-left: 0;
+    }
+}

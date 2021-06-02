@@ -1,0 +1,8 @@
+TAGI:
+bazy danych,funkcje agregujące,złączenia tabel
+PUNKTY:
+1
+TRESC:
+Podaj imię, nazwisko i czas zawodnika, który uzyskał najlepszy czas spośród wszystkich  wyników osiągniętych przez zawodników. Jest tylko jeden taki zawodnik.
+ROZWIAZANIE:
+<a href=\'{dirpath}6.accdb\' download>Pobierz rozwiązanie</a>

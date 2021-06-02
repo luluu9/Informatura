@@ -1,0 +1,13 @@
+TAGI:
+bazy danych,kwerendy,złączenia tabel
+PUNKTY:
+1
+TRESC:
+Podaj listę wszystkich nazw perfum, których jednym ze składników jest „absolut jasminu”
+ROZWIAZANIE:
+SELECT Perfumy.nazwa_p
+FROM Perfumy INNER JOIN Sklad ON Perfumy.id_perfum = Sklad.id_perfum
+WHERE Sklad.nazwa_skladnika="absolut jasminu";
+
+<a href=\'{dirpath}6.accdb\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

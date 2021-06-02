@@ -1,0 +1,8 @@
+TAGI:
+arkusz kalkulacyjny,tworzenie wykresów,tabela przestawna,tworzenie zestawienia
+PUNKTY:
+3
+TRESC:
+Utwórz zestawienie liczby połączeń – oddzielnie do telefonów stacjonarnych i komórkowych – wykonanych w poszczególnych dniach. Na podstawie tego zestawienia wykonaj wykres kolumnowy przestawiający liczby połączeń do telefonów komórkowych oraz do stacjonarnych każdego dnia. Zadbaj o czytelność wykresu (opis osi, tytuł wykresu, legenda). 
+ROZWIAZANIE:
+<a href=\'{dirpath}5.xlsx\' download>Pobierz rozwiązanie</a>

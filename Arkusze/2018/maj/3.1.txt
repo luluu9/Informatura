@@ -1,0 +1,25 @@
+TAGI:
+WWW,PHP,serwery,JavaScript,test,prawda/fałsz,różne
+PUNKTY:
+1
+TRESC:
+Na pewnym serwerze WWW znajduje się strona napisana w języku PHP, a jej kod zawiera fragmenty w języku JavaScript. Pewien komputer-klient pobrał i wyświetlił tę stronę.
+Wiadomo, że:
+1. kod PHP jest wykonywany przez komputer – serwer. [P/F]
+2. kod JavaScript jest wykonywany przez komputer – klient. [P/F]
+3. podczas wykonywania kodu PHP zawsze pobierane są dane od klienta. [P/F]
+4. podczas wykonywania kodu JavaScript mogą być pobierane dodatkowe dane zarówno od klienta, jak i od serwera. [P/F]
+
+ROZWIAZANIE:
+Czytając te polecenia można lekko się zmieszać - nie wiem dlaczego, ale CKE dodało do nazewnictwa klient/serwer komputer, co może prowadzić do nadinterpretacji. Tłumacząc: ważne jest jedynie pojawienie się określenia klient lub serwer - słowo komputer zostało użyte tutaj w bliżej nieokreślonym celu 🤷‍♀️
+
+Okej, przejdźmy do zadań:
+1. kod PHP jest wykonywany przez komputer – serwer: język PHP został stworzony w celu m.in. dynamicznego tworzenia strony po stronie serwera - chodzi tu o to, że np. jeśli przekażemy serwerowi dane uwierzytelniające to możemy uzyskać dostęp do elementów strony, które nie pojawią się dla zwykłego użytkownika. Innymi słowy: na podstawie przekazanych parametrów kod języka PHP potrafi wygenerować różniące się od siebie strony i czynność ta zachodzi na serwerze. Zaznaczamy więc PRAWDA 😀 PS. ta strona została własnie napisana z użyciem PHP! 
+
+2. kod JavaScript jest wykonywany przez komputer – klient: jednym z zadań JavaScriptu (JS) jest wprowadzenie większej interaktywności do strony. Pamiętasz, jak ostatnio kliknąłeś na jakieś zdjęcie na Facebooku, albo wysłałeś wiadomość? To wszystko sprawka JavaScriptu! 😎 Dostarczany jest on przez serwer wraz z plikami strony (np. .html) do klienta i to właśnie po lokalnej stronie się wykonuje. Możemy zaznaczyć PRAWDA. 
+
+3. podczas wykonywania kodu PHP zawsze pobierane są dane od klienta: kod PHP może pobierać dane z różnych źródeł: np. strona z pogodą może odwoływać się najpierw do serwera pogodynkowego ⛅, a dopiero potem przekaże zdobyte dane klientowi. Oznacza to tyle, że niekoniecznie klient musi dostarczać te dane. Możemy z lekkim sercem zakreślić FAŁSZ. 😌
+
+4. podczas wykonywania kodu JavaScript mogą być pobierane dodatkowe dane zarówno od klienta, jak i od serwera: jak wyżej wspominalyśmy, jednym z zadań JS jest wprowadzenie interaktywności do strony. Nie jest jednak to jedyne możliwe zastosowanie: język JS jest baaaardzo rozbudowany i jedną z opcji tworzenie zapytań do serwerów - w tym naszego serwera. Przykładem jest np. przewijanie facebookowej tablicy: może doświadczyliście kiedyś sytuacji, gdy skończyły się posty i pojawiło się kółeczko, które oznacza ładowanie się nowych. Wtedy właśnie do gry wchodzi pobieranie dodatkowych danych od serwera, w tym wypadku - postów. Dane od klienta także mogą być bez problemu pobierane - przykładem jest np. aktualny czas. Tak więc zaznaczamy PRAWDA. 🥳
+
+Dzisiaj zajęliśmy się tematyką stron WWW, która tak często jest pomijana na lekcjach informatyki. Zachęcam was zatem do spróbowania własnych sił w przeróżnych kursach na YouTubie, czy na np. KhanAcademy, bo jak widać - i takie zadania mogą się pojawić. 😀

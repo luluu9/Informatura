@@ -1,0 +1,18 @@
+TAGI:
+arkusz kalkulacyjny,przeszukiwanie danych,symulacja
+PUNKTY:
+4
+TRESC:
+Profesor George Nubis przedstawił teorię, według której chmury określonej wielkości i kategorii rozwijają się w następujący sposób:
+• jeśli w danym dniu nie ma chmur, nazajutrz na pewno pojawią się chmury o wielkości 1,
+• chmury po trzech dniach samoczynnie przechodzą w chmury o wyższym numerze, aż do numeru 5,
+• chmury o wielkości 5 zanikają wtedy, gdy spadnie w ciągu dnia co najmniej 20 mm deszczu, a wówczas następny dzień jest bezchmurny,
+• powstanie chmur kategorii C lub S zależy od temperatury powietrza w dniu ich tworzenia się. Jeśli temperatura w dniu pojawienia się chmur jest nie mniejsza niż 10 stopni, to powstają chmury kategorii C (o wielkości 1), w przeciwnym wypadku – chmury kategorii S (o wielkości 1).
+Uwaga: Przez pierwszych 20 dni teoria zgodziła się dokładnie z obserwacjami. Użyj tej informacji, aby sprawdzić swoje obliczenia.
+Załóż, że chmury rozwijałyby się przez cały czas (500 dni) według teorii profesora i że dzień pierwszy był bezchmurny (wielkość chmur 0), a następnie:
+a) podaj liczbę dni (spośród wszystkich 500) z chmurami wielkości 0, 1, 2, 3, 4 i 5 – dla każdej wielkości oddzielnie (przyjmij, że wielkość opadu w danym dniu jest taka, jaką zapisano w pliku z danymi),
+b) dla pierwszych 300 dni pomiaru podaj, ile wśród nich było takich, w których teorię profesora Nubisa dotyczącą wielkości chmur potwierdzały odczyty z kamery,
+c) dla pierwszych 300 dni pomiaru podaj, ile wśród nich było takich, w których teorię profesora Nubisa dotyczącą kategorii chmur potwierdzały odczyty z kamery. 
+ROZWIAZANIE:
+<a href=\'{dirpath}5.xlsx\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

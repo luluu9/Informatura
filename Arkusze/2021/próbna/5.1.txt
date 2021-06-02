@@ -1,0 +1,8 @@
+TAGI:
+arkusz kalkulacyjny,funkcje agregujące,przeszukiwanie danych
+PUNKTY:
+2
+TRESC:
+Podaj trzy numery telefonów, pod które wykonano najwięcej połączeń, i liczby tych połączeń
+ROZWIAZANIE:
+<a href=\'{dirpath}5.xlsx\' download>Pobierz rozwiązanie</a>

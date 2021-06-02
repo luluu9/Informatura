@@ -1,0 +1,51 @@
+TAGI:
+programowanie,odczytywanie danych,słowniki
+PUNKTY:
+4
+TRESC:
+a) Oblicz całkowitą powierzchnię handlową każdej galerii (jako sumę powierzchni wszystkich  lokali w danej galerii) oraz liczbę lokali. 
+Wyniki zapisz w pliku wynik4_2a.txt. W każdym wierszu pliku wynikowego powinny się znaleźć: nazwa miasta, powierzchnia galerii znajdującej się w danym mieście oraz liczba lokali, rozdzielone znakiem spacji. Strona 3 z 9
+Dla danych z pliku galerie_przyklad.txt prawidłowa odpowiedź to:
+Budapeszt 3598 64
+Neapol 3352 48
+Marsylia 3444 56
+Leeds 2952 44
+Frankfurt 3515 57
+Genua 3386 56
+Dortmund 3697 57
+Rotterdam 3184 49
+Dusseldorf 3737 63
+Kopenhaga 3765 60
+b) Podaj nazwę miasta z galerią o największej powierzchni całkowitej oraz nazwę miasta  z galerią o najmniejszej powierzchni całkowitej. Jest dokładnie jedno miasto z galerią o największej powierzchni i jedno z galerią o najmniejszej powierzchni.
+Wyniki zapisz w pliku wynik4_2b.txt. W pliku wynikowym powinny znaleźć się nazwy  miast wraz z powierzchniami galerii.
+Prawidłowa odpowiedź dla danych pliku galerie_przyklad.txt:
+Kopenhaga 3765
+Leeds 2952
+ROZWIAZANIE:
+Rozwiązanie zadań w Pythonie:
+<code>print("Zadanie 2. a)")
+pow_galerii = {}
+for galeria in galerie:
+    miasto = galeria.split()[1]
+    powierzchnie = galeria.split()[2:]
+    lokale = 0
+    calk_pow = 0
+    for i in range(0, 140, 2): # iteracja od zera do 140 krokami po 2, np. 0, 2, 4...
+        if int(powierzchnie[i]) == 0:
+            break
+        calk_pow += int(powierzchnie[i])*int(powierzchnie[i+1])
+        lokale += 1
+    pow_galerii[miasto] = calk_pow
+    print(miasto, calk_pow, lokale)
+
+# ZAD 2 B) #
+# items() zwraca słownik w postaci [(klucz1, wartość1), (klucz2, wartość2)...]
+# key=lambda lokal: lokal[1] oznacza, że za wartość do sortowania wybieramy wartość lokalu
+# a wartością lokalu u nas jest jego powierzchnia całkowita (wyliczyliśmy to w podpunkcie A)
+print("-------------------")
+print("Zadanie 2. b)")
+najw = sorted(pow_galerii.items(), key=lambda lokal: lokal[1])[0] 
+najm = sorted(pow_galerii.items(), key=lambda lokal: lokal[1])[-1]
+print(najw[0], najw[1])
+print(najm[0], najm[1])</code>
+<a href=\'{dirpath}4.py\' download>Pobierz rozwiązanie</a>

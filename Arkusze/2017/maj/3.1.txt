@@ -1,0 +1,23 @@
+TAGI:
+SQL,sortowanie,grupowanie danych,prawda/fałsz,funkcje agregujące
+PUNKTY:
+1
+TRESC:
+Po wykonaniu podanego zapytania SQL do pewnej bazy danych wyniki będą zawsze uporządkowane niemalejąco według pola nazwa.
+1. SELECT nazwa, wartosc FROM dane ORDER BY wartosc, nazwa [P/F]
+2. SELECT nazwa, wartosc FROM dane ORDER BY nazwa [P/F]
+3. SELECT nazwa, sum(wartosc) FROM dane GROUP BY nazwa [P/F]
+4. SELECT nazwa, sum(wartosc) FROM dane GROUP BY nazwa ORDER BY nazwa [P/F]
+
+ROZWIAZANIE:
+Mamy tutaj typowe polecenia SQL. Najpierw weźmy się za pytanie: zapytanie -> czy wyniki będą uporządkowane niemalejąco wg pola nazwy? Okej. Niemalejąco - wiecie, taki haczyk 🥴. Czyli rosnąco: A->Z, 1->9.
+Teraz spójrzmy po kolei na zapytania:
+1) SELECT nazwa, wartosc FROM dane ORDER BY wartosc, nazwa - za porządkowanie (sortowanie) odpowiada klauzula (polecenie) ORDER BY. Domyślnie sortowanie odbywa się rosnąco: można jednak po podaniu tej instrukcji i pola podać polecenie ASC i DESC - od "ascending" - rosnąco i "descending" - malejąco. Jednak powtórzmy - domyślnie, jeśli nie zostało sprecyzowane, pola posortowane zostaną rosnąco. ⬆. Okej, w tym wypadku po polach wartosc i nazwa nic nie ma, więc zostaną uporządkowane od najmniejszej, do największej. Jednak spójrzmy jeszcze raz na pytanie: "uporządkowane niemalejąco według pola nazwa" - hmm.. tutaj pojawia się jeszcze pole "wartosc", w zadaniu nie ma mowy o żadnym takim polu. Możemy więc z lekkim sercem zaznaczyć, że jest to FAŁSZ. W razie czego: zapis "ORDER BY wartosc, nazwa" nie jest błędny, oznacza on, że najpierw wynik zapytania zostanie posortowany według pola "wartosc", a dopiero potem "nazwa" (ma to znaczenie w przypadku, gdy dwa lub więcej pola miały by taką samą "wartość", a inne "nazwy")
+
+2) SELECT nazwa, wartosc FROM dane ORDER BY nazwa - okej, tutaj sprawa wydaje się jasna. Nie ma żadnego "DESC" ani innego pola przy sortowaniu. Ani haczyka. 👌. Możemy zaznaczyć PRAWDA z lekkim sercem.
+
+3) SELECT nazwa, sum(wartosc) FROM dane GROUP BY nazwa - hmm, tutaj sprawa się zagmatwała trochę bardziej. Mamy instrukcję GROUP BY. Co ona sprawia? Ano - zachodzi tzw. "agregacja danych". Brzmi dość dziwnie. Ale to nic skomplikowanego - po prostu dzięki temu każdy rekord (wiersz) z tabeli zostanie "podsumowany", o ile będzie miał taką samą nazwę. Znaczy to tyle, że np. kilka pól o tej samej nazwie, to zostaną one złączone w jedno pole. Tak jak Power Rangersi łączyli się w jednego hiperwielkiego Megazorda, rozumiecie? 😎 Co to daje? Przede wszystkim możemy robić podsumowania w stylu: "wylicz średnią wartości rekordów o tej samej nazwie", czy - jak tutaj "policz jaką sumę będą miały wartości dla tych samych nazw". Okej, to ustaliliśmy - ale czy będą posortowane według nazwy, czy nie? Nie mamy żadnej instrukcji ORDER BY, więc rekordy zostaną w takiej kolejności, w jakiej były w oryginalnej tabeli. Zaznaczamy FAŁSZ. 🤠
+
+4) SELECT nazwa, sum(wartosc) FROM dane GROUP BY nazwa ORDER BY nazwa - dobra, tutaj mamy tak naprawdę to samo co wyżej, tylko dodane zostało polecenie ORDER BY. Coś mało kreatywni są w tym CKE 🤦‍♀️. Ale no, dokańczając - jest ORDER BY? jest ✓. Jest "nazwa" w instrukcji sortowania? jest ✓. Sukces. Zaznaczamy PRAWDĘ. 🥳
+
+Pamiętajcie - tutaj niestety choć jedna błędna odpowiedź sprawia, że tracimy punkt za całe zadanie. Mało? Biorąc pod uwagę, że najczęściej do zdobycia jest 15 punktów z teorii, takie zadanie stanowi 6,66% 🤨 z wszystkich możliwych do zdobycia punktów. Jak dla mnie - sporo. To zadanie chyba nie było zbyt wymagające, prawda? 😉

@@ -1,0 +1,18 @@
+TAGI:
+bazy danych,funkcje agregujące
+PUNKTY:
+2
+TRESC:
+W numerze PESEL zawarta jest informacja o płci osoby. Jeżeli przedostatnia cyfra numeru jest parzysta, to PESEL należy do kobiety, jeśli nieparzysta, to do mężczyzny.
+Podaj liczbę kobiet i liczbę mężczyzn wśród studentów. 
+ROZWIAZANIE:
+Funkcja IIF jest używana w celu określenia czy warunek wyrażenia jest spełniony, czy nie. Jeśli warunek wyrażenia jest spełniony, funkcja IIf zwraca jedną wartość, a jeśli nie jest spełniony, funkcja IIf zwraca inną wartość:
+IIF ( wyrażenie , jeśli prawda , jeśli_fałsz ) 
+Funkcja RIGHT zwraca określoną ilość znaków od prawej strony podanego ciągu:
+RIGHT ( ciąg, długość ) 
+Funkcja LEFT działa analogicznie, lecz zwraca znaki od lewej strony.
+
+SELECT SUM(IIF(LEFT(RIGHT(pesel,2),1) Mod 2=0,1,0)) AS Il_kobiet, SUM(IIF(LEFT(RIGHT(pesel,2),1) Mod 2=1,1,0)) AS Il_mezczyzn
+FROM Studenci;
+
+<a href=\'{dirpath}5.accdb\' download>Pobierz rozwiązanie</a>

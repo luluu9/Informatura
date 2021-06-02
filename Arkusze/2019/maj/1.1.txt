@@ -1,0 +1,63 @@
+TAGI:
+algorytmy,wyszukiwanie,wyszukiwanie binarne,dziel i zwyciężaj
+
+PUNKTY:
+5
+
+TRESC:
+Napisz algorytm (w postaci listy kroków, w pseudokodzie lub w wybranym języku programowania), który dla danego ciągu liczb zapisanych przez dzieci znajdzie pierwszą liczbę zapisaną przez Jasia. Zakładamy, że każde z dzieci zapisało co najmniej jedną liczbę.
+Przy ocenie będzie brana pod uwagę złożoność czasowa Twojego algorytmu. Maksymalną liczbę punktów uzyskasz za algorytm o złożoności lepszej niż liniowa.
+Uwaga: W zapisie algorytmu możesz wykorzystać tylko operacje arytmetyczne (dodawanie, odejmowanie, mnożenie, dzielenie, dzielenie całkowite, reszta z dzielenia), instrukcje porównania, instrukcje sterujące i przypisania do zmiennych lub samodzielnie napisane funkcje, wykorzystujące wyżej wymienione operacje.
+Specyfikacja:
+Dane:
+- n – liczba całkowita większa od 1
+- A[1..n] – tablica zawierająca ciąg n liczb zapisanych przez dzieci (najpierw wszystkie liczby nieparzyste, a potem wszystkie liczby parzyste)
+Wynik:
+- w – pierwsza od lewej parzysta liczba w tablicy A
+
+Przykład:
+Dane:
+n = 10
+A[1..n] {ሼ5, 99, 3, 7, 111, 13, 4, 24, 4, 8}
+Wynik:
+w = 4 
+
+ROZWIAZANIE:
+Rozpiszmy sobie jakie dane mamy i co musimy z nimi zrobić:
+- otrzymujemy tablicę zawierającą najpierw liczby nieparzyste (zapisane przez Małgosię), a potem parzyste (Jasia)
+- należy znaleźć pierwszą liczbę, którą zapisał Jaś (pierwszą liczbę parzystą), a więc potrzebujemy algorytm na wyszukiwanie
+- trzeba wykorzystać taki algorytm, którego złożoność jest lepsza niż liniowa, żeby uzyskać maksymalną liczbę punktów (za liniowy otrzymamy 3 z 5 możliwych punktów)
+
+Algorytm liniowy na rozwiązanie tego zadania jest bardzo prosty: tworzymy pętlę, która wykona się n razy. Za każdym wykonaniem sprawdzamy, czy wartość A[i] modulo 2 jest równa 0 (modulo to operacja otrzymywania reszty z dzielenia, np. dla 7 mod 2 = 1, 4 mod 2 = 0, a 10 mod 4 = 2). W ten sposób dowiadujemy się, czy dana liczba jest parzysta: jeśli jest, to zapisał ją Jaś, więc pierwsza otrzymana w ten sposób liczba da nam wynik.
+Algorytm ten wygląda tak:
+<code>dla i = 1..n:
+  jeżeli A[i] mod 2==0:
+    w=A[i]
+    zakończ wykonywanie pętli</code>Bardzo prosty, prawda? 😃
+Otrzymamy za niego jednak jedynie 60% możliwych do zdobycia punktów.
+
+Aby otrzymać wszystkie punkty, musimy zastosować jeden z szybszych algorytmów, jak na przykład "wyszukiwanie binarne".
+<a href="/zadanie/9">W tym poście</a> tłumaczyliśmy sobie, jak funkcjonuje ten sposób przeszukiwania. Cytując: "Cały myk polega na tym, że tablica jest dostarczona w formie posortowanej (np. 1, 2, 4, 10...), a więc jeśli wybierzemy jakąkolwiek liczbę z tej tablicy i nie będzie ona równała się szukanej, to wiemy, po której stronie jej szukać!
+Dla przykładu:
+mamy tablicę A w której zapisujemy elementy [3, 5, 8, 9, 11]. Chcemy dowiedzieć się, czy 5. zawiera się w tej liście.
+W tym celu poszukamy element środkowy tablicy (zmienna s) - ma on indeks 3 (numerujemy tablice od 1) i pod nim zapisana jest liczba 8. 5 na pewno jest różne od 8. I jest też od niej mniejsze. Dzięki temu, że tablica jest posortowana wiemy, że wystarczy przeszukać resztę liczb, których indeks jest mniejszy od indeksu liczby 8., czyli przeszukujemy teraz tablicę w zakresie [3, 5]!
+Drastycznie zmniejszyliśmy liczbę potencjalnych kandydatów, którzy mogliby stanowić szukaną, a więc tym samym algorytm znajdzie ją szybciej! 😎"
+Tutaj musimy jednak lekko zmodyfikować ten algorytm: zamiast kryteriów: mniejsze po lewej, większe po prawej, zastosujemy: nieparzyste po lewej, parzyste po prawej! A więc, jeśli napotkamy liczbę nieparzystą, to wiemy, że liczba parzysta może sie znajdować się co najwyżej pod indeksem tej liczby nieparzystej+1, ponieważ po lewej stronie od tego indeksu (włącznie), znajdują się jedynie liczby zapisane przez Małgosię.
+Możemy to zapisać w postaci takiego pseudokodu:
+<code>przypisz do początkowy_indeks: 1
+przypisz do końcowy_indeks: n
+dopóki początkowy_indeks < końcowy_indeks wykonuj:
+  środek = (początkowy_indeks+końcowy_indeks) dziel całk. przez 2
+  jeżeli A[środek] mod 2 == 0:
+    przypisz do końcowy_indeks: środek
+  w przeciwnym wypadku:
+    przypisz do początkowy_indeks: środek+1
+przypisz do w: A[początkowy_indeks]</code>To wszystko! Tłumacząc co tu się dzieje po kolei:
+a) najpierw tworzymy dwie zmienne: początkowy indeks i końcowy, służą one nam za wskaźniki, gdzie mamy szukać pierwszej (!) parzystej liczby, którą zapisał Jaś
+b) tworzymy pętlę, która będzie się wykonywać, dopóki początkowy indeks i końcowy będą się różnić od siebie (gdy będą takie same, oznacza to, że pod tym indeksem znajduje się poszukiwana przez nas liczba)
+c) wyznaczamy indeks środkowy tablicy: dzieli on ją na pół, przez co w następnych linijkach możemy sprawdzić, czy dalej mamy kierować się ku prawej czy lewej stronie w poszukiwaniach liczby
+d) jeśli liczba pośrodku jest parzysta, to wiemy, że albo może być to pierwsza liczba zapisana przez Jasia, albo jedna z następnych, więc zawężamy naszą dziedzinę do właśnie indeksu tej liczby
+e) jeśli jednak jest nieparzysta, to po na pewno możemy wykluczyć wszystkie liczby znajdujące się po lewej stronie od tego indeksu, włącznie z indeksem, bo szukamy liczby parzystej, a nie nieparzystej
+f) jeśli zakończy się wykonywanie pętli dopóki, to zarówno początkowy_indeks, jak i końcowy_indeks zawiera pierwszą liczbę zapisaną przez Jasia! zapisujemy więc to do zmiennej w, według polecenia
+
+i w ten właśnie sposób uzyskujemy rozwiązanie! 🥳 Zachęcam do spróbowania napisania tego algorytmu w postaci któregoś z języków programowania, aby lepiej utrwalić wiedzę oraz spróbować rozwiązać ten problem na inne sposoby! (na przykład wykorzystując rekurencję)

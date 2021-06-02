@@ -1,0 +1,10 @@
+TAGI:
+bazy danych,funkcje agregujące
+PUNKTY:
+3
+TRESC:
+W jednej grupie mogą startować zawodnicy, którzy pochodzą z różnych państw. Bywa też tak, że zawodnicy jednej grupy pochodzą z tego samego kraju.
+Utwórz zestawienie zawierające dla każdego roku liczbę takich grup, w których wszyscy  zawodnicy byli obywatelami jednego kraju.
+Podaj rok, w którym grup z wszystkimi zawodnikami z jednego kraju było najwięcej, oraz podaj  nazwy tych grup. Jest tylko jeden taki rok.
+ROZWIAZANIE:
+<a href=\'{dirpath}6.accdb\' download>Pobierz rozwiązanie</a>

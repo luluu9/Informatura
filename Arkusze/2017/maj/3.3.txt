@@ -1,0 +1,22 @@
+TAGI:
+zabezpieczenia,poczta internetowa,kryptografia,różne
+PUNKTY:
+1
+TRESC:
+Pewien oszust chce rozesłać wiadomość, podszywając się pod Jana Kowalskiego, ale nie zdołał
+wykraść żadnych należących do Jana haseł ani innych prywatnych informacji. Posiada jednak
+klucz publiczny Jana Kowalskiego, który ten udostępnił w sieci, a także znaleziony w internecie
+adres e-mail Jana. Może zatem
+1. założyć konto „Jan Kowalski” w serwisie społecznościowym i stamtąd rozsyłać wiadomości. [P/F]
+2. na podstawie klucza publicznego Jana Kowalskiego szybko wygenerować jego podpis cyfrowy. [P/F]
+3. na podstawie klucza publicznego Jana Kowalskiego szybko obliczyć jego klucz prywatny. [P/F]
+4. rozsyłać listy elektroniczne, które w nagłówku „Od:” będą miały adres e-mail Jana Kowalskiego. [P/F]
+
+ROZWIAZANIE:
+1. założyć konto „Jan Kowalski” w serwisie społecznościowym i stamtąd rozsyłać wiadomości. [P/F]: jak wiadomo, do założenie konta w społecznościówce najczęściej nie jest wymagana żadna weryfikacja tożsamości 👮‍♂️, zaznaczamy więc PRAWDA.
+
+2. na podstawie klucza publicznego Jana Kowalskiego szybko wygenerować jego podpis cyfrowy. [P/F]: okej, czym jest "klucz publiczny" i "podpis cyfrowy"? 🧐 W skrócie: stanowią one część mechanizmów, które mają zabezpieczyć daną wiadomość przed nieuprawnionym dostępem. Definicja brzmi tak: "Do szyfrowania wiadomości, można użyć systemu kryptografii asymetrycznej. W tym systemie każdy uczestnik ma dwa różne klucze: klucz publiczny i klucz prywatny. Gdy ktoś chce przesłać zaszyfrowaną wiadomość, musi użyć swojego klucza publicznego, by wygenerować algorytm szyfrujący. Odbiorca wiadomości, by ją odszyfrować, musi użyć swojego klucza prywatnego. Nigdy nikomu nie udostępniaj swojego klucza prywatnego. Strona wysyłająca wylicza skrót podpisywanej wiadomości. Następnie szyfruje ten skrót swoim kluczem prywatnym i jako podpis cyfrowy dołącza do oryginalnej wiadomości." Trochę tego jest. 😣 Ale nie będziemy zbytnio zagłębiać się w szczegóły, my mamy jedynie ogólnikowo wiedzieć, o co chodzi. (zainteresowanych odsyłam do <a href="https://www.youtube.com/watch?v=G4ko4h2c99k&list=PLUchO7GuOkaDioGtSCpRJoLqpT4gFg_DX">tej fantastycznej serii o kryptografii na youtubie</a>, gdzie to wszystko jest świetnie wytłumaczone 😉). Ale wracając do zadania. Padło pytanie: czy na podstawie klucza publicznego może zostać wygenerowany klucz prywatny. Wracając do definicji: "...szyfruje ten skrót swoim kluczem prywatnym i jako podpis cyfrowy..." - bingo. A więc do wygenerowania podpisu cyfrowego potrzebujemy klucz prywatny. Którego nie mamy. 🙂 Możemy zaznaczyć FAŁSZ.
+
+3. na podstawie klucza publicznego Jana Kowalskiego szybko obliczyć jego klucz prywatny. [P/F]: uhuu, wracamy do poprzedniego pytania. Jak powiedzieliśmy, są to dwa różne klucze, a dodatkowo: klucza prywatnego nigdy nie powinniśmy udostępniać. A więc jeśli tego nie możemy, publiczny (jak sama nazwa wskazuje) służy właśnie do przekazywania, aby zaszyfrowaną wiadomość można było odczytać. Wybieramy więc FAŁSZ.
+
+4. rozsyłać listy elektroniczne, które w nagłówku „Od:” będą miały adres e-mail Jana Kowalskiego. [P/F]: hmm, tutaj nie ma już mowy o żadnych kluczach. 🤨 Dość ciekawe, ale i trudne pytanie. Nazywa się to spoofing i tak, jest możliwe. Chodzi tutaj zazwyczaj o fałszowanie adresu zwrotnego lub nadawcy, przez co wiadomości wyglądają na takie, jakby były wysłane przez nas samych. Może kiedyś już się z tym spotkaliście? 😉 Ciekawskich odsyłam do <a href="https://pomoc.home.pl/baza-wiedzy/co-zrobic-jesli-otrzymuje-spam-z-wlasnego-adresu-e-mail">tego artykułu</a>.

@@ -1,0 +1,33 @@
+TAGI:
+programowanie,odczytywanie danych,system binarny
+PUNKTY:
+3
+TRESC:
+Podaj, ile liczb z pliku liczby.txt ma w swoim zapisie binarnym więcej zer niż jedynek.
+Przykład: Dla zestawu liczb:
+101011010011001100111
+10001001
+1000000
+101010011100
+100010
+wynikiem jest liczba 3 (3 podkreślone liczby mają w swoim zapisie więcej zer niż jedynek).
+ROZWIAZANIE:
+<code>dane = ""
+with open("DANE_PR2/liczby.txt") as f:
+	dane = f.readlines()
+
+zwoj = 0
+for line in dane:
+	line = line.strip()
+	z = 0
+	j = 0
+	for char in line:
+		if char == "0":
+			z += 1
+		elif char == "1":
+			j += 1
+	if z > j:
+		zwoj += 1
+print("4.1. Wiecej zer od jedynek ma", str(zwoj), "liczb")
+</code><a href=\'{dirpath}4.py\' download>Pobierz rozwiązanie</a>
+Wytłumaczenie pojawi się niebawem.

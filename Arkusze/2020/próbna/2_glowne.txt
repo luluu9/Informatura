@@ -1,0 +1,3 @@
+Moda
+Moda (dominanta) zestawu danych to element, który występuje w tym zestawie najczęściej. Np. dla zestawu danych 2, 3, 4, 2, 3, 5, 2, 100, 67 liczba 2 jest modą tego zestawu. W zestawie danych 2, 3, -4, 2, 3, -5, 2, 3 są dwie mody: 2 i 3.
+Jeśli wszystkie elementy zestawu występują w nim z taką samą liczebnością, to przyjmujemy, że taki zestaw nie ma mody. Np. w zestawie danych 4, 4, 2, 3, 2, 3 nie ma mody.
