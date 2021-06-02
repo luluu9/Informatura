@@ -33,7 +33,7 @@ $desc = "Wszystkie zgromadzone arkusze maturalne z informatyki z rozwiązaniami 
                         <div class='sheet-details'>";
                 foreach($sheets as $sheet) {
                     $url = $sheet->problem_exist() ? "/arkusz/" . $sheet->sheet_id : "";
-                    $sheet_path = "Arkusze/{$year}/{$sheet->description}/arkusz.zip";
+                    $sheet_path = "pliki-arkusze/{$year}/{$sheet->description}/arkusz.zip";
                     $url_sheet = is_file($sheet_path) ? $sheet_path : "";
                     echo "<div class='sheet-hrefs'>
                             <h3>{$sheet->description}:</h3>

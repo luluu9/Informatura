@@ -22,6 +22,7 @@ RewriteRule ^/?arkusz/(\-?[0-9]+)$ /arkusz.php?arkusz=$1
 
 RewriteRule ^/?glowna$ /index
 
+RewriteRule ^/?arkusze/ /arkusze.php
 
 # if .php exists map here
 
