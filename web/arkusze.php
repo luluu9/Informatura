@@ -37,7 +37,7 @@ $desc = "Wszystkie zgromadzone arkusze maturalne z informatyki z rozwiązaniami 
                     $url_sheet = is_file($sheet_path) ? $sheet_path : "";
                     echo "<div class='sheet-hrefs'>
                             <h3>{$sheet->description}:</h3>
-                            <a href='{$url_sheet}' " . (empty($url_sheet) ? "class='line-through'" : "") . ">arkusz</a>" . 
+                            <a href='/{$url_sheet}' " . (empty($url_sheet) ? "class='line-through'" : "") . ">arkusz</a>" . 
                             (empty($url) ? "<span class='line-through'>rozwiązanie</span>" : "<a href='{$url}'>rozwiązanie</a>") . 
                         "</div>";
                     }
