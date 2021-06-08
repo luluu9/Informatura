@@ -16,11 +16,8 @@ $desc = 'Wszystkie drogi komunikacji z twórcą tej strony.';
     <script>
         $(document).on('change', "#upload-form input[type='file']", function(){
         if ($(this).val()) {
-
             var filename = $(this).val().split("\\");
-         
             filename = filename[filename.length-1];
-
             $('#upload-form label').text(filename);
         }
  });
@@ -37,12 +34,10 @@ $desc = 'Wszystkie drogi komunikacji z twórcą tej strony.';
         </div>
         <div id="content" class="main-width">
         W tym miejscu możesz podzielić się swoimi rozwiązaniami zadań. Zostaną one sprawdzone, a później udostępnione na stronie.
-            <form id='upload-form' method='POST' class='max-width'>
-                <div id='upload-details'>
-                    
+            <form id='upload-form' method='POST' enctype=multipart/form-data class='max-width'>
+                <div id='upload-details'>  
                     <input type='file' name='upload-file' id='upload-file'>
                     <label for="upload-file">Wybierz plik</label>
-    
                     <input type='text' id='upload-author' name='upload-author' placeholder='Autor'>
                 </div>    
                 <input type='text' id='upload-sheet' name='upload-sheet' placeholder='Rok matury, rodzaj...'>
