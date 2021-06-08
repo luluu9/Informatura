@@ -24,6 +24,22 @@ $desc = 'Wszystkie drogi komunikacji z twórcą tej strony.';
     </script>
 </head>
 
+<?php
+$uploaddir = 'D:/INFORMATURA/strona/uploads/'; // set valid on deploy
+if (!empty($_FILES)){
+    $tmp_name = $_FILES['upload-file']['tmp_name'];
+    $uploaded_name = basename($_FILES['upload-file']['name']);
+    $ext = strtolower(substr($uploaded_name, strripos($uploaded_name, '.')+1));
+    $new_name = hash_file('sha256', $tmp_name ) . '.' . $ext;
+    move_uploaded_file($tmp_name, $uploaddir . $new_name);
+}
+/*
+echo '<pre>';
+print_r($_FILES);
+print "</pre>";
+*/
+?>
+
 <body>
     <?php include('php/header.php') ?>
     <main>
@@ -34,7 +50,7 @@ $desc = 'Wszystkie drogi komunikacji z twórcą tej strony.';
         </div>
         <div id="content" class="main-width">
         W tym miejscu możesz podzielić się swoimi rozwiązaniami zadań. Zostaną one sprawdzone, a później udostępnione na stronie.
-            <form id='upload-form' method='POST' enctype=multipart/form-data class='max-width'>
+            <form id='upload-form' method='post' enctype=multipart/form-data class='max-width'>
                 <div id='upload-details'>  
                     <input type='file' name='upload-file' id='upload-file'>
                     <label for="upload-file">Wybierz plik</label>
