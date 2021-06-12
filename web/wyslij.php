@@ -30,6 +30,7 @@ function add_to_db($filepath, $filename, $author, $sheet_info, $other_info, $mim
 <head>
     <?php include('php/meta.php') ?>
     <link rel="stylesheet" type="text/css" href="/css/upload.css" media="all"> 
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <script
         src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
         integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
@@ -42,6 +43,12 @@ function add_to_db($filepath, $filename, $author, $sheet_info, $other_info, $mim
                 $('#upload-form label').text(filename);
             }
         });
+
+        function onSubmit() {
+            token = '6LeZiSsbAAAAAESknX9erslwuECDvHHyrKqbxjfk'
+            document.getElementById("upload-form").submit();
+        }
+
     </script>
 </head>
 
@@ -64,9 +71,14 @@ function add_to_db($filepath, $filename, $author, $sheet_info, $other_info, $mim
                 </div>    
                 <input type='text' id='upload-sheet' name='upload-sheet' placeholder='Rok matury, rodzaj...'>
                 <input type='text' id='upload-info' name='upload-info' placeholder='Dodatkowe informacje, uwagi...'>
-                <input type='submit' value='Wyślij' name='submit'>
+                <button class='g-recaptcha'
+                        data-sitekey='6LeZiSsbAAAAAESknX9erslwuECDvHHyrKqbxjfk'
+                        data-callback='onSubmit' 
+                        data-action='submit'
+                        onclick='onSubmit()'>Wyślij</button>
             </form>
             <?php
+                # print_r($_POST['g-recaptcha-response']);
                 if (!empty($_FILES)) {
                     if ($_FILES['upload-file']['error'] == UPLOAD_ERR_OK) {
                         $tmp_name = $_FILES['upload-file']['tmp_name'];

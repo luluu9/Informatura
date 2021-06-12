@@ -3,7 +3,7 @@
     flex-wrap: wrap;
 }
 
-#upload-form input[type="text"], #upload-form input[type="submit"], #upload-form label  {
+#upload-form input[type="text"], #upload-form button, #upload-form label  {
     box-sizing: border-box;
     margin: 7px 0px;
     padding: 5px;
@@ -32,7 +32,7 @@
     cursor: pointer;
 }
 
-#upload-form input[type=submit] {
+#upload-form button {
     width: 100px;
     cursor: pointer;
     background-color: #eee;
@@ -42,7 +42,7 @@
     background-color: #ccc;
 }
 
-#upload-form label:hover, input[type=submit]:hover {
+#upload-form label:hover, #upload-form button:hover {
     background-color: #ccc;
 }
 
@@ -59,7 +59,7 @@
     #upload-details {
         flex-wrap: nowrap;
     }
-    #upload-form input[type="text"], #upload-form input[type="submit"], #upload-form label {
+    #upload-form input[type="text"], #upload-form button, #upload-form label {
         padding: 7px;
     }
     #upload-form label { 
