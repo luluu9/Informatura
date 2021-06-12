@@ -69,6 +69,21 @@ def stworz_tabele_tagi():
              "FOREIGN KEY (`id_zadania`) REFERENCES zadania(`id`)) "
              "ENGINE = InnoDB DEFAULT CHARSET utf8mb4 COLLATE utf8mb4_polish_ci;")
 
+def stworz_tabele_uploads():
+    db.query("""CREATE TABLE IF NOT EXISTS uploads (
+            `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+            `filepath` VARCHAR(100) NOT NULL,
+            `filename` VARCHAR(100) NOT NULL,
+            `author` VARCHAR(100),
+            `sheet_info` VARCHAR(100),
+            `other_info` TEXT,
+            `upload_date` DATETIME,
+            `mime` VARCHAR(100),
+            `sha-256` VARCHAR(64),
+            `positive` INT UNSIGNED,
+            PRIMARY KEY (`id`))
+            ENGINE = InnoDB DEFAULT CHARSET utf8mb4 COLLATE utf8mb4_polish_ci;""")
+
 
 def dodaj_obrazek(filepath, remote_dirpath, filename):
     if not ftps:
@@ -273,6 +288,7 @@ stworz_baze()
 stworz_tabele_arkusze()
 stworz_tabele_zadania()
 stworz_tabele_tagi()
+stworz_tabele_uploads()
 
 website_root = os.getenv("INF_LOCALPATH")
 rootpath = "pliki-arkusze\\"
