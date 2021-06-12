@@ -20,6 +20,11 @@ class Database {
         $this->db->set_charset("utf8mb4");
     }
 
+    function is_assoc(array $arr) {
+        if (array() === $arr) return false;
+        return array_keys($arr) !== range(0, count($arr) - 1);
+    }
+
     function query($query, $args=array()) {
         if (empty($args)) {  
             $result = $this->db->query($query);
@@ -31,10 +36,19 @@ class Database {
         else {
             $prep = $this->db->prepare($query);
             if (!$prep) { console_log("Error in preparation: " . $prep->error); return null; }
-            /* key=datatype, value=value for ? */
-            foreach($args as $key=>$value) { 
-                if (!$prep->bind_param($key, $value)) { console_log("Error in binding: " . $prep->error); return null; }
+            if ($this->is_assoc($args)) {
+                /* key=datatype, value=value for ? */
+                foreach($args as $key=>$value) { 
+                    if (!$prep->bind_param($key, $value)) { console_log("Error in binding: " . $prep->error); return null; }
+                }
             }
+            else {
+                # for more than one argument
+                $args_types = $args[0];
+                $args_values = array_slice($args, 1);
+                if (!$prep->bind_param($args_types, ...$args_values)) { console_log("Error in binding: " . $prep->error); return null; }
+            }
+
             if (!$prep->execute()) { console_log("Error in executing: " . $prep->error); return null; }
             $result = $prep->get_result();
         }
@@ -57,6 +71,6 @@ function get_db() {
     return $db;
 }
 
-$db = new Database(); // set passwords to db here
+$db = new Database(); // set passwords to db here on deploy
 $website = 'http://' . $_SERVER['SERVER_NAME'] . '/'
 ?>
