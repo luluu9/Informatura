@@ -8,7 +8,7 @@ $uploaddir = 'D:/INFORMATURA/strona/uploads/'; // set valid on deploy
 function add_to_db($filepath, $filename, $author, $sheet_info, $other_info, $mime) {
     $t = date('Y-m-d H:i:s');
     $args = [
-            "sssssss",
+            "sssssss", // arguments datatypes
             $filepath,
             $filename,
             $author,
@@ -20,8 +20,32 @@ function add_to_db($filepath, $filename, $author, $sheet_info, $other_info, $mim
     $problem_query = "INSERT INTO uploads (filepath, filename, author, sheet_info, other_info, upload_date, mime)
                       VALUES (?, ?, ?, ?, ?, ?, ?)";
     $result = get_db()->query($problem_query, $args);
-    // echo $result;
-    // echo "<pre>".print_r($args,true)."</pre>";
+    echo $result;
+}
+
+function get_captcha_score() {
+    $captcha_response = $_POST['g-recaptcha-response'];
+    if (!isset($captcha_response)) {
+        return 0.0;
+    }
+    $ch = curl_init();
+    $POST_DATA = [
+        'secret' => getenv('recaptcha_key'),
+        'response' => $captcha_response
+    ];
+    curl_setopt($ch, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $POST_DATA);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    $result = json_decode(curl_exec($ch), $associative=true);
+    curl_close($ch);
+    if (!$result['success']) {
+        throw new Exception('Captcha rejected');
+    }
+    if (isset($result['score'])) {
+        return (float) $result['score'];
+    }
+    return 0.0;
 }
 ?>
 
@@ -48,7 +72,7 @@ function add_to_db($filepath, $filename, $author, $sheet_info, $other_info, $mim
             token = '6LeZiSsbAAAAAESknX9erslwuECDvHHyrKqbxjfk'
             document.getElementById("upload-form").submit();
         }
-
+        window.onSubmit = onSubmit;
     </script>
 </head>
 
@@ -74,46 +98,50 @@ function add_to_db($filepath, $filename, $author, $sheet_info, $other_info, $mim
                 <button class='g-recaptcha'
                         data-sitekey='6LeZiSsbAAAAAESknX9erslwuECDvHHyrKqbxjfk'
                         data-callback='onSubmit' 
-                        data-action='submit'
-                        onclick='onSubmit()'>Wyślij</button>
+                        data-action='submit'>Wyślij</button>
             </form>
             <?php
-                # print_r($_POST['g-recaptcha-response']);
-                if (!empty($_FILES)) {
-                    if ($_FILES['upload-file']['error'] == UPLOAD_ERR_OK) {
-                        $tmp_name = $_FILES['upload-file']['tmp_name'];
-                        $uploaded_name = basename($_FILES['upload-file']['name']);
-                        $ext = strtolower(substr($uploaded_name, strripos($uploaded_name, '.')+1));
-                        $new_name = hash_file('sha256', $tmp_name ) . '.' . $ext;
-                        // check if a hash is already in the db?
-                        $new_filepath = $uploaddir . $new_name;
-                        $result = move_uploaded_file($tmp_name, $new_filepath);
-                        if ($result) {
-                            $author = $_POST['upload-author'];
-                            $sheet_info = $_POST['upload-sheet'];
-                            $other_info = $_POST['upload-info'];
-                            $mime_type = mime_content_type($new_filepath);
-                            add_to_db($new_filepath, $new_name, $author, $sheet_info, $other_info, $mime_type);
+                if (isset($_FILES['upload-file'])) {
+                    try {
+                        $captcha_score = get_captcha_score();
+                        if ($captcha_score < 0.5) {
+                            echo "Wygląda na to, że jesteś botem. :(\n";
+                            // captcha v2 here?
+                        }
+                        if ($_FILES['upload-file']['error'] == UPLOAD_ERR_OK) {
+                            $tmp_name = $_FILES['upload-file']['tmp_name'];
+                            $uploaded_name = basename($_FILES['upload-file']['name']);
+                            $ext = strtolower(substr($uploaded_name, strripos($uploaded_name, '.')+1));
+                            $new_name = hash_file('sha256', $tmp_name ) . '.' . $ext;
+                            // check if a hash is already in the db?
+                            $new_filepath = $uploaddir . $new_name;
+                            $result = move_uploaded_file($tmp_name, $new_filepath);
+                            if ($result) {
+                                $author = $_POST['upload-author'];
+                                $sheet_info = $_POST['upload-sheet'];
+                                $other_info = $_POST['upload-info'];
+                                $mime_type = mime_content_type($new_filepath);
+                                add_to_db($new_filepath, $new_name, $author, $sheet_info, $other_info, $mime_type);
+                                echo "Dodano plik. Plik  zostanie sprawdzony i dodany.";
+                                unset($_FILES['upload-file']);
+                            }
+                            else {
+                                echo "Coś poszło nie tak! Spróbuj ponownie.";
+                            }
+                        }
+                        else if ($_FILES['upload-file']['error'] == UPLOAD_ERR_INI_SIZE || $_FILES['upload-file']['error'] == UPLOAD_ERR_FORM_SIZE)  { 
+                            // set maximum file size in the php.ini file: upload_max_filesize 
+                            $max_filesize = ini_get("upload_max_filesize");
+                            $max_filesize = (int) filter_var($max_filesize, FILTER_SANITIZE_NUMBER_INT); 
+                            echo "Plik jest za duży. Maksymalny rozmiar wynosi " . $max_filesize . " MB";
                         }
                         else {
-                            echo "Coś poszło nie tak! Spróbuj ponownie.";
+                            echo "Coś poszło nie tak! Spróbuj ponownie";
                         }
-                    }
-                    else if ($_FILES['upload-file']['error'] == UPLOAD_ERR_INI_SIZE || $_FILES['upload-file']['error'] == UPLOAD_ERR_FORM_SIZE)  { 
-                        // set maximum file size in the php.ini file: upload_max_filesize 
-                        $max_filesize = ini_get("upload_max_filesize");
-                        $max_filesize = (int) filter_var($max_filesize, FILTER_SANITIZE_NUMBER_INT); 
-                        echo "Plik jest za duży. Maksymalny rozmiar wynosi " . $max_filesize . " MB";
-                    }
-                    else {
-                        echo "Coś poszło nie tak! Spróbuj ponownie";
-                    }
+                    } catch (Exception $ex) {
+                            echo "Coś poszło nie tak! Spróbuj ponownie";
+                        }
                 }
-                /*
-                echo '<pre>';
-                print_r($_FILES);
-                print "</pre>";
-                */
             ?>
         </div>
     </main>
