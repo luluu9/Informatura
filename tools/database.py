@@ -69,9 +69,10 @@ def stworz_tabele_tagi():
              "FOREIGN KEY (`id_zadania`) REFERENCES zadania(`id`)) "
              "ENGINE = InnoDB DEFAULT CHARSET utf8mb4 COLLATE utf8mb4_polish_ci;")
 
+
 def stworz_tabele_uploads():
     db.query("""CREATE TABLE IF NOT EXISTS uploads (
-            `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+            `sha256` VARCHAR(64) NOT NULL,
             `filepath` VARCHAR(100) NOT NULL,
             `filename` VARCHAR(100) NOT NULL,
             `author` VARCHAR(100),
@@ -79,9 +80,9 @@ def stworz_tabele_uploads():
             `other_info` TEXT,
             `upload_date` DATETIME,
             `mime` VARCHAR(100),
-            `sha-256` VARCHAR(64),
+            `sha256_vt` VARCHAR(64),
             `positive` INT UNSIGNED,
-            PRIMARY KEY (`id`))
+            PRIMARY KEY (`sha256`))
             ENGINE = InnoDB DEFAULT CHARSET utf8mb4 COLLATE utf8mb4_polish_ci;""")
 
 

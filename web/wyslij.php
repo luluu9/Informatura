@@ -5,10 +5,11 @@ $title = 'INFORMATURA – wyślij';
 $desc = 'Udostępnianie rozwiązań zadań';
 $uploaddir = 'D:/INFORMATURA/strona/uploads/'; // set valid on deploy
 
-function add_to_db($filepath, $filename, $author, $sheet_info, $other_info, $mime) {
+function add_to_db($sha256, $filepath, $filename, $author, $sheet_info, $other_info, $mime) {
     $t = date('Y-m-d H:i:s');
     $args = [
-            "sssssss", // arguments datatypes
+            "ssssssss", // arguments datatypes
+            $sha256,
             $filepath,
             $filename,
             $author,
@@ -17,10 +18,14 @@ function add_to_db($filepath, $filename, $author, $sheet_info, $other_info, $mim
             $t,
             $mime
             ];
-    $problem_query = "INSERT INTO uploads (filepath, filename, author, sheet_info, other_info, upload_date, mime)
-                      VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $problem_query = "INSERT INTO uploads (sha256, filepath, filename, author, sheet_info, other_info, upload_date, mime)
+                      VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $result = get_db()->query($problem_query, $args);
-    echo $result;
+    var_dump($result);
+    if (is_null($result)) {
+        return false;
+    }
+    return true;
 }
 
 function get_captcha_score() {
@@ -112,7 +117,8 @@ function get_captcha_score() {
                             $tmp_name = $_FILES['upload-file']['tmp_name'];
                             $uploaded_name = basename($_FILES['upload-file']['name']);
                             $ext = strtolower(substr($uploaded_name, strripos($uploaded_name, '.')+1));
-                            $new_name = hash_file('sha256', $tmp_name ) . '.' . $ext;
+                            $sha256 = hash_file('sha256', $tmp_name);
+                            $new_name = $sha256 . '.' . $ext;
                             // check if a hash is already in the db?
                             $new_filepath = $uploaddir . $new_name;
                             $result = move_uploaded_file($tmp_name, $new_filepath);
@@ -121,8 +127,13 @@ function get_captcha_score() {
                                 $sheet_info = $_POST['upload-sheet'];
                                 $other_info = $_POST['upload-info'];
                                 $mime_type = mime_content_type($new_filepath);
-                                add_to_db($new_filepath, $new_name, $author, $sheet_info, $other_info, $mime_type);
-                                echo "Dodano plik. Plik  zostanie sprawdzony i dodany.";
+                                $result = add_to_db($sha256, $new_filepath, $new_name, $author, $sheet_info, $other_info, $mime_type);
+                                if ($result) {
+                                    echo "Dodano plik. Plik  zostanie sprawdzony i dodany.";
+                                }
+                                else {
+                                    echo "Plik prawdopodobnie już istnieje w bazie!";
+                                }
                                 unset($_FILES['upload-file']);
                             }
                             else {
