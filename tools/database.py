@@ -80,7 +80,7 @@ def stworz_tabele_uploads():
             `other_info` TEXT,
             `upload_date` DATETIME,
             `mime` VARCHAR(100),
-            `sha256_vt` VARCHAR(64),
+            `scan_id` VARCHAR(76),
             `positive` INT UNSIGNED,
             PRIMARY KEY (`sha256`))
             ENGINE = InnoDB DEFAULT CHARSET utf8mb4 COLLATE utf8mb4_polish_ci;""")

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 include('php/functions.php');
+require_once('php/VirusTotalApiV2.php');
 $title = 'INFORMATURA – wyślij';
 $desc = 'Udostępnianie rozwiązań zadań';
 $uploaddir = 'D:/INFORMATURA/strona/uploads/'; // set valid on deploy
@@ -21,12 +22,20 @@ function add_to_db($sha256, $filepath, $filename, $author, $sheet_info, $other_i
     $problem_query = "INSERT INTO uploads (sha256, filepath, filename, author, sheet_info, other_info, upload_date, mime)
                       VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $result = get_db()->query($problem_query, $args);
-    var_dump($result);
     if (is_null($result)) {
         return false;
     }
     return true;
 }
+
+
+function upload_to_vt($filepath) {
+    $api = new VirusTotalAPIV2(getenv('virustotal_key'));
+    $result = $api->scanFile($filepath);
+    $scan_id = $api->getScanID($result);
+    echo $scan_id;
+}
+
 
 function get_captcha_score() {
     $captcha_response = $_POST['g-recaptcha-response'];
@@ -129,7 +138,8 @@ function get_captcha_score() {
                                 $mime_type = mime_content_type($new_filepath);
                                 $result = add_to_db($sha256, $new_filepath, $new_name, $author, $sheet_info, $other_info, $mime_type);
                                 if ($result) {
-                                    echo "Dodano plik. Plik  zostanie sprawdzony i dodany.";
+                                    upload_to_vt($new_filepath);
+                                    echo "Dodano plik. Plik  zostanie sprawdzony i dodany.";   
                                 }
                                 else {
                                     echo "Plik prawdopodobnie już istnieje w bazie!";

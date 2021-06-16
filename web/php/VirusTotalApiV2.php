@@ -269,7 +269,6 @@ class VirusTotalAPIV2 {
 		$response = curl_exec($ch);
 		$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE); 
 		curl_close($ch);
-		var_dump($response);
 		if ($httpCode == '429') {
 			return array(
 					'response_code' => -3
