@@ -29,11 +29,18 @@ function add_to_db($sha256, $filepath, $filename, $author, $sheet_info, $other_i
 }
 
 
-function upload_to_vt($filepath) {
+function upload_to_vt($filepath, $sha256) {
     $api = new VirusTotalAPIV2(getenv('virustotal_key'));
     $result = $api->scanFile($filepath);
     $scan_id = $api->getScanID($result);
     echo $scan_id;
+    $args = ["ss", $scan_id, $sha256];
+    $query = "UPDATE uploads SET scan_id = ? WHERE sha256 = ?";
+    $result = get_db()->query($query, $args);
+    if (is_null($result)) {
+        return false;
+    }
+    return true;
 }
 
 
@@ -138,11 +145,17 @@ function get_captcha_score() {
                                 $mime_type = mime_content_type($new_filepath);
                                 $result = add_to_db($sha256, $new_filepath, $new_name, $author, $sheet_info, $other_info, $mime_type);
                                 if ($result) {
-                                    upload_to_vt($new_filepath);
-                                    echo "Dodano plik. Plik  zostanie sprawdzony i dodany.";   
+                                    $result = upload_to_vt($new_filepath, $sha256);
+                                    if ($result) {
+                                        echo "Dodano plik. Plik  zostanie sprawdzony i dodany.";   
+                                    }
+                                    else {
+                                        echo "Coś poszło nie tak! Spróbuj ponownie";
+                                    }
                                 }
                                 else {
                                     echo "Plik prawdopodobnie już istnieje w bazie!";
+                                    // check if has scan_id?
                                 }
                                 unset($_FILES['upload-file']);
                             }
