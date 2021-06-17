@@ -11,7 +11,7 @@ $api->displayResult($result);
 
 
 /* Get a file report. */
-$report = $api->getFileReport('f2733c04b052e3af9f5e99b9b30b4d4470fadf1581977e654e4747b63d88d21a');
+$report = $api->getFileReport('1fea9de93f11c464cee923d5d5eae48a07c06426fe429d692b92bc3e91964e02-1623956603');
 $api->displayResult($report);
 print($api->getSubmissionDate($report) . '<br>');
 print($api->getReportPermalink($report, TRUE) . '<br>');

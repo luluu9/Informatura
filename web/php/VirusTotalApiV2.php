@@ -255,7 +255,7 @@ class VirusTotalAPIV2 {
 				'apikey' => $this->_key
 			);
 		$postFields = array_merge($parameters, $postFields);
-		var_dump($postFields);
+		// var_dump($postFields);
 		$ch = curl_init(VirusTotalAPIV2::URL_API_BASIS . $apiTarget);
 		curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_0);
 		curl_setopt($ch, CURLOPT_FORBID_REUSE, 1);

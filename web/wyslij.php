@@ -5,6 +5,8 @@ require_once('php/VirusTotalApiV2.php');
 $title = 'INFORMATURA – wyślij';
 $desc = 'Udostępnianie rozwiązań zadań';
 $uploaddir = 'D:/INFORMATURA/strona/uploads/'; // set valid on deploy
+$api = new VirusTotalAPIV2(getenv('virustotal_key'));
+check_existing_uploads();
 
 function add_to_db($sha256, $filepath, $filename, $author, $sheet_info, $other_info, $mime) {
     $t = date('Y-m-d H:i:s');
@@ -30,10 +32,9 @@ function add_to_db($sha256, $filepath, $filename, $author, $sheet_info, $other_i
 
 
 function upload_to_vt($filepath, $sha256) {
-    $api = new VirusTotalAPIV2(getenv('virustotal_key'));
+    global $api;
     $result = $api->scanFile($filepath);
     $scan_id = $api->getScanID($result);
-    echo $scan_id;
     $args = ["ss", $scan_id, $sha256];
     $query = "UPDATE uploads SET scan_id = ? WHERE sha256 = ?";
     $result = get_db()->query($query, $args);
@@ -68,6 +69,25 @@ function get_captcha_score() {
     }
     return 0.0;
 }
+
+function check_existing_uploads() {
+    global $api;
+    $query = "SELECT scan_id FROM uploads WHERE positive IS NULL";
+    $result = get_db()->query($query);
+    while ($scan_id = $result->fetch_assoc()) {
+        if ($scan_id) { 
+            $report = $api->getFileReport($scan_id["scan_id"]);
+            $positive = (int) $api->getNumberHits($report);
+            echo $positive;
+            if ($positive != -1) {
+                $args = ["is", $positive, $scan_id["scan_id"]];
+                $query = "UPDATE uploads SET positive = ? WHERE scan_id = ?";
+                $query_result = get_db()->query($query, $args);
+            }
+        }
+    }
+}
+
 ?>
 
 <html lang="pl-PL">
